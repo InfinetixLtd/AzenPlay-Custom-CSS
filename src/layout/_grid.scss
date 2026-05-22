@@ -1,0 +1,39 @@
+// =============================================================================
+// LAYOUT · GRID & CONTAINERS (game grids, page shell)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.container,
+.azp-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: spacer('4');
+}
+
+// Page shell: sidebar + main content.
+.app-shell {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.app-shell__main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: spacer('5');
+}
+
+// Responsive game grid — auto-fills tiles.
+.game-grid {
+  --tile-min: 160px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tile-min), 1fr));
+  gap: spacer('4');
+
+  @include up('lg') {
+    --tile-min: 180px;
+  }
+}

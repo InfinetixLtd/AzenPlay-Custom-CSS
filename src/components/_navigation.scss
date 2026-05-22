@@ -1,0 +1,59 @@
+// =============================================================================
+// COMPONENT · NAVIGATION (top nav, tabs, category pills)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.nav,
+.azp-nav {
+  display: flex;
+  align-items: center;
+  gap: spacer('2');
+}
+
+.nav__link,
+.azp-nav__link {
+  position: relative;
+  padding: spacer('2') spacer('3');
+  font-size: fs('sm');
+  font-weight: fw('medium');
+  color: var(--ap-text-muted);
+  border-radius: var(--ap-radius-md);
+  transition: color var(--ap-transition-fast),
+              background-color var(--ap-transition-fast);
+
+  &:hover {
+    color: var(--ap-text);
+    background-color: var(--ap-surface-2);
+  }
+
+  &.is-active,
+  &[aria-current='page'] {
+    color: var(--ap-text);
+    background-color: var(--ap-surface-2);
+  }
+}
+
+// Category pills (e.g. Slots / Live / Sports filters).
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('2');
+}
+
+.nav-pill {
+  padding: spacer('2') spacer('4');
+  font-size: fs('sm');
+  font-weight: fw('semibold');
+  color: var(--ap-text);
+  background-color: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-pill);
+  transition: all var(--ap-transition-fast);
+
+  &.is-active {
+    color: #fff;
+    background-color: var(--ap-color-primary);
+    border-color: var(--ap-color-primary);
+  }
+}

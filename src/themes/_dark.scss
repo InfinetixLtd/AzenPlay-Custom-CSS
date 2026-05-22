@@ -1,0 +1,20 @@
+// =============================================================================
+// THEME · DARK (default)
+// -----------------------------------------------------------------------------
+// The :root tokens in `abstracts/css-variables` are already dark-first, so this
+// block simply re-asserts the dark palette explicitly. Activate by adding
+// `data-theme="dark"` or class `.theme-dark` to <html> or <body> — handy when
+// you want to force dark regardless of the :root default.
+// =============================================================================
+
+@use '../abstracts' as *;
+
+[data-theme='dark'],
+.theme-dark {
+  --ap-bg:         #{$color-bg};
+  --ap-surface:    #{$color-surface};
+  --ap-surface-2:  #{$color-surface-2};
+  --ap-border:     #{$color-border};
+  --ap-text:       #{$color-text};
+  --ap-text-muted: #{$color-text-muted};
+}

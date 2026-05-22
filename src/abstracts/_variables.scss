@@ -1,0 +1,124 @@
+// =============================================================================
+// ABSTRACTS · VARIABLES (build-time)
+// -----------------------------------------------------------------------------
+// Single source of truth for the design tokens. These Sass variables are
+// consumed by `_css-variables.scss` to emit runtime CSS custom properties.
+// Change a value here and the whole theme follows.
+// =============================================================================
+
+@use 'sass:map';
+
+// -----------------------------------------------------------------------------
+// Brand palette
+// -----------------------------------------------------------------------------
+$brand-primary:   #6c2bd9 !default; // main brand / CTA
+$brand-secondary: #18b69b !default; // secondary actions / highlights
+$brand-accent:    #ffb800 !default; // jackpots, promos, "hot" markers
+
+// -----------------------------------------------------------------------------
+// Semantic palette (gaming context: win / loss / pending)
+// -----------------------------------------------------------------------------
+$color-success: #2ecc71 !default; // win / payout / verified
+$color-danger:  #e74c3c !default; // loss / error / locked
+$color-warning: #f39c12 !default; // pending / caution
+$color-info:    #3498db !default; // info / neutral notice
+
+// -----------------------------------------------------------------------------
+// Neutral / surface palette
+// -----------------------------------------------------------------------------
+$color-bg:        #0e0f1a !default; // app background (dark-first for iGaming)
+$color-surface:   #171a2b !default; // cards, panels
+$color-surface-2: #1f2338 !default; // raised surfaces, hover
+$color-border:    #2a2f48 !default;
+$color-text:      #f5f6fa !default;
+$color-text-muted:#9aa0b4 !default;
+$color-white:     #ffffff !default;
+$color-black:     #000000 !default;
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+$font-family-base: ('Inter', 'Segoe UI', system-ui, -apple-system, sans-serif) !default;
+$font-family-head: ('Poppins', 'Inter', system-ui, sans-serif) !default;
+$font-family-mono: ('JetBrains Mono', 'SFMono-Regular', Menlo, monospace) !default;
+
+$font-size-base: 16px !default;
+$line-height-base: 1.5 !default;
+
+$font-weights: (
+  'regular':  400,
+  'medium':   500,
+  'semibold': 600,
+  'bold':     700,
+) !default;
+
+// Modular type scale (1.2 ratio)
+$font-sizes: (
+  'xs':   0.75rem,
+  'sm':   0.875rem,
+  'base': 1rem,
+  'lg':   1.125rem,
+  'xl':   1.25rem,
+  '2xl':  1.5rem,
+  '3xl':  1.875rem,
+  '4xl':  2.25rem,
+) !default;
+
+// -----------------------------------------------------------------------------
+// Spacing scale (4px base)
+// -----------------------------------------------------------------------------
+$spacers: (
+  '0':  0,
+  '1':  0.25rem,
+  '2':  0.5rem,
+  '3':  0.75rem,
+  '4':  1rem,
+  '5':  1.5rem,
+  '6':  2rem,
+  '8':  3rem,
+  '10': 4rem,
+) !default;
+
+// -----------------------------------------------------------------------------
+// Radii, borders, shadows
+// -----------------------------------------------------------------------------
+$radius-sm:   4px !default;
+$radius-md:   8px !default;
+$radius-lg:   16px !default;
+$radius-pill: 999px !default;
+
+$border-width: 1px !default;
+
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25) !default;
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.30) !default;
+$shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.40) !default;
+
+// -----------------------------------------------------------------------------
+// Motion
+// -----------------------------------------------------------------------------
+$transition-fast: 120ms ease !default;
+$transition-base: 200ms ease !default;
+$transition-slow: 320ms ease !default;
+
+// -----------------------------------------------------------------------------
+// Breakpoints (mobile-first)
+// -----------------------------------------------------------------------------
+$breakpoints: (
+  'sm':  576px,
+  'md':  768px,
+  'lg':  992px,
+  'xl':  1200px,
+  '2xl': 1400px,
+) !default;
+
+// -----------------------------------------------------------------------------
+// z-index layers
+// -----------------------------------------------------------------------------
+$z-layers: (
+  'base':     1,
+  'dropdown': 1000,
+  'sticky':   1020,
+  'overlay':  1040,
+  'modal':    1050,
+  'toast':    1080,
+) !default;

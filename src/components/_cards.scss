@@ -1,0 +1,52 @@
+// =============================================================================
+// COMPONENT · CARDS (game tiles, promo cards, panels)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.card,
+.azp-card {
+  --card-bg: var(--ap-surface);
+  --card-radius: var(--ap-radius-lg);
+  --card-pad: #{spacer('5')};
+
+  position: relative;
+  background-color: var(--card-bg);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--ap-shadow-sm);
+  overflow: hidden;
+  transition: transform var(--ap-transition-base),
+              box-shadow var(--ap-transition-base);
+}
+
+.card__body { padding: var(--card-pad); }
+
+.card__title {
+  margin: 0 0 spacer('2');
+  font-size: fs('lg');
+  font-weight: fw('semibold');
+}
+
+.card__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+// Interactive game tile — lifts and glows on hover.
+.card--game {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ap-shadow-lg);
+  }
+}
+
+// "Hot" / jackpot highlight.
+.card--featured {
+  border-color: var(--ap-color-accent);
+  box-shadow: 0 0 0 1px var(--ap-color-accent), var(--ap-shadow-md);
+}

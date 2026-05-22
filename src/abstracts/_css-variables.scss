@@ -1,0 +1,58 @@
+// =============================================================================
+// ABSTRACTS · CSS CUSTOM PROPERTIES (runtime)
+// -----------------------------------------------------------------------------
+// Emits the design tokens as `--ap-*` CSS variables on :root. Components read
+// these via var(), so the live theme can be retargeted at runtime (by themes,
+// by the back office, or by editing only this layer) without recompiling each
+// component. Prefix `--ap-` (AzenPlay) avoids clashing with platform vars.
+// =============================================================================
+
+@use 'sass:map';
+@use 'variables' as v;
+
+:root {
+  // Brand
+  --ap-color-primary:   #{v.$brand-primary};
+  --ap-color-secondary: #{v.$brand-secondary};
+  --ap-color-accent:    #{v.$brand-accent};
+
+  // Semantic
+  --ap-color-success: #{v.$color-success};
+  --ap-color-danger:  #{v.$color-danger};
+  --ap-color-warning: #{v.$color-warning};
+  --ap-color-info:    #{v.$color-info};
+
+  // Surfaces & text
+  --ap-bg:         #{v.$color-bg};
+  --ap-surface:    #{v.$color-surface};
+  --ap-surface-2:  #{v.$color-surface-2};
+  --ap-border:     #{v.$color-border};
+  --ap-text:       #{v.$color-text};
+  --ap-text-muted: #{v.$color-text-muted};
+
+  // Typography
+  --ap-font-base: #{v.$font-family-base};
+  --ap-font-head: #{v.$font-family-head};
+  --ap-font-mono: #{v.$font-family-mono};
+
+  // Radii
+  --ap-radius-sm:   #{v.$radius-sm};
+  --ap-radius-md:   #{v.$radius-md};
+  --ap-radius-lg:   #{v.$radius-lg};
+  --ap-radius-pill: #{v.$radius-pill};
+
+  // Shadows
+  --ap-shadow-sm: #{v.$shadow-sm};
+  --ap-shadow-md: #{v.$shadow-md};
+  --ap-shadow-lg: #{v.$shadow-lg};
+
+  // Motion
+  --ap-transition-fast: #{v.$transition-fast};
+  --ap-transition-base: #{v.$transition-base};
+  --ap-transition-slow: #{v.$transition-slow};
+
+  // Spacing scale
+  @each $key, $val in v.$spacers {
+    --ap-space-#{$key}: #{$val};
+  }
+}

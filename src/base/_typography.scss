@@ -1,0 +1,53 @@
+// =============================================================================
+// BASE · TYPOGRAPHY
+// =============================================================================
+
+@use '../abstracts' as *;
+
+body {
+  font-family: var(--ap-font-base);
+  font-size: #{$font-size-base};
+  line-height: #{$line-height-base};
+  color: var(--ap-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ap-font-head);
+  font-weight: fw('bold');
+  line-height: 1.2;
+  margin: 0 0 spacer('3');
+  color: var(--ap-text);
+}
+
+h1 { font-size: fs('4xl'); }
+h2 { font-size: fs('3xl'); }
+h3 { font-size: fs('2xl'); }
+h4 { font-size: fs('xl'); }
+h5 { font-size: fs('lg'); }
+h6 { font-size: fs('base'); }
+
+p {
+  margin: 0 0 spacer('4');
+}
+
+a {
+  color: var(--ap-color-primary);
+  transition: color var(--ap-transition-fast);
+
+  &:hover {
+    color: var(--ap-color-secondary);
+  }
+}
+
+small {
+  font-size: fs('sm');
+  color: var(--ap-text-muted);
+}
+
+code,
+kbd,
+pre {
+  font-family: var(--ap-font-mono);
+}

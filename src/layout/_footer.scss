@@ -1,0 +1,33 @@
+// =============================================================================
+// LAYOUT · FOOTER (licensing, providers, responsible gaming)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.site-footer,
+.azp-footer {
+  padding: spacer('8') spacer('5') spacer('6');
+  color: var(--ap-text-muted);
+  background-color: var(--ap-surface);
+  border-top: 1px solid var(--ap-border);
+}
+
+.site-footer a {
+  color: var(--ap-text-muted);
+
+  &:hover { color: var(--ap-text); }
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: spacer('6');
+}
+
+.site-footer__bottom {
+  margin-top: spacer('6');
+  padding-top: spacer('4');
+  font-size: fs('xs');
+  text-align: center;
+  border-top: 1px solid var(--ap-border);
+}

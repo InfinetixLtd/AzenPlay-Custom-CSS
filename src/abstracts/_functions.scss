@@ -1,0 +1,38 @@
+// =============================================================================
+// ABSTRACTS · FUNCTIONS
+// =============================================================================
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as v;
+
+// Fetch a spacing token, e.g. spacer('4') -> 1rem
+@function spacer($key) {
+  @if not map.has-key(v.$spacers, $key) {
+    @error "spacer(): unknown key '#{$key}'.";
+  }
+  @return map.get(v.$spacers, $key);
+}
+
+// Fetch a font-size token
+@function fs($key) {
+  @if not map.has-key(v.$font-sizes, $key) {
+    @error "fs(): unknown key '#{$key}'.";
+  }
+  @return map.get(v.$font-sizes, $key);
+}
+
+// Fetch a font-weight token
+@function fw($key) {
+  @return map.get(v.$font-weights, $key);
+}
+
+// Fetch a z-index layer
+@function z($key) {
+  @return map.get(v.$z-layers, $key);
+}
+
+// Convert px to rem (base configurable)
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}

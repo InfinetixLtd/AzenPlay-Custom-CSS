@@ -1,0 +1,45 @@
+// =============================================================================
+// LAYOUT · SIDEBAR (game categories, providers, account nav)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.sidebar,
+.azp-sidebar {
+  --sidebar-width: 260px;
+
+  width: var(--sidebar-width);
+  flex: 0 0 var(--sidebar-width);
+  padding: spacer('4');
+  background-color: var(--ap-surface);
+  border-right: 1px solid var(--ap-border);
+
+  @include down('lg') {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: z('overlay');
+    transform: translateX(-100%);
+    transition: transform var(--ap-transition-base);
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: spacer('3');
+  padding: spacer('2') spacer('3');
+  color: var(--ap-text-muted);
+  border-radius: var(--ap-radius-md);
+  transition: color var(--ap-transition-fast),
+              background-color var(--ap-transition-fast);
+
+  &:hover,
+  &.is-active {
+    color: var(--ap-text);
+    background-color: var(--ap-surface-2);
+  }
+}

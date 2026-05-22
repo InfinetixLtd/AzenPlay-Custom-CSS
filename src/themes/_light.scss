@@ -1,0 +1,23 @@
+// =============================================================================
+// THEME · LIGHT
+// -----------------------------------------------------------------------------
+// Activate by adding `data-theme="light"` or class `.theme-light` to <html>
+// or <body>. Only the surface/text tokens flip; brand + semantic colours are
+// shared with the default theme.
+// =============================================================================
+
+@use '../abstracts' as *;
+
+[data-theme='light'],
+.theme-light {
+  --ap-bg:         #f4f5fb;
+  --ap-surface:    #ffffff;
+  --ap-surface-2:  #eef0f7;
+  --ap-border:     #d9dcec;
+  --ap-text:       #1a1c2b;
+  --ap-text-muted: #5b6178;
+
+  --ap-shadow-sm: 0 1px 2px rgba(20, 22, 44, 0.08);
+  --ap-shadow-md: 0 4px 12px rgba(20, 22, 44, 0.10);
+  --ap-shadow-lg: 0 12px 32px rgba(20, 22, 44, 0.15);
+}

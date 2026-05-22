@@ -1,0 +1,77 @@
+// =============================================================================
+// ABSTRACTS · MIXINS
+// =============================================================================
+
+@use 'sass:map';
+@use 'variables' as v;
+
+// Media query helper — mobile-first min-width.
+//   @include up('md') { ... }
+@mixin up($key) {
+  @if not map.has-key(v.$breakpoints, $key) {
+    @error "up(): unknown breakpoint '#{$key}'.";
+  }
+  @media (min-width: map.get(v.$breakpoints, $key)) {
+    @content;
+  }
+}
+
+// Max-width (one px below the named breakpoint).
+@mixin down($key) {
+  @if not map.has-key(v.$breakpoints, $key) {
+    @error "down(): unknown breakpoint '#{$key}'.";
+  }
+  @media (max-width: map.get(v.$breakpoints, $key) - 0.02px) {
+    @content;
+  }
+}
+
+// Override helper — bumps specificity so platform defaults are reliably
+// overridden WITHOUT resorting to !important. Wrap a rule body and it is
+// scoped under the platform root id/class (configurable via $root-scope).
+$root-scope: '' !default; // e.g. '#app' or '.azenplay' — set in main.scss if needed
+@mixin scoped {
+  @if $root-scope == '' {
+    @content;
+  } @else {
+    #{$root-scope} & {
+      @content;
+    }
+  }
+}
+
+// Visually hidden but accessible to screen readers.
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Truncate text with ellipsis.
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flex centering shorthand.
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+// Smooth focus ring consistent across components.
+@mixin focus-ring($color: var(--ap-color-primary)) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}

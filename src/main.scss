@@ -1,0 +1,26 @@
+// =============================================================================
+// AZENPLAY · CUSTOM OVERRIDE STYLESHEET
+// -----------------------------------------------------------------------------
+// Entry point. Compiles to dist/azenplay-custom.css (+ .min.css).
+// Embed the compiled file in the back office via GitHub raw or jsDelivr CDN.
+//
+// Layer order matters (low -> high specificity / cascade priority):
+//   1. abstracts ......... tokens, functions, mixins (silent — no output)
+//   2. css-variables ..... :root --ap-* custom properties (runtime theming)
+//   3. base .............. reset, typography, global elements
+//   4. layout ............ header, sidebar, footer, grid
+//   5. components ........ buttons, cards, forms, nav, modals
+//   6. themes ............ data-theme overrides (loaded last to win)
+//
+// To force every rule under a platform root (raising specificity over the
+// platform's own CSS without !important), set `$root-scope` below, e.g.
+//   @use 'abstracts/mixins' with ($root-scope: '#app');
+// =============================================================================
+
+@use 'abstracts';
+@use 'abstracts/css-variables';
+
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'themes';

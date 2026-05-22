@@ -1,0 +1,74 @@
+// =============================================================================
+// COMPONENT · MODALS & OVERLAYS (login modal, bet slip, toasts)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.modal-overlay,
+.azp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: z('overlay');
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.modal,
+.azp-modal {
+  --modal-width: 480px;
+
+  position: fixed;
+  z-index: z('modal');
+  top: 50%;
+  left: 50%;
+  width: min(var(--modal-width), calc(100vw - #{spacer('6')}));
+  max-height: calc(100vh - #{spacer('8')});
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  background-color: var(--ap-surface);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius-lg);
+  box-shadow: var(--ap-shadow-lg);
+}
+
+.modal__header,
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: spacer('4') spacer('5');
+}
+
+.modal__header { border-bottom: 1px solid var(--ap-border); }
+.modal__footer {
+  border-top: 1px solid var(--ap-border);
+  gap: spacer('3');
+  justify-content: flex-end;
+}
+
+.modal__body { padding: spacer('5'); }
+
+.modal__close {
+  background: transparent;
+  border: 0;
+  color: var(--ap-text-muted);
+  font-size: fs('xl');
+  line-height: 1;
+
+  &:hover { color: var(--ap-text); }
+}
+
+// Toast / notification ------------------------------------------------------
+.toast {
+  position: fixed;
+  z-index: z('toast');
+  padding: spacer('3') spacer('4');
+  color: #fff;
+  background-color: var(--ap-color-info);
+  border-radius: var(--ap-radius-md);
+  box-shadow: var(--ap-shadow-md);
+
+  &--success { background-color: var(--ap-color-success); }
+  &--danger  { background-color: var(--ap-color-danger); }
+  &--warning { background-color: var(--ap-color-warning); color: #1a1300; }
+}

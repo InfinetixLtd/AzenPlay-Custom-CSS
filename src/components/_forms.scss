@@ -1,0 +1,74 @@
+// =============================================================================
+// COMPONENT · FORMS (login, registration, deposit, search)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.form-control,
+.azp-input,
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+select,
+textarea {
+  --field-bg: var(--ap-surface-2);
+  --field-border: var(--ap-border);
+
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--ap-font-base);
+  font-size: fs('sm');
+  color: var(--ap-text);
+  background-color: var(--field-bg);
+  border: 1px solid var(--field-border);
+  border-radius: var(--ap-radius-md);
+  transition: border-color var(--ap-transition-fast),
+              box-shadow var(--ap-transition-fast);
+
+  &::placeholder {
+    color: var(--ap-text-muted);
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: var(--ap-color-primary);
+    box-shadow: 0 0 0 3px rgba(108, 43, 217, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.form-label,
+.azp-label {
+  display: inline-block;
+  margin-bottom: spacer('2');
+  font-size: fs('sm');
+  font-weight: fw('medium');
+  color: var(--ap-text-muted);
+}
+
+.form-group,
+.azp-field {
+  margin-bottom: spacer('4');
+}
+
+// Validation states ---------------------------------------------------------
+.is-invalid {
+  border-color: var(--ap-color-danger) !important;
+}
+
+.is-valid {
+  border-color: var(--ap-color-success) !important;
+}
+
+.form-error {
+  margin-top: spacer('1');
+  font-size: fs('xs');
+  color: var(--ap-color-danger);
+}

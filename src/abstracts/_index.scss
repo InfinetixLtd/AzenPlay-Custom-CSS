@@ -1,0 +1,12 @@
+// =============================================================================
+// ABSTRACTS · INDEX
+// -----------------------------------------------------------------------------
+// Silent layer: forwards tokens, functions and mixins ONLY (no CSS output).
+// Every partial that needs them does `@use '../abstracts' as *;`.
+// The CSS-emitting `css-variables` partial is intentionally NOT forwarded here;
+// it is included once, explicitly, from `main.scss`.
+// =============================================================================
+
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';

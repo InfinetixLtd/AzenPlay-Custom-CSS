@@ -1,0 +1,42 @@
+// =============================================================================
+// BASE · GLOBAL ELEMENT OVERRIDES
+// -----------------------------------------------------------------------------
+// Page-level surfaces and helpers that aren't tied to a single component.
+// =============================================================================
+
+@use '../abstracts' as *;
+
+body {
+  background-color: var(--ap-bg);
+}
+
+::selection {
+  background-color: var(--ap-color-primary);
+  color: var(--ap-color-white, #fff);
+}
+
+// Custom scrollbar to match the theme (WebKit + Firefox).
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ap-surface-2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--ap-surface-2);
+  border-radius: var(--ap-radius-pill);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--ap-border);
+  margin: spacer('5') 0;
+}

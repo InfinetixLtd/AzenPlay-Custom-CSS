@@ -1,0 +1,40 @@
+// =============================================================================
+// LAYOUT · HEADER (top bar, logo, balance, account menu)
+// =============================================================================
+
+@use '../abstracts' as *;
+
+.site-header,
+.azp-header {
+  position: sticky;
+  top: 0;
+  z-index: z('sticky');
+  display: flex;
+  align-items: center;
+  gap: spacer('4');
+  padding: spacer('3') spacer('5');
+  background-color: var(--ap-surface);
+  border-bottom: 1px solid var(--ap-border);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ap-font-head);
+  font-weight: fw('bold');
+  font-size: fs('xl');
+  color: var(--ap-text);
+}
+
+.site-header__spacer { flex: 1 1 auto; }
+
+// Wallet / balance chip.
+.balance-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: spacer('2');
+  padding: spacer('2') spacer('3');
+  font-weight: fw('semibold');
+  background-color: var(--ap-surface-2);
+  border-radius: var(--ap-radius-pill);
+}
