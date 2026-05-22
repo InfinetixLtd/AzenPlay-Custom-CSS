@@ -51,3 +51,32 @@
 .app-ltr-wz10jn {
   max-width: 85%;
 }
+@media (min-width: 1200px) {
+  .app-ltr-ywf5jp {
+      flex-direction: revert-rule;
+      gap: revert-rule;
+      align-items: self-start;
+      width: 65%;
+  }
+  // Footer Language Start
+  .app-ltr-76sv76 {
+    display: none;
+  }
+  // Footer Language End
+
+  // Footer 18+ Start
+  .app-ltr-14pr45b {
+    display: none;
+  }
+  // Footer 18+ End
+
+  .app-ltr-rtov00 {
+    padding-left: 0;
+  }
+  .app-ltr-1r910aa {
+    &::after {
+      content: 'The Next Generation of Player-Owned Gaming';
+      display: block;
+    }
+  }
+}

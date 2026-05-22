@@ -5,7 +5,7 @@
 @use '../abstracts' as *;
 
 body {
-  font-family: var(--ap-font-base);
+  font-family: var(--ap-font-base) !important;
   font-size: #{$font-size-base};
   line-height: #{$line-height-base};
   color: var(--ap-text);
