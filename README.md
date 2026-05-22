@@ -53,6 +53,8 @@ src/
 ├─ layout/           # header, sidebar, footer, grid / page shell
 ├─ components/       # buttons, cards, forms, navigation, modals
 ├─ themes/           # data-theme="dark" / "light" runtime overrides
+├─ overrides/        # YOUR file — override the platform's real classes/ids
+│  └─ _platform.scss # loaded last; wins the cascade. Start here for tweaks.
 └─ main.scss         # entry point — controls layer/cascade order
 ```
 

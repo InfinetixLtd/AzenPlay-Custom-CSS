@@ -1,0 +1,50 @@
+// =============================================================================
+// OVERRIDES · PLATFORM (azenplay.com)
+// -----------------------------------------------------------------------------
+// YOUR working file. Drop overrides for the platform's REAL classes and IDs
+// here. This layer is loaded LAST in main.scss, so anything written here wins
+// over the base/components/themes above — and over most of the platform's own
+// CSS — without needing !important in most cases.
+//
+// HOW TO FIND A SELECTOR
+//   1. Open https://azenplay.com, right-click the element -> "Inspect".
+//   2. Copy its class (e.g. `.game-card__title`) or id (e.g. `#deposit-btn`).
+//   3. Paste it below and set the properties you want to change.
+//
+// TIPS
+//   • You have full access to the design tokens here, e.g.
+//       color: var(--ap-color-primary);   padding: spacer('4');
+//   • If a rule "doesn't stick", the platform's selector is more specific.
+//     Either make yours more specific (chain selectors / add the parent),
+//     or append `!important` to that single declaration as a last resort.
+//   • IDs (#id) already beat classes on specificity — rarely need !important.
+// =============================================================================
+
+@use '../abstracts' as *;
+
+// ----------------------------------------------------------------------------
+// EXAMPLES — delete or replace these with the platform's real selectors.
+// ----------------------------------------------------------------------------
+
+// Override by CLASS — recolour the platform's primary button.
+// .main-deposit-button {
+//   background-color: var(--ap-color-accent);
+//   color: #1a1300;
+//   border-radius: var(--ap-radius-pill);
+// }
+
+// Override by ID — restyle a specific element.
+// #site-logo {
+//   filter: drop-shadow(0 0 6px var(--ap-color-primary));
+// }
+
+// Win a specificity battle by chaining the parent (no !important needed).
+// .header .balance .amount {
+//   font-weight: fw('bold');
+//   color: var(--ap-color-success);
+// }
+
+// Last resort — force a single stubborn declaration.
+// .third-party-widget {
+//   background: var(--ap-surface) !important;
+// }

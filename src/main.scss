@@ -10,7 +10,8 @@
 //   3. base .............. reset, typography, global elements
 //   4. layout ............ header, sidebar, footer, grid
 //   5. components ........ buttons, cards, forms, nav, modals
-//   6. themes ............ data-theme overrides (loaded last to win)
+//   6. themes ............ data-theme overrides
+//   7. overrides ......... YOUR platform class/id overrides (loaded last to win)
 //
 // To force every rule under a platform root (raising specificity over the
 // platform's own CSS without !important), set `$root-scope` below, e.g.
@@ -24,3 +25,4 @@
 @use 'layout';
 @use 'components';
 @use 'themes';
+@use 'overrides';
