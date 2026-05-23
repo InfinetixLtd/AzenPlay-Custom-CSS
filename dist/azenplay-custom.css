@@ -861,14 +861,14 @@ textarea:disabled {
 .app-ltr-ywf5jp,
 .app-ltr-1uzs5zs,
 .app-ltr-1uzs5zs ul,
-.app-ltr-1uzs5zs ul li {
+.app-ltr-1uzs5zs ul .app-ltr-0 {
   position: relative;
   display: inline-block;
 }
 .app-ltr-ywf5jp::after,
 .app-ltr-1uzs5zs::after,
 .app-ltr-1uzs5zs ul::after,
-.app-ltr-1uzs5zs ul li::after {
+.app-ltr-1uzs5zs ul .app-ltr-0::after {
   content: "";
   display: block;
   background-color: transparent;
@@ -900,7 +900,7 @@ textarea:disabled {
   height: 50px;
   left: 15%;
 }
-.app-ltr-cfnr2u .app-ltr-ywf5jp ul li:last-child::after {
+.app-ltr-cfnr2u .app-ltr-ywf5jp ul .app-ltr-0::after {
   background-image: url("imgs/footer/gamecheck-logo.svg");
   width: 175px;
   height: 50px;

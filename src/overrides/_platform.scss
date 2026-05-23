@@ -232,7 +232,7 @@
 .app-ltr-ywf5jp,
 .app-ltr-1uzs5zs,
 .app-ltr-1uzs5zs ul,
-.app-ltr-1uzs5zs ul li {
+.app-ltr-1uzs5zs ul .app-ltr-0 {
   position: relative;
   display: inline-block;
   &::after {
@@ -271,7 +271,7 @@
         height: 50px;
         left: 15%;
       }
-      li:last-child {
+      .app-ltr-0 {
         &::after {
           background-image: url('imgs/footer/gamecheck-logo.svg');
           width: 175px;
