@@ -265,7 +265,7 @@
         width: 87px;
         height: 50px;
       }
-      li.app-ltr-0:last-child {
+      &:last-child {
         &::after {
           background-image: url('imgs/footer/gamecheck-logo.svg');
           width: 175px;
