@@ -1,7 +1,7 @@
 :root {
-  --ap-color-primary: #6c2bd9;
-  --ap-color-secondary: #18b69b;
-  --ap-color-accent: #ffb800;
+  --ap-color-primary: #18b69b;
+  --ap-color-secondary: #ff8000;
+  --ap-color-accent: #18b69b;
   --ap-color-success: #2ecc71;
   --ap-color-danger: #e74c3c;
   --ap-color-warning: #f39c12;
@@ -729,27 +729,68 @@ textarea:disabled {
 }
 
 @media (min-width: 1200px) {
+  .app-ltr-16ws2g7 {
+    padding-bottom: 50px;
+    margin-top: 50px;
+  }
   .app-ltr-ywf5jp {
     flex-direction: revert-rule;
     gap: revert-rule;
     align-items: self-start;
-    width: 100%;
+    min-width: 50%;
+    max-width: 50%;
     display: block;
   }
-  .app-ltr-76sv76 {
+  .app-ltr-76sv76 .app-ltr-1tvzmkd {
     display: none;
   }
+  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+    content: "";
+    width: 150px;
+    height: 50px;
+    display: block;
+  }
+  .app-ltr-76sv76::before {
+    background-image: url(imgs/footer/andriod-img.svg);
+  }
+  .app-ltr-76sv76::after {
+    background-image: url(imgs/footer/iOS-img.svg);
+  }
+  .app-ltr-14pr45b::before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 186px;
+    background-image: url(imgs/footer/telegram-qr.svg);
+    background-size: cover;
+  }
   .app-ltr-14pr45b {
-    display: none;
+    /*display: flex;
+    flex-direction: row;
+    color: rgb(0 0 0);
+    font-size: 16px;
+    background-color: rgb(255 255 255);
+    font-weight: 500;
+    justify-content: center;
+    padding: 0px 3px;
+    align-items: center;
+    min-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #f00;
+    font-weight: bold;*/
+    font-size: 0;
+    color: transparent;
   }
   .app-ltr-rtov00 {
     padding: 0;
+    text-align: left;
+    font-size: 12px;
   }
   .app-ltr-1r910aa {
-    display: inline;
+    display: block;
     max-height: inherit;
     min-width: inherit;
-    max-width: 226px;
+    margin: 30px 0;
   }
   .app-ltr-1r910aa::after {
     content: "The Next Generation of Player-Owned Gaming!";
@@ -758,18 +799,30 @@ textarea:disabled {
     text-align: left;
     font-size: 12px;
     margin-top: 5px;
+    line-height: 1.5;
   }
   .app-ltr-1uzs5zs {
     line-height: 0;
     flex-direction: unset;
     display: unset;
+    float: left;
   }
   .app-ltr-1uzs5zs li {
     margin: 0;
     display: inline-block;
     width: 25%;
+    text-align: left;
+  }
+  .app-ltr-19zdw54 {
+    min-width: 42vw;
+    max-width: 42vw;
+    min-height: 25vh;
   }
 }
+.app-ltr-1959n0c {
+  font-size: 12px;
+}
+
 /* Social Icons */
 .app-ltr-1h746bz {
   position: relative;
@@ -805,4 +858,9 @@ textarea:disabled {
 }
 .app-ltr-1h746bz a:nth-child(6):hover::before {
   background-image: url(imgs/footer/youtube-hr.png);
+}
+
+/* footer links */
+.app-ltr-rtov00:hover:not(.app-ltr-rtov00.undefined), .app-ltr-rtov00:focus:not(.app-ltr-rtov00.undefined) {
+  color: #ff8000;
 }
