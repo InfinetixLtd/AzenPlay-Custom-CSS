@@ -749,6 +749,7 @@ textarea:disabled {
     width: 150px;
     height: 50px;
     display: block;
+    margin-bottom: 20px;
   }
   .app-ltr-76sv76::before {
     background-image: url(imgs/footer/andriod-img.svg);
@@ -765,21 +766,9 @@ textarea:disabled {
     background-size: cover;
   }
   .app-ltr-14pr45b {
-    /*display: flex;
-    flex-direction: row;
-    color: rgb(0 0 0);
-    font-size: 16px;
-    background-color: rgb(255 255 255);
-    font-weight: 500;
-    justify-content: center;
-    padding: 0px 3px;
-    align-items: center;
-    min-height: 40px;
-    border-radius: 50%;
-    border: 2px solid #f00;
-    font-weight: bold;*/
     font-size: 0;
     color: transparent;
+    background-color: transparent;
   }
   .app-ltr-rtov00 {
     padding: 0;
@@ -791,6 +780,7 @@ textarea:disabled {
     max-height: inherit;
     min-width: inherit;
     margin: 30px 0;
+    text-align: left;
   }
   .app-ltr-1r910aa::after {
     content: "The Next Generation of Player-Owned Gaming!";
@@ -863,4 +853,50 @@ textarea:disabled {
 /* footer links */
 .app-ltr-rtov00:hover:not(.app-ltr-rtov00.undefined), .app-ltr-rtov00:focus:not(.app-ltr-rtov00.undefined) {
   color: #ff8000;
+}
+
+.app-ltr-ywf5jp,
+.app-ltr-1uzs5zs,
+.app-ltr-1uzs5zs ul,
+.app-ltr-1uzs5zs ul li {
+  position: relative;
+  display: inline-block;
+}
+.app-ltr-ywf5jp::after,
+.app-ltr-1uzs5zs::after,
+.app-ltr-1uzs5zs ul::after,
+.app-ltr-1uzs5zs ul li::after {
+  content: "";
+  display: block;
+  background-color: transparent;
+  background-size: cover;
+  position: absolute;
+  width: 25%;
+  min-height: 50px;
+}
+
+.app-ltr-cfnr2u .app-ltr-ywf5jp::after {
+  content: "18+";
+  display: flex;
+  flex-direction: row;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  justify-content: center;
+  padding: 0px 3px;
+  align-items: center;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 2px solid #f00;
+  font-weight: bold;
+}
+.app-ltr-cfnr2u .app-ltr-ywf5jp .app-ltr-1uzs5zs::after {
+  background-image: url("imgs/footer/anjouan-logo.png");
+}
+.app-ltr-cfnr2u .app-ltr-ywf5jp .app-ltr-1uzs5zs ul::after {
+  background-image: url("imgs/footer/gamecheck-logo.svg");
+}
+.app-ltr-cfnr2u .app-ltr-ywf5jp .app-ltr-1uzs5zs ul li::after {
+  background-image: url("imgs/footer/gambleaware-logo.png");
 }
