@@ -733,7 +733,8 @@ textarea:disabled {
     flex-direction: revert-rule;
     gap: revert-rule;
     align-items: self-start;
-    width: 65%;
+    width: 100%;
+    display: block;
   }
   .app-ltr-76sv76 {
     display: none;
@@ -742,10 +743,63 @@ textarea:disabled {
     display: none;
   }
   .app-ltr-rtov00 {
-    padding-left: 0;
+    padding: 0;
+  }
+  .app-ltr-1r910aa {
+    display: inline;
+    max-height: inherit;
+    min-width: inherit;
+    max-width: 226px;
   }
   .app-ltr-1r910aa::after {
     content: "The Next Generation of Player-Owned Gaming!";
     display: block;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 5px;
   }
+  .app-ltr-1uzs5zs {
+    line-height: 0;
+    flex-direction: unset;
+    display: unset;
+  }
+  .app-ltr-1uzs5zs li {
+    margin: 0;
+    display: inline-block;
+    width: 25%;
+  }
+}
+/* Social Icons */
+.app-ltr-1h746bz {
+  position: relative;
+}
+.app-ltr-1h746bz:nth-child:hover {
+  position: absolute;
+  background-size: cover;
+}
+.app-ltr-1h746bz:nth-child:hover::before {
+  content: "";
+  display: block;
+}
+.app-ltr-1h746bz:nth-child(1):hover::before {
+  background-image: url(/dist/imgs/footer/tiktok-hr.png);
+}
+.app-ltr-1h746bz:nth-child(1):hover::before {
+  background-image: url(/dist/imgs/footer/tiktok-hr.png);
+}
+.app-ltr-1h746bz:nth-child(2):hover::before {
+  background-image: url(/dist/imgs/footer/discord-hr.png);
+}
+.app-ltr-1h746bz:nth-child(3):hover::before {
+  background-image: url(/dist/imgs/footer/instagram-hr.png);
+}
+.app-ltr-1h746bz:nth-child(4):hover::before {
+  background-image: url(/dist/imgs/footer/linkedin-hr.png);
+}
+.app-ltr-1h746bz:nth-child(5):hover::before {
+  background-image: url(/dist/imgs/footer/twitter-hr.png);
+}
+.app-ltr-1h746bz:nth-child(6):hover::before {
+  background-image: url(/dist/imgs/footer/youtube-hr.png);
 }
