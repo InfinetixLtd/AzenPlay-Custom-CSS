@@ -231,10 +231,10 @@
 // footer RG & license icons
 .app-ltr-ywf5jp,
 .app-ltr-1uzs5zs,
-.app-ltr-1uzs5zs ul,
-.app-ltr-1uzs5zs ul .app-ltr-0 {
+.app-ltr-1uzs5zs ul {
   position: relative;
   display: inline-block;
+  &::before,
   &::after {
     content: '';
     display: block;
@@ -270,15 +270,14 @@
         width: 87px;
         height: 50px;
         left: 15%;
+        bottom: -72px;
       }
-      .app-ltr-0 {
-        &::after {
-          background-image: url('imgs/footer/gamecheck-logo.svg');
-          width: 175px;
-          height: 50px;
-          left: 15%;
-          // background-image: url('imgs/footer/gambleaware-logo.png');
-        }
+      &::before {
+        background-image: url('imgs/footer/gamecheck-logo.svg');
+        width: 175px;
+        height: 50px;
+        left: 15%;
+        // background-image: url('imgs/footer/gambleaware-logo.png');
       }
     }
   }
