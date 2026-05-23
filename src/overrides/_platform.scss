@@ -102,7 +102,7 @@
 /* Social Icons */
 .app-ltr-1h746bz {
   position: relative;
-  &:nth-child {
+  a {
     &:hover {
       position: absolute;
       background-size: cover;
@@ -111,53 +111,53 @@
         display: block;
       }
     }
-  }
-  &:nth-child(1) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/tiktok-hr.png);
+    &:nth-child(1) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/tiktok-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(1) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/tiktok-hr.png);
+    &:nth-child(1) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/tiktok-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(2) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/discord-hr.png);
+    &:nth-child(2) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/discord-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(3) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/instagram-hr.png);
+    &:nth-child(3) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/instagram-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(4) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/linkedin-hr.png);
+    &:nth-child(4) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/linkedin-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(5) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/twitter-hr.png);
+    &:nth-child(5) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/twitter-hr.png);
+        }
       }
     }
-  }
-  &:nth-child(6) {
-    &:hover {
-      &::before {
-        background-image: url(imgs/footer/youtube-hr.png);
+    &:nth-child(6) {
+      &:hover {
+        &::before {
+          background-image: url(imgs/footer/youtube-hr.png);
+        }
       }
     }
   }
