@@ -774,13 +774,16 @@ textarea:disabled {
 .app-ltr-1h746bz {
   position: relative;
 }
-.app-ltr-1h746bz a:hover {
-  position: absolute;
-  background-size: cover;
+.app-ltr-1h746bz a {
+  position: relative;
 }
 .app-ltr-1h746bz a:hover::before {
   content: "";
   display: block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  position: absolute;
 }
 .app-ltr-1h746bz a:nth-child(1):hover::before {
   background-image: url(imgs/footer/tiktok-hr.png);
