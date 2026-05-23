@@ -745,7 +745,7 @@ textarea:disabled {
     padding-left: 0;
   }
   .app-ltr-1r910aa::after {
-    content: "The Next Generation of Player-Owned Gaming";
+    content: "The Next Generation of Player-Owned Gaming!";
     display: block;
   }
 }
