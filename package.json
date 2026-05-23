@@ -8,7 +8,8 @@
     "compile": "sass src/main.scss dist/azenplay-custom.css --style=expanded --no-source-map",
     "compile:min": "sass src/main.scss dist/azenplay-custom.min.css --style=compressed --no-source-map",
     "postcss": "postcss dist/azenplay-custom.css dist/azenplay-custom.min.css --replace",
-    "build": "npm run clean && npm run compile && npm run compile:min && npm run postcss",
+    "copy:assets": "node scripts/copy-assets.mjs",
+    "build": "npm run clean && npm run compile && npm run compile:min && npm run postcss && npm run copy:assets",
     "watch": "sass --watch src/main.scss:dist/azenplay-custom.css --style=expanded --no-source-map",
     "dev": "npm run watch"
   },
