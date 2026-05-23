@@ -11,6 +11,7 @@
     "copy:assets": "node scripts/copy-assets.mjs",
     "compile:js": "node -e \"require('fs').copyFileSync('src/js/main.js','dist/azenplay-custom.js')\"",
     "compile:js:min": "terser src/js/main.js -o dist/azenplay-custom.min.js --compress --mangle",
+    "test:js": "node scripts/test-js.mjs",
     "build": "npm run clean && npm run compile && npm run compile:min && npm run postcss && npm run compile:js && npm run compile:js:min && npm run copy:assets",
     "watch": "sass --watch src/main.scss:dist/azenplay-custom.css --style=expanded --no-source-map",
     "dev": "npm run watch"
@@ -23,6 +24,7 @@
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "jsdom": "^27.0.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "rimraf": "^6.0.1",

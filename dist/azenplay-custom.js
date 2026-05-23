@@ -14,91 +14,110 @@
  *   CSS pseudo-elements (::before / ::after) live outside the DOM and cannot
  *   receive clicks directly. This script makes the PARENT element clickable,
  *   so clicking anywhere on it (including pseudo-element text/icons) navigates
- *   to a URL of your choice. Works with SPA-style re-renders via a
+ *   to a URL of your choice. Works with SPA re-renders via a debounced
  *   MutationObserver.
  *
- * How to use
- *   1. Add `selector: 'https://target'` entries to the LINKS object below.
- *   2. To open in a new tab, prefix with `_blank|` — e.g. `_blank|https://...`.
- *   3. Build + commit + push (same workflow as the CSS).
+ * How to add a new link
+ *   Append a row to the LINKS array below:
+ *     { selector: '.some-class', url: 'https://...' }
+ *     { selector: '#btn',        url: 'https://...', target: '_blank' }
+ *   Then: npm run build && git add ... && git push.
+ *
+ *   Fields per entry:
+ *     selector  (required) CSS selector — anything querySelectorAll accepts.
+ *     url       (required) Absolute URL to navigate to on click.
+ *     target    (optional) '_self' (default) or '_blank' to open a new tab.
  * ---------------------------------------------------------------------------
  */
 
-(function () {
+(() => {
   'use strict';
 
   // ------------------------------------------------------------------
-  // EDIT ME — selector -> URL mapping
+  // EDIT ME — add / remove / reorder entries freely.
   // ------------------------------------------------------------------
-  var LINKS = {
+  const LINKS = [
     // Slogan text under the logo (the ::after "The Next Generation…").
-    // '.app-ltr-1r910aa': 'https://azenplay.com/about',
+    { selector: '.app-ltr-1r910aa', url: 'https://azenplay.com/about' },
 
-    // Footer social icons (parent is the clickable target; ::before is decoration).
-    // '.app-ltr-1h746bz:nth-child(1)': '_blank|https://www.tiktok.com/@azenplay',
-    // '.app-ltr-1h746bz:nth-child(2)': '_blank|https://discord.gg/your-invite',
-    // '.app-ltr-1h746bz:nth-child(3)': '_blank|https://www.instagram.com/azenplay',
-    // '.app-ltr-1h746bz:nth-child(4)': '_blank|https://www.linkedin.com/company/azenplay',
-    // '.app-ltr-1h746bz:nth-child(5)': '_blank|https://twitter.com/azenplay',
-    // '.app-ltr-1h746bz:nth-child(6)': '_blank|https://www.youtube.com/@azenplay',
-  };
+    // Footer social icons — parent is clickable; ::before is decoration.
+    { selector: '.app-ltr-1h746bz:nth-child(1)', url: 'https://www.tiktok.com/@azenplay',          target: '_blank' },
+    { selector: '.app-ltr-1h746bz:nth-child(2)', url: 'https://discord.gg/your-invite',            target: '_blank' },
+    { selector: '.app-ltr-1h746bz:nth-child(3)', url: 'https://www.instagram.com/azenplay',        target: '_blank' },
+    { selector: '.app-ltr-1h746bz:nth-child(4)', url: 'https://www.linkedin.com/company/azenplay', target: '_blank' },
+    { selector: '.app-ltr-1h746bz:nth-child(5)', url: 'https://twitter.com/azenplay',              target: '_blank' },
+    { selector: '.app-ltr-1h746bz:nth-child(6)', url: 'https://www.youtube.com/@azenplay',         target: '_blank' },
+
+    // Add more here:
+    // { selector: '...', url: '...', target: '_blank' },
+  ];
   // ------------------------------------------------------------------
 
-  var BOUND_ATTR = 'data-ap-bound';
+  const BOUND_ATTR = 'data-ap-bound';
 
-  function parseTarget(value) {
-    var idx = value.indexOf('|');
-    if (idx === -1) return { url: value, target: '_self' };
-    return { url: value.slice(idx + 1), target: value.slice(0, idx) };
-  }
-
-  function navigate(url, target) {
+  const navigate = (url, target) => {
     if (target === '_blank') {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
       window.location.href = url;
     }
-  }
+  };
 
-  function bindOne(el, url, target) {
-    if (el.getAttribute(BOUND_ATTR) === url) return; // idempotent
+  const bindOne = (el, url, target) => {
+    if (el.getAttribute(BOUND_ATTR) === url) return; // idempotent — already wired
     el.setAttribute(BOUND_ATTR, url);
     el.style.cursor = 'pointer';
     if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
     if (!el.hasAttribute('role')) el.setAttribute('role', 'link');
 
-    el.addEventListener('click', function (e) {
+    el.addEventListener('click', (e) => {
       e.preventDefault();
       navigate(url, target);
     });
-    el.addEventListener('keydown', function (e) {
+    el.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         navigate(url, target);
       }
     });
-  }
+  };
 
-  function bindAll() {
-    Object.keys(LINKS).forEach(function (selector) {
-      var spec = parseTarget(LINKS[selector]);
-      var nodes = document.querySelectorAll(selector);
-      for (var i = 0; i < nodes.length; i++) {
-        bindOne(nodes[i], spec.url, spec.target);
+  const bindAll = () => {
+    for (const entry of LINKS) {
+      if (!entry || !entry.selector || !entry.url) continue;
+      const target = entry.target || '_self';
+      let nodes;
+      try {
+        nodes = document.querySelectorAll(entry.selector);
+      } catch (err) {
+        console?.warn?.('[azenplay] invalid selector:', entry.selector, err);
+        continue;
       }
-    });
-  }
+      for (const node of nodes) {
+        bindOne(node, entry.url, target);
+      }
+    }
+  };
 
-  function ready(fn) {
+  // Coalesce bursts of DOM mutations so we don't re-scan on every node change.
+  const debounce = (fn, ms) => {
+    let t = 0;
+    return () => {
+      if (t) clearTimeout(t);
+      t = setTimeout(fn, ms);
+    };
+  };
+
+  const ready = (fn) => {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
-  }
+  };
 
-  ready(function () {
+  ready(() => {
     bindAll();
-    // SPA-friendly: re-bind whenever the DOM changes.
     if ('MutationObserver' in window && document.body) {
-      var obs = new MutationObserver(bindAll);
+      const rebind = debounce(bindAll, 100);
+      const obs = new MutationObserver(rebind);
       obs.observe(document.body, { childList: true, subtree: true });
     }
   });
