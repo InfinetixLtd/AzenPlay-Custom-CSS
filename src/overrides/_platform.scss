@@ -118,7 +118,7 @@
     max-height: inherit;
     min-width: inherit;
     // max-width: 272px;
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     text-align: left;
     &::after {
       content: 'The Next Generation of Player-Owned Gaming!';
@@ -239,9 +239,9 @@
     content: '';
     display: block;
     background-color: transparent;
-    background-size: cover;
+    // background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
-    // width: 25%;
     min-height: 50px;
     bottom: -65px;
   }
@@ -264,20 +264,25 @@
       border: 2px solid #f00;
       font-weight: bold;
     }
+    &::before {
+      background-image: url('imgs/footer/anjouan-logo.png');
+      width: 87px;
+      height: 50px;
+      left: 13%;
+    }
     ul {
-      &::after {
-        background-image: url('imgs/footer/anjouan-logo.png');
-        width: 87px;
-        height: 50px;
-        left: 15%;
-        bottom: -72px;
-      }
       &::before {
         background-image: url('imgs/footer/gamecheck-logo.svg');
         width: 175px;
         height: 50px;
-        left: 15%;
-        // background-image: url('imgs/footer/gambleaware-logo.png');
+        left: 40%;
+      }
+      &::after {
+        background-image: url('imgs/footer/gambleaware-logo.png');
+        width: 209px;
+        height: 30px;
+        right: -55px;
+        bottom: -70px;
       }
     }
   }

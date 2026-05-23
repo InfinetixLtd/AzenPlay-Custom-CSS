@@ -782,7 +782,7 @@ textarea:disabled {
     display: block;
     max-height: inherit;
     min-width: inherit;
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     text-align: left;
   }
   .app-ltr-1r910aa::after {
@@ -872,7 +872,7 @@ textarea:disabled {
   content: "";
   display: block;
   background-color: transparent;
-  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   min-height: 50px;
   bottom: -65px;
@@ -894,16 +894,22 @@ textarea:disabled {
   border: 2px solid #f00;
   font-weight: bold;
 }
-.app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+.app-ltr-cfnr2u .app-ltr-ywf5jp::before {
   background-image: url("imgs/footer/anjouan-logo.png");
   width: 87px;
   height: 50px;
-  left: 15%;
-  bottom: -72px;
+  left: 13%;
 }
 .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
   background-image: url("imgs/footer/gamecheck-logo.svg");
   width: 175px;
   height: 50px;
-  left: 15%;
+  left: 40%;
+}
+.app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+  background-image: url("imgs/footer/gambleaware-logo.png");
+  width: 209px;
+  height: 30px;
+  right: -55px;
+  bottom: -70px;
 }
