@@ -100,45 +100,6 @@ pre {
   font-family: var(--ap-font-mono);
 }
 
-body {
-  background-color: var(--ap-bg);
-}
-
-::-moz-selection {
-  background-color: var(--ap-color-primary);
-  color: var(--ap-color-white, #fff);
-}
-
-::selection {
-  background-color: var(--ap-color-primary);
-  color: var(--ap-color-white, #fff);
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--ap-surface-2) transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--ap-surface-2);
-  border-radius: var(--ap-radius-pill);
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--ap-border);
-  margin: 1.5rem 0;
-}
-
 .app-ltr-wz10jn {
   max-width: 85%;
 }
@@ -191,7 +152,7 @@ hr {
   .app-ltr-rtov00 {
     padding: 0;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
   }
   .app-ltr-1r910aa {
     display: block;
