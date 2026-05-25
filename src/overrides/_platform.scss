@@ -406,12 +406,20 @@
   }
 
   .app-ltr-1l44gyp {
-    margin-top: 180px;
+    hr {
+      &::before {
+        margin-top: 180px;
+        clear: both;
+        width: 100%;
+      }
+    }
   }
 
   .app-ltr-19zdw54 {
     top: 120px;
     position: relative;
+    display: inline-block;
+    float: left;
     &::before,
     &::after {
       content: '';
@@ -448,7 +456,7 @@
     color: transparent;
     background-color: transparent;
     padding-left: 0;
-    margin-top: 100px;
+    // margin-top: 100px;
   }
   // Footer 18+ End
 

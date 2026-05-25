@@ -391,12 +391,16 @@ pre {
     display: block;
     text-align: left;
   }
-  .app-ltr-1l44gyp {
+  .app-ltr-1l44gyp hr::before {
     margin-top: 180px;
+    clear: both;
+    width: 100%;
   }
   .app-ltr-19zdw54 {
     top: 120px;
     position: relative;
+    display: inline-block;
+    float: left;
   }
   .app-ltr-19zdw54::before, .app-ltr-19zdw54::after {
     content: "";
@@ -430,7 +434,6 @@ pre {
     color: transparent;
     background-color: transparent;
     padding-left: 0;
-    margin-top: 100px;
   }
   .app-ltr-rtov00 {
     padding: 0;
