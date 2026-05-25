@@ -391,10 +391,12 @@ pre {
     display: block;
     text-align: left;
   }
-  hr.app-ltr-xg086w::before {
+  .app-ltr-xg086w::before {
     margin-top: 180px;
     clear: both;
     width: 100%;
+    content: "";
+    display: block;
   }
   .app-ltr-19zdw54 {
     top: 120px;
