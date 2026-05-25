@@ -292,6 +292,54 @@ pre {
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
+  .app-ltr-76sv76 .app-ltr-1tvzmkd {
+    display: none;
+  }
+  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+    content: "";
+    width: 150px;
+    height: 50px;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .app-ltr-76sv76::before {
+    background-image: url(imgs/footer/andriod-img.svg);
+  }
+  .app-ltr-76sv76::after {
+    background-image: url(imgs/footer/iOS-img.svg);
+  }
+  .app-ltr-176106l {
+    flex-direction: unset;
+  }
+  .app-ltr-rtov00 {
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+  }
+  .app-ltr-b7ljj5 {
+    display: block;
+    max-height: inherit;
+    min-width: inherit;
+    max-width: 220px;
+    margin: 0 0 30px 0;
+    text-align: left;
+  }
+  .app-ltr-b7ljj5::after {
+    content: "The Next Generation of Player-Owned Gaming!";
+    display: block;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+  .app-ltr-cfnr2u hr.app-ltr-xg086w:nth-child(1) {
+    border-color: transparent;
+  }
+  .app-ltr-cfnr2u .app-ltr-19zdw54 {
+    display: table-cell;
+    text-align: left;
+  }
   .app-ltr-ywf5jp {
     flex-direction: revert-rule;
     gap: revert-rule;
@@ -299,6 +347,7 @@ pre {
     min-width: 100%;
     max-width: 100%;
     display: block;
+    text-align: left;
   }
   .app-ltr-76sv76 .app-ltr-1tvzmkd {
     display: none;
@@ -329,20 +378,20 @@ pre {
     color: transparent;
     background-color: transparent;
   }
-  .app-ltr-76sv76 .app-ltr-1tvzmkd {
+  .app-ltr-qsaw8 .app-ltr-1tvzmkd {
     display: none;
   }
-  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+  .app-ltr-qsaw8::before, .app-ltr-qsaw8::after {
     content: "";
     width: 150px;
     height: 50px;
     display: block;
     margin-bottom: 20px;
   }
-  .app-ltr-76sv76::before {
+  .app-ltr-qsaw8::before {
     background-image: url(imgs/footer/andriod-img.svg);
   }
-  .app-ltr-76sv76::after {
+  .app-ltr-qsaw8::after {
     background-image: url(imgs/footer/iOS-img.svg);
   }
   .app-ltr-rtov00 {
