@@ -405,14 +405,10 @@
     text-align: left;
   }
 
-  .app-ltr-1l44gyp {
-    hr {
-      &::before {
-        margin-top: 180px;
-        clear: both;
-        width: 100%;
-      }
-    }
+  hr.app-ltr-xg086w::before {
+      margin-top: 180px;
+      clear: both;
+      width: 100%;
   }
 
   .app-ltr-19zdw54 {

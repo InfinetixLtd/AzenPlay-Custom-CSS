@@ -391,7 +391,7 @@ pre {
     display: block;
     text-align: left;
   }
-  .app-ltr-1l44gyp hr::before {
+  hr.app-ltr-xg086w::before {
     margin-top: 180px;
     clear: both;
     width: 100%;
