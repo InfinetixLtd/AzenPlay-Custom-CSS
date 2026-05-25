@@ -292,6 +292,9 @@ pre {
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
+  .app-ltr-16ws2g7 {
+    margin-top: 50px;
+  }
   .app-ltr-ywf5jp,
   .app-ltr-1uzs5zs,
   .app-ltr-1uzs5zs ul {
@@ -379,10 +382,6 @@ pre {
   .app-ltr-cfnr2u hr {
     display: none;
   }
-  .app-ltr-cfnr2u .app-ltr-19zdw54 {
-    display: table-cell;
-    text-align: left;
-  }
   .app-ltr-ywf5jp {
     flex-direction: revert-rule;
     gap: revert-rule;
@@ -392,18 +391,31 @@ pre {
     display: block;
     text-align: left;
   }
+  .app-ltr-1l44gyp {
+    margin-top: 180px;
+  }
+  .app-ltr-19zdw54 {
+    top: 120px;
+    position: relative;
+  }
   .app-ltr-19zdw54::before, .app-ltr-19zdw54::after {
     content: "";
     width: 150px;
     height: 50px;
     display: block;
     margin-bottom: 20px;
+    position: relative;
   }
   .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
+    position: absolute;
+    left: 250px;
   }
   .app-ltr-19zdw54::after {
     background-image: url(imgs/footer/iOS-img.svg);
+    position: absolute;
+    left: 250px;
+    top: 80px;
   }
   .app-ltr-14pr45b::before {
     content: "";
