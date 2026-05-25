@@ -290,26 +290,69 @@
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
-
-  // Footer Language Start
-  .app-ltr-76sv76 {
-    .app-ltr-1tvzmkd {
-      display: none;
-    }
+  // footer RG & license icons
+  .app-ltr-ywf5jp,
+  .app-ltr-1uzs5zs,
+  .app-ltr-1uzs5zs ul {
+    position: relative;
+    display: inline-block;
     &::before,
     &::after {
       content: '';
-      width: 150px;
-      height: 50px;
       display: block;
-      margin-bottom: 20px;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      position: absolute;
+      min-height: 50px;
     }
-    &::before {
-      background-image: url(imgs/footer/andriod-img.svg);
+  }
+  .app-ltr-cfnr2u {
+    .app-ltr-ywf5jp {
+      &::after {
+        content: '18+';
+        display: flex;
+        flex-direction: row;
+        color: rgb(0 0 0);
+        font-size: 16px;
+        background-color: rgb(255 255 255);
+        font-weight: 500;
+        justify-content: center;
+        padding: 0px 3px;
+        align-items: center;
+        min-height: 40px;
+        border-radius: 50%;
+        border: 2px solid #f00;
+        font-weight: bold;
+        top: 190px;
+      }
+      &::before {
+        background-image: url('imgs/footer/anjouan-logo.png');
+        width: 87px;
+        height: 50px;
+        left: 13%;
+        top: 190px;
+      }
+      ul {
+        &::before {
+          background-image: url('imgs/footer/gamecheck-logo.svg');
+          width: 175px;
+          height: 50px;
+          left: 40%;
+          top: 110px;
+        }
+        &::after {
+          background-image: url('imgs/footer/gambleaware-logo.png');
+          width: 209px;
+          height: 30px;
+          right: -55px;
+          top: 120px;
+        }
+      }
     }
-    &::after {
-      background-image: url(imgs/footer/iOS-img.svg);
-    }
+  }
+  // Footer Language Start
+  .app-ltr-qsaw8 {
+    display: none;
   }
   // Footer Language End
 
@@ -342,10 +385,8 @@
     }
   }
   .app-ltr-cfnr2u {
-    hr.app-ltr-xg086w {
-      &:nth-child(1) {
-        border-color: transparent;
-      }
+    hr {
+      display: none;
     }
     .app-ltr-19zdw54 {
       display: table-cell;
@@ -363,11 +404,8 @@
     display: block;
     text-align: left;
   }
-  // Footer Language Start
-  .app-ltr-76sv76 {
-    .app-ltr-1tvzmkd {
-      display: none;
-    }
+
+  .app-ltr-19zdw54 {
     &::before,
     &::after {
       content: '';
@@ -383,7 +421,6 @@
       background-image: url(imgs/footer/iOS-img.svg);
     }
   }
-  // Footer Language End
 
   // Footer 18+ Start
   .app-ltr-14pr45b {
@@ -398,61 +435,43 @@
     font-size: 0;
     color: transparent;
     background-color: transparent;
+    padding-left: 0;
+    margin-top: 100px;
   }
   // Footer 18+ End
-    // Footer Language Start
-    .app-ltr-qsaw8 {
-      .app-ltr-1tvzmkd {
-        display: none;
-      }
-      &::before,
-      &::after {
-        content: '';
-        width: 150px;
-        height: 50px;
-        display: block;
-        margin-bottom: 20px;
-      }
-      &::before {
-        background-image: url(imgs/footer/andriod-img.svg);
-      }
-      &::after {
-        background-image: url(imgs/footer/iOS-img.svg);
-      }
-    }
-    // Footer Language End
-    .app-ltr-rtov00 {
-      padding: 0;
-      text-align: left;
-      font-size: 14px;
-    }
-    .app-ltr-1r910aa {
+
+  .app-ltr-rtov00 {
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+  }
+  .app-ltr-1r910aa {
+    display: block;
+    max-height: inherit;
+    min-width: inherit;
+    // max-width: 272px;
+    margin: 0 0 30px 0;
+    text-align: left;
+    &::after {
+      content: 'The Next Generation of Player-Owned Gaming!';
       display: block;
-      max-height: inherit;
-      min-width: inherit;
-      // max-width: 272px;
-      margin: 0 0 30px 0;
+      color: #fff;
       text-align: left;
-      &::after {
-        content: 'The Next Generation of Player-Owned Gaming!';
-        display: block;
-        color: #fff;
-        text-align: left;
-        font-size: 12px;
-        margin-top: 5px;
-        line-height: 1.5;
-      }
+      font-size: 12px;
+      margin-top: 5px;
+      line-height: 1.5;
     }
-    .app-ltr-1uzs5zs {
-      line-height: 0;
-      flex-direction: unset;
-      display: unset;
-      float: left;
-      li {
-        margin: 0;
-        display: inline-block;
-        width: 25%;
-        text-align: left;
-      }
+  }
+  .app-ltr-1uzs5zs {
+    line-height: 0;
+    flex-direction: unset;
+    display: unset;
+    float: left;
+    li {
+      margin: 0;
+      display: inline-block;
+      width: 25%;
+      text-align: left;
     }
+  }
 }

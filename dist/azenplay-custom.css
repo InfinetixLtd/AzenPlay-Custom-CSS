@@ -292,21 +292,64 @@ pre {
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
-  .app-ltr-76sv76 .app-ltr-1tvzmkd {
-    display: none;
+  .app-ltr-ywf5jp,
+  .app-ltr-1uzs5zs,
+  .app-ltr-1uzs5zs ul {
+    position: relative;
+    display: inline-block;
   }
-  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+  .app-ltr-ywf5jp::before, .app-ltr-ywf5jp::after,
+  .app-ltr-1uzs5zs::before,
+  .app-ltr-1uzs5zs::after,
+  .app-ltr-1uzs5zs ul::before,
+  .app-ltr-1uzs5zs ul::after {
     content: "";
-    width: 150px;
-    height: 50px;
     display: block;
-    margin-bottom: 20px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    position: absolute;
+    min-height: 50px;
   }
-  .app-ltr-76sv76::before {
-    background-image: url(imgs/footer/andriod-img.svg);
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::after {
+    content: "18+";
+    display: flex;
+    flex-direction: row;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    font-weight: 500;
+    justify-content: center;
+    padding: 0px 3px;
+    align-items: center;
+    min-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #f00;
+    font-weight: bold;
+    top: 190px;
   }
-  .app-ltr-76sv76::after {
-    background-image: url(imgs/footer/iOS-img.svg);
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
+    background-image: url("imgs/footer/anjouan-logo.png");
+    width: 87px;
+    height: 50px;
+    left: 13%;
+    top: 190px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
+    background-image: url("imgs/footer/gamecheck-logo.svg");
+    width: 175px;
+    height: 50px;
+    left: 40%;
+    top: 110px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+    background-image: url("imgs/footer/gambleaware-logo.png");
+    width: 209px;
+    height: 30px;
+    right: -55px;
+    top: 120px;
+  }
+  .app-ltr-qsaw8 {
+    display: none;
   }
   .app-ltr-176106l {
     flex-direction: unset;
@@ -333,8 +376,8 @@ pre {
     margin-top: 5px;
     line-height: 1.5;
   }
-  .app-ltr-cfnr2u hr.app-ltr-xg086w:nth-child(1) {
-    border-color: transparent;
+  .app-ltr-cfnr2u hr {
+    display: none;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 {
     display: table-cell;
@@ -349,20 +392,17 @@ pre {
     display: block;
     text-align: left;
   }
-  .app-ltr-76sv76 .app-ltr-1tvzmkd {
-    display: none;
-  }
-  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+  .app-ltr-19zdw54::before, .app-ltr-19zdw54::after {
     content: "";
     width: 150px;
     height: 50px;
     display: block;
     margin-bottom: 20px;
   }
-  .app-ltr-76sv76::before {
+  .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
   }
-  .app-ltr-76sv76::after {
+  .app-ltr-19zdw54::after {
     background-image: url(imgs/footer/iOS-img.svg);
   }
   .app-ltr-14pr45b::before {
@@ -377,22 +417,8 @@ pre {
     font-size: 0;
     color: transparent;
     background-color: transparent;
-  }
-  .app-ltr-qsaw8 .app-ltr-1tvzmkd {
-    display: none;
-  }
-  .app-ltr-qsaw8::before, .app-ltr-qsaw8::after {
-    content: "";
-    width: 150px;
-    height: 50px;
-    display: block;
-    margin-bottom: 20px;
-  }
-  .app-ltr-qsaw8::before {
-    background-image: url(imgs/footer/andriod-img.svg);
-  }
-  .app-ltr-qsaw8::after {
-    background-image: url(imgs/footer/iOS-img.svg);
+    padding-left: 0;
+    margin-top: 100px;
   }
   .app-ltr-rtov00 {
     padding: 0;
