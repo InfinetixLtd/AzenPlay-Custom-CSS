@@ -288,3 +288,52 @@
     }
   }
 }
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  // footer left content
+  .app-ltr-ywf5jp {
+    flex-direction: revert-rule;
+    gap: revert-rule;
+    align-items: self-start;
+    min-width: 50%;
+    max-width: 50%;
+    display: block;
+  }
+  // Footer Language Start
+  .app-ltr-76sv76 {
+    .app-ltr-1tvzmkd {
+      display: none;
+    }
+    &::before,
+    &::after {
+      content: '';
+      width: 150px;
+      height: 50px;
+      display: block;
+      margin-bottom: 20px;
+    }
+    &::before {
+      background-image: url(imgs/footer/andriod-img.svg);
+    }
+    &::after {
+      background-image: url(imgs/footer/iOS-img.svg);
+    }
+  }
+  // Footer Language End
+
+  // Footer 18+ Start
+  .app-ltr-14pr45b {
+    &::before {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 186px;
+      background-image: url(imgs/footer/telegram-qr.svg);
+      background-size: cover;
+    }
+    font-size: 0;
+    color: transparent;
+    background-color: transparent;
+  }
+  // Footer 18+ End
+}
