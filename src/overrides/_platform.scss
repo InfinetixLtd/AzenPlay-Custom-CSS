@@ -49,7 +49,7 @@
 //   background: var(--ap-surface) !important;
 // }
 .app-ltr-wz10jn {
-  max-width: 85%;
+  max-width: 80%;
 }
 @media (min-width: 1200px) {
   // footer hr
@@ -470,10 +470,10 @@
         }
         &::after {
           background-image: url('imgs/footer/gambleaware-logo.png');
-          width: 209px;
+          width: 130px;
           height: 30px;
           left: 190px;
-          bottom: -160px;
+          bottom: -165px;
           background-size: contain;
         }
       }
@@ -493,13 +493,13 @@
         background-image: url(imgs/footer/andriod-img.svg);
         margin-top: -100px;
         position: absolute;
-        left: 210px;
+        left: 195px;
       }
       &::after {
         background-image: url(imgs/footer/iOS-img.svg);
         margin-top: 100px;
         position: absolute;
-        left: 210px;
+        left: 195px;
       }
       // Footer telegram Start
       .app-ltr-14pr45b {
