@@ -412,43 +412,22 @@
   }
 }
 @media (max-width: 768px) {
-  .app-ltr-16ws2g7 {
-    margin-top: 50px;
-  }
-
-  // footer RG & license icons
-  .app-ltr-ywf5jp,
-  .app-ltr-1uzs5zs,
-  .app-ltr-1uzs5zs ul {
-    position: relative;
-    display: inline-block;
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      position: absolute;
-      min-height: 50px;
-    }
-  }
-  .app-ltr-1uzs5zs {
-    width: 100%;
-    li {
-      margin: 0;
-      display: inline-block;
-      width: 25%;
-      text-align: left;
-      .app-ltr-rtov00 {
-        font-size: 14px;
-        padding: 4px 16px 16px 0;
-      }
-    }
-  }
   .app-ltr-cfnr2u {
     text-align: left;
+    padding: 0 16px;
     hr {
       border-block-color: transparent;
+    }
+    // last hr
+    .app-ltr-xg086w {
+      padding: 0 16px;
+    }
+    // Copyright & Social icons
+
+    .app-ltr-176106l {
+      padding: 0 16px;
+      flex-direction: row;
+      justify-content: space-between;
     }
     .app-ltr-ywf5jp {
       flex-direction: revert-rule;
@@ -458,7 +437,7 @@
       max-width: 100%;
       // display: block;
       // text-align: left;
-      &::after {
+      &::before {
         content: '18+';
         display: flex;
         flex-direction: row;
@@ -473,34 +452,34 @@
         border-radius: 50%;
         border: 2px solid #f00;
         font-weight: bold;
-        top: 190px;
+        height: 40px;
       }
-      &::before {
+      &::after {
         background-image: url('imgs/footer/anjouan-logo.png');
         width: 87px;
         height: 50px;
-        left: 13%;
-        top: 190px;
+        left: 190px;
       }
       ul {
         &::before {
           background-image: url('imgs/footer/gamecheck-logo.svg');
           width: 175px;
           height: 50px;
-          left: 40%;
-          top: 110px;
+          left: 0;
+          bottom: -150px;
         }
         &::after {
           background-image: url('imgs/footer/gambleaware-logo.png');
           width: 209px;
           height: 30px;
-          left: 70%;
-          top: 120px;
+          left: 190px;
+          bottom: -160px;
+          background-size: contain;
         }
       }
     }
     .app-ltr-19zdw54 {
-      margin-top: 100px;
+      margin-top: 150px;
       display: inline-flex;
       flex-direction: column;
       &::before,
@@ -509,20 +488,18 @@
         width: 150px;
         height: 50px;
         display: block;
-        // margin-bottom: 20px;
-        // position: relative;
       }
       &::before {
         background-image: url(imgs/footer/andriod-img.svg);
         margin-top: -100px;
         position: absolute;
-        left: 250px;
+        left: 210px;
       }
       &::after {
         background-image: url(imgs/footer/iOS-img.svg);
         margin-top: 100px;
         position: absolute;
-        left: 250px;
+        left: 210px;
       }
       // Footer telegram Start
       .app-ltr-14pr45b {
@@ -538,11 +515,44 @@
         color: transparent;
         background-color: transparent;
         padding-left: 0;
-        // margin-top: 100px;
       }
       // Footer telegram End
     }
   }
+  .app-ltr-16ws2g7 {
+    margin-top: 50px;
+  }
+
+  // footer RG & license icons
+  .app-ltr-ywf5jp,
+  .app-ltr-1uzs5zs,
+  .app-ltr-1uzs5zs ul {
+    // position: relative;
+    display: flex;
+    &::before,
+    &::after {
+      content: '';
+      // display: flex;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      position: absolute;
+      min-height: 50px;
+    }
+  }
+  .app-ltr-1uzs5zs {
+    width: 100%;
+    li {
+      margin: 0;
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      .app-ltr-rtov00 {
+        font-size: 14px;
+        padding: 4px 16px 16px 0;
+      }
+    }
+  }
+
   // Footer Language Start
   // first hr
   .app-ltr-qsaw8 {
@@ -550,12 +560,6 @@
   }
   // Footer Language End
 
-  // Copyright & Social icons
-
-  .app-ltr-176106l {
-    flex-direction: row;
-    justify-content: space-between;
-  }
   // logo
   .app-ltr-b7ljj5 {
     display: block;
