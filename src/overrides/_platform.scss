@@ -79,13 +79,6 @@
         }
       }
     }
-    &:nth-child(1) {
-      &:hover {
-        &::before {
-          background-image: url(imgs/footer/tiktok-hr.png);
-        }
-      }
-    }
     &:nth-child(2) {
       &:hover {
         &::before {
@@ -154,12 +147,12 @@
 @media (min-width: 1200px) {
   // footer hr
   hr.app-ltr-xg086w {
-    margin-top: 80px;
+    margin-top: 60px;
   }
   // footer container
   .app-ltr-16ws2g7 {
-    padding-bottom: 50px;
-    margin-top: 50px;
+    padding-bottom: 40px;
+    margin-top: 30px;
   }
   // footer left content
   .app-ltr-ywf5jp {
@@ -172,6 +165,12 @@
   }
   // Footer Language Start
   .app-ltr-76sv76 {
+    // Align store badges with QR top edge
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+
     .app-ltr-1tvzmkd {
       display: none;
     }
@@ -264,7 +263,7 @@
         justify-content: center;
         padding: 0px 3px;
         align-items: center;
-        min-height: 40px;
+        min-height: 50px;
         border-radius: 50%;
         border: 2px solid #f00;
         font-weight: bold;
@@ -299,23 +298,6 @@
   .app-ltr-16ws2g7 {
     margin-top: 50px;
   }
-
-  // footer RG & license icons
-  .app-ltr-ywf5jp,
-  .app-ltr-1uzs5zs,
-  .app-ltr-1uzs5zs ul {
-    position: relative;
-    display: inline-block;
-    &::before,
-    &::after {
-      content: '';
-      display: block;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      position: absolute;
-      min-height: 50px;
-    }
-  }
   .app-ltr-1uzs5zs {
     width: 100%;
     li {
@@ -327,6 +309,25 @@
         font-size: 14px;
         padding: 4px 16px 16px 0;
       }
+    }
+  }
+  // Fix footer layout between 993px and 1198px
+  @media (min-width: 993px) and (max-width: 1198px) {
+
+    .app-ltr-1uzs5zs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items:flex-start;
+    }
+
+    .app-ltr-1uzs5zs li {
+    flex: 0 0 calc(50% - 8px);
+    width: auto;
+  }
+
+    .app-ltr-19zdw54 {
+      margin-top: 80px;
     }
   }
   .app-ltr-cfnr2u {
@@ -342,22 +343,24 @@
       max-width: 100%;
       // display: block;
       // text-align: left;
+      
+      // Testing feedback:
+      // 18+ badge should match the height of neighbouring certification logos (50px)
       &::after {
         content: '18+';
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        min-height: 50px;
         color: rgb(0 0 0);
         font-size: 16px;
         background-color: rgb(255 255 255);
-        font-weight: 500;
-        justify-content: center;
-        padding: 0px 3px;
-        align-items: center;
-        min-height: 40px;
         border-radius: 50%;
         border: 2px solid #f00;
         font-weight: bold;
-        top: 190px;
+        padding: 0;
       }
       &::before {
         background-image: url('imgs/footer/anjouan-logo.png');
@@ -384,7 +387,7 @@
       }
     }
     .app-ltr-19zdw54 {
-      margin-top: 100px;
+      margin-top: 80px;
       display: inline-flex;
       flex-direction: column;
       &::before,
@@ -486,22 +489,24 @@
       max-width: 100%;
       // display: block;
       // text-align: left;
+      // Testing feedback:
+// Keep badge consistent with certification logos
+
       &::before {
         content: '18+';
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        min-height: 50px;
         color: rgb(0 0 0);
         font-size: 16px;
         background-color: rgb(255 255 255);
-        font-weight: 500;
-        justify-content: center;
-        padding: 0px 3px;
-        align-items: center;
-        min-height: 40px;
         border-radius: 50%;
         border: 2px solid #f00;
         font-weight: bold;
-        height: 40px;
+        padding: 0;
       }
       &::after {
         background-image: url('imgs/footer/anjouan-logo.png');

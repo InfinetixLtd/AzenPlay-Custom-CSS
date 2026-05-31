@@ -126,9 +126,6 @@ pre {
 .app-ltr-1h746bz a:nth-child(1):hover::before {
   background-image: url(imgs/footer/tiktok-hr.png);
 }
-.app-ltr-1h746bz a:nth-child(1):hover::before {
-  background-image: url(imgs/footer/tiktok-hr.png);
-}
 .app-ltr-1h746bz a:nth-child(2):hover::before {
   background-image: url(imgs/footer/discord-hr.png);
 }
@@ -172,11 +169,11 @@ pre {
 
 @media (min-width: 1200px) {
   hr.app-ltr-xg086w {
-    margin-top: 80px;
+    margin-top: 60px;
   }
   .app-ltr-16ws2g7 {
-    padding-bottom: 50px;
-    margin-top: 50px;
+    padding-bottom: 40px;
+    margin-top: 30px;
   }
   .app-ltr-ywf5jp {
     flex-direction: revert-rule;
@@ -185,6 +182,12 @@ pre {
     min-width: 50%;
     max-width: 50%;
     display: block;
+  }
+  .app-ltr-76sv76 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
   }
   .app-ltr-76sv76 .app-ltr-1tvzmkd {
     display: none;
@@ -264,7 +267,7 @@ pre {
     justify-content: center;
     padding: 0px 3px;
     align-items: center;
-    min-height: 40px;
+    min-height: 50px;
     border-radius: 50%;
     border: 2px solid #f00;
     font-weight: bold;
@@ -294,24 +297,6 @@ pre {
   .app-ltr-16ws2g7 {
     margin-top: 50px;
   }
-  .app-ltr-ywf5jp,
-  .app-ltr-1uzs5zs,
-  .app-ltr-1uzs5zs ul {
-    position: relative;
-    display: inline-block;
-  }
-  .app-ltr-ywf5jp::before, .app-ltr-ywf5jp::after,
-  .app-ltr-1uzs5zs::before,
-  .app-ltr-1uzs5zs::after,
-  .app-ltr-1uzs5zs ul::before,
-  .app-ltr-1uzs5zs ul::after {
-    content: "";
-    display: block;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    position: absolute;
-    min-height: 50px;
-  }
   .app-ltr-1uzs5zs {
     width: 100%;
   }
@@ -325,6 +310,23 @@ pre {
     font-size: 14px;
     padding: 4px 16px 16px 0;
   }
+}
+@media (min-width: 769px) and (max-width: 1199px) and (min-width: 993px) and (max-width: 1198px) {
+  .app-ltr-1uzs5zs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .app-ltr-1uzs5zs li {
+    flex: 0 0 calc(50% - 8px);
+    width: auto;
+  }
+  .app-ltr-19zdw54 {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
   .app-ltr-cfnr2u {
     text-align: left;
   }
@@ -341,19 +343,18 @@ pre {
   .app-ltr-cfnr2u .app-ltr-ywf5jp::after {
     content: "18+";
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
     color: rgb(0, 0, 0);
     font-size: 16px;
     background-color: rgb(255, 255, 255);
-    font-weight: 500;
-    justify-content: center;
-    padding: 0px 3px;
-    align-items: center;
-    min-height: 40px;
     border-radius: 50%;
     border: 2px solid #f00;
     font-weight: bold;
-    top: 190px;
+    padding: 0;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
     background-image: url("imgs/footer/anjouan-logo.png");
@@ -377,7 +378,7 @@ pre {
     top: 120px;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 {
-    margin-top: 100px;
+    margin-top: 80px;
     display: inline-flex;
     flex-direction: column;
   }
@@ -464,19 +465,18 @@ pre {
   .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
     content: "18+";
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
     color: rgb(0, 0, 0);
     font-size: 16px;
     background-color: rgb(255, 255, 255);
-    font-weight: 500;
-    justify-content: center;
-    padding: 0px 3px;
-    align-items: center;
-    min-height: 40px;
     border-radius: 50%;
     border: 2px solid #f00;
     font-weight: bold;
-    height: 40px;
+    padding: 0;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp::after {
     background-image: url("imgs/footer/anjouan-logo.png");
