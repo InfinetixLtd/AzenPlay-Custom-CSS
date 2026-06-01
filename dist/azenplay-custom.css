@@ -589,20 +589,18 @@ pre {
     line-height: 1.5;
   }
 }
-.loadingOverlay_loading__5vIZu {
+.loadingOverlay_loading__5vIZu .loadingOverlay_spinnerRipple__07EzH {
   background-image: url(https://azenplay.com/loader);
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  position: static !important;
   transform: translate(-50%, -50%);
+  background-color: transparent !important;
 }
 
-.loadingOverlay_spinnerRipple__07EzH,
 .loadingOverlay_ldio__ZMSdQ,
 .loadingOverlay_ldio__ZMSdQ > div,
 .loadingOverlay_ldio__ZMSdQ:first-child,
