@@ -640,14 +640,14 @@
 
 // Loading overlay for Wheel
 .loadingOverlay_loading__5vIZu {
-  position: static !important;
+  background-color: transparent !important;
   .loadingOverlay_spinnerRipple__07EzH {
     background-image: url(https://azenplay.com/loader);
     width: 180px;
     height: 180px;
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     // transform: translate(-50%, -50%);
     // background-color: transparent !important;
   }
