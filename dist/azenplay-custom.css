@@ -589,3 +589,8 @@ pre {
     line-height: 1.5;
   }
 }
+@media (min-width: 993px) and (max-width: 1199px) {
+  .test-kiran {
+    margin-top: 50px;
+  }
+}

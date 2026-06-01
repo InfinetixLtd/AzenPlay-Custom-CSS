@@ -343,7 +343,7 @@
       max-width: 100%;
       // display: block;
       // text-align: left;
-      
+
       // Testing feedback:
       // 18+ badge should match the height of neighbouring certification logos (50px)
       &::after {
@@ -631,5 +631,11 @@
       margin-top: 5px;
       line-height: 1.5;
     }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+  .test-kiran {
+    margin-top: 50px;
   }
 }
