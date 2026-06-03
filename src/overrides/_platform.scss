@@ -643,11 +643,11 @@
   background-color: transparent !important;
   .loadingOverlay_spinnerRipple__07EzH {
     background-image: url(https://azenplay.com/loader);
-    width: 180px;
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    // width: 180px;
+    // height: 180px;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
     // transform: translate(-50%, -50%);
     // background-color: transparent !important;
   }
@@ -659,3 +659,100 @@
 .loadingOverlay_ldio__ZMSdQ:nth-child(2) {
   display: none;
 }
+
+// Wheel of Fortune widgets customizations
+
+// right side panel
+.sidebar_listGroup__cTTBu {
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    background: rgb(0 0 0 / 30%);
+    border: 1px solid #fff3;
+    border-radius: 16px;
+
+    .collections_card__Y5MpD {
+      background: rgb(0 0 0 / 50%);
+      border-radius: 8px;
+      color: #f9f9f9;
+      font-size: 12px;
+      font-weight: 400;
+      min-width: 260px;
+      padding: 12px;
+      width: 100%;
+      border: 1px solid #ffffff38;
+      .collections_symbolIconBox__7gCPe {
+        background: rgb(255 255 255 / 22%);
+        border-radius: 50px;
+        padding: 8px;
+        backdrop-filter: blur(75px);
+      }
+      .collections_progressBar__eA4yT {
+        background: rgb(255 255 255 / 8%);
+        border-radius: 4px;
+        display: block;
+        height: 8px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        border: 1px solid rgb(255 255 255 / 7%);
+      }
+      .collections_progressBarValue__7o0uH {
+        background: rgb(255 255 255 / 22%);
+        border-radius: 4px;
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+// left side panel
+.sidebar_sidebar__NqFkq {
+  .tabs_tabsGroup__ltO2c {
+    align-items: center;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    background: rgb(0 0 0 / 30%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 16px;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 340px;
+    padding: 4px;
+    width: 100%;
+  }
+  .sidebar_listGroup__ENCyv {
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    background: rgb(0 0 0 / 30%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 16px;
+  }
+  .card_card__AXdHj {
+    padding: 16px;
+    background: rgb(0 0 0 / 56%);
+    border-radius: 8px;
+    color: #f9f9f9;
+    font-size: 12px;
+    font-weight: 400;
+    min-width: 260px;
+    width: 100%;
+    border: 1px solid rgb(255 255 255 / 22%);
+    .card_progressBar__aAevs {
+      background: rgb(255 255 255 / 8%);
+      border-radius: 4px;
+      display: block;
+      height: 8px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      border: 1px solid rgb(255 255 255 / 7%);
+    }
+  }
+}
+

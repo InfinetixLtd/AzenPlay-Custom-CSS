@@ -594,11 +594,6 @@ pre {
 }
 .loadingOverlay_loading__5vIZu .loadingOverlay_spinnerRipple__07EzH {
   background-image: url(https://azenplay.com/loader);
-  width: 180px;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .loadingOverlay_ldio__ZMSdQ,
@@ -606,4 +601,90 @@ pre {
 .loadingOverlay_ldio__ZMSdQ:first-child,
 .loadingOverlay_ldio__ZMSdQ:nth-child(2) {
   display: none;
+}
+
+.sidebar_listGroup__cTTBu {
+  backdrop-filter: blur(0);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+.sidebar_listGroup__cTTBu .collections_card__Y5MpD {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: #f9f9f9;
+  font-size: 12px;
+  font-weight: 400;
+  min-width: 260px;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2196078431);
+}
+.sidebar_listGroup__cTTBu .collections_card__Y5MpD .collections_symbolIconBox__7gCPe {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 50px;
+  padding: 8px;
+  backdrop-filter: blur(75px);
+}
+.sidebar_listGroup__cTTBu .collections_card__Y5MpD .collections_progressBar__eA4yT {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: block;
+  height: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.sidebar_listGroup__cTTBu .collections_card__Y5MpD .collections_progressBarValue__7o0uH {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.sidebar_sidebar__NqFkq .tabs_tabsGroup__ltO2c {
+  align-items: center;
+  backdrop-filter: blur(0);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 340px;
+  padding: 4px;
+  width: 100%;
+}
+.sidebar_sidebar__NqFkq .sidebar_listGroup__ENCyv {
+  backdrop-filter: blur(0);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+.sidebar_sidebar__NqFkq .card_card__AXdHj {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.56);
+  border-radius: 8px;
+  color: #f9f9f9;
+  font-size: 12px;
+  font-weight: 400;
+  min-width: 260px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.sidebar_sidebar__NqFkq .card_card__AXdHj .card_progressBar__aAevs {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: block;
+  height: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
