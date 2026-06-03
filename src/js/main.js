@@ -61,6 +61,16 @@
   const PSEUDO_RE = /^(.+?)(::(?:before|after))$/;
   const bindings = new WeakMap(); // el -> Set<bindingKey>
 
+  // Debug mode — enable by:
+  //   1. window.AZENPLAY_DEBUG = true (set BEFORE this script loads), or
+  //   2. appending #ap-debug to the URL (e.g. azenplay.com/#ap-debug).
+  // When on, every binding decision, geometry calc, and click verdict is
+  // logged to the console under the [azenplay] prefix.
+  const isDebug = () =>
+    globalThis.AZENPLAY_DEBUG === true
+    || (typeof location !== 'undefined' && /(?:^|[#&])ap-debug(?:$|[&=])/.test(location.hash));
+  const log = (...args) => { if (isDebug()) console.log('[azenplay]', ...args); };
+
   const getLinks = () =>
     (Array.isArray(globalThis.AZENPLAY_LINKS) && globalThis.AZENPLAY_LINKS) || DEFAULT_LINKS;
 
@@ -123,9 +133,11 @@
 
   const clickInsidePseudo = (host, pseudo, evt) => {
     const r = pseudoRect(host, pseudo);
-    if (!r) return false;
-    return evt.clientX >= r.left && evt.clientX <= r.right
-        && evt.clientY >= r.top  && evt.clientY <= r.bottom;
+    if (!r) { log('click skip — pseudo rect null', { host, pseudo }); return false; }
+    const inside = evt.clientX >= r.left && evt.clientX <= r.right
+                && evt.clientY >= r.top  && evt.clientY <= r.bottom;
+    log('click hit-test', { host, pseudo, rect: r, x: evt.clientX, y: evt.clientY, inside });
+    return inside;
   };
 
   const bindOne = (el, entry) => {
@@ -134,11 +146,13 @@
     const key = `${entry.pseudo || ''}|${entry.url}`;
     if (keys.has(key)) return; // idempotent
     keys.add(key);
+    log('bind', { el, pseudo: entry.pseudo, url: entry.url, target: entry.target });
 
     if (entry.pseudo) {
       // Capture phase so we run BEFORE the parent's own link/handlers.
       el.addEventListener('click', (e) => {
         if (!clickInsidePseudo(el, entry.pseudo, e)) return; // let host handle
+        log('intercept -> navigate', { url: entry.url, target: entry.target });
         e.preventDefault();
         e.stopImmediatePropagation();
         navigate(entry.url, entry.target);
@@ -168,9 +182,11 @@
   };
 
   const bindAll = () => {
-    for (const raw of getLinks()) {
+    const links = getLinks();
+    log('bindAll start', { entries: links.length, debug: isDebug() });
+    for (const raw of links) {
       const entry = parseEntry(raw);
-      if (!entry) continue;
+      if (!entry) { log('skip invalid entry', raw); continue; }
       let nodes;
       try {
         nodes = document.querySelectorAll(entry.hostSelector);
@@ -178,6 +194,7 @@
         console?.warn?.('[azenplay] invalid selector:', raw.selector, err);
         continue;
       }
+      log('selector ->', raw.selector, '| host:', entry.hostSelector, '| matches:', nodes.length);
       for (const node of nodes) bindOne(node, entry);
     }
   };
