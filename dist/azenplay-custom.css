@@ -293,7 +293,13 @@ pre {
     bottom: -70px;
   }
 }
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1200px) {
+  .app-ltr-cfnr2u .app-ltr-19zdw54::before {
+    background-image: url(imgs/footer/andriod-img.svg);
+    margin-top: -85px;
+    position: absolute;
+    left: 250px;
+  }
   .app-ltr-16ws2g7 {
     margin-top: 50px;
   }
@@ -311,7 +317,10 @@ pre {
     padding: 4px 16px 16px 0;
   }
 }
-@media (min-width: 769px) and (max-width: 1199px) and (min-width: 993px) and (max-width: 1198px) {
+@media (min-width: 769px) and (max-width: 1200px) and (min-width: 993px) and (max-width: 1199px) {
+  .app-ltr-2ca2ie-control {
+    display: none;
+  }
   .app-ltr-1uzs5zs {
     display: flex;
     flex-wrap: wrap;
@@ -326,7 +335,7 @@ pre {
     margin-top: 80px;
   }
 }
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1200px) {
   .app-ltr-cfnr2u {
     text-align: left;
   }
@@ -360,7 +369,7 @@ pre {
     background-image: url("imgs/footer/anjouan-logo.png");
     width: 87px;
     height: 50px;
-    left: 13%;
+    left: 18%;
     top: 487px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
@@ -373,7 +382,7 @@ pre {
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
     background-image: url("imgs/footer/gambleaware-logo.png");
     width: 209px;
-    height: 30px;
+    height: 50px;
     left: 70%;
     top: 458px;
   }
@@ -390,7 +399,7 @@ pre {
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
-    margin-top: -100px;
+    margin-top: -85px;
     position: absolute;
     left: 250px;
   }
@@ -487,14 +496,14 @@ pre {
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
     background-image: url("imgs/footer/gamecheck-logo.svg");
     width: 175px;
-    height: 50px;
+    height: 30px;
     left: 0;
     bottom: -150px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
     background-image: url("imgs/footer/gambleaware-logo.png");
     width: 130px;
-    height: 30px;
+    height: 50px;
     left: 190px;
     bottom: -165px;
     background-size: contain;
@@ -512,7 +521,7 @@ pre {
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
-    margin-top: -100px;
+    margin-top: -85px;
     position: absolute;
     left: 195px;
   }

@@ -294,7 +294,15 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1200px) {
+
+  .app-ltr-cfnr2u .app-ltr-19zdw54::before {
+    background-image: url(imgs/footer/andriod-img.svg);
+    margin-top: -85px;
+    position: absolute;
+    left: 250px;
+    }
+
   .app-ltr-16ws2g7 {
     margin-top: 50px;
   }
@@ -312,8 +320,12 @@
     }
   }
   // Fix footer layout between 993px and 1198px
-  @media (min-width: 993px) and (max-width: 1198px) {
-
+  @media (min-width: 993px) and (max-width: 1199px) {
+    
+    //Language bar
+    .app-ltr-2ca2ie-control {
+    display: none;
+    }
     .app-ltr-1uzs5zs {
       display: flex;
       flex-wrap: wrap;
@@ -366,7 +378,7 @@
         background-image: url('imgs/footer/anjouan-logo.png');
         width: 87px;
         height: 50px;
-        left: 13%;
+        left: 18%;
         top: 487px;
       }
       ul {
@@ -380,7 +392,7 @@
         &::after {
           background-image: url('imgs/footer/gambleaware-logo.png');
           width: 209px;
-          height: 30px;
+          height: 50px;
           left: 70%;
           top: 458px;
         }
@@ -401,7 +413,7 @@
       }
       &::before {
         background-image: url(imgs/footer/andriod-img.svg);
-        margin-top: -100px;
+        margin-top: -85px;
         position: absolute;
         left: 250px;
       }
@@ -518,14 +530,14 @@
         &::before {
           background-image: url('imgs/footer/gamecheck-logo.svg');
           width: 175px;
-          height: 50px;
+          height: 30px;
           left: 0;
           bottom: -150px;
         }
         &::after {
           background-image: url('imgs/footer/gambleaware-logo.png');
           width: 130px;
-          height: 30px;
+          height: 50px;
           left: 190px;
           bottom: -165px;
           background-size: contain;
@@ -545,7 +557,7 @@
       }
       &::before {
         background-image: url(imgs/footer/andriod-img.svg);
-        margin-top: -100px;
+        margin-top: -85px;
         position: absolute;
         left: 195px;
       }
