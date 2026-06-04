@@ -341,55 +341,160 @@
       }
     }
   }
-}
   // Fix footer layout between 993px and 1198px
 @media (min-width: 993px) and (max-width: 1199px) {
     
-    .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
-    background-image: url(imgs/footer/anjouan-logo.png);
-    width: 87px;
-    height: 50px;
-    left: 18%;
-    top: 180px;
-  }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
-    background-image: url(imgs/footer/gamecheck-logo.svg);
-    width: 175px;
-    height: 50px;
-    left: 40%;
-    top: 100px;
-  }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
-    background-image: url(imgs/footer/gambleaware-logo.png);
-    width: 209px;
-    height: 50px;
-    left: 70%;
-    top: 110px;
-  }
-
-  .app-ltr-cfnr2u .app-ltr-19zdw54::before {
-    background-image: url(imgs/footer/andriod-img.svg);
-    margin-top: -68px;
-    position: absolute;
-    left: 250px;
+    //Language bar
+    .app-ltr-2ca2ie-control {
+    display: none;
+    }
+    .app-ltr-1uzs5zs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items:flex-start;
     }
 
-  .app-ltr-16ws2g7 {
-    margin-top: 50px;
+    .app-ltr-1uzs5zs li {
+    flex: 0 0 calc(50% - 8px);
+    width: auto;
   }
-  .app-ltr-1uzs5zs {
-    width: 100%;
-    li {
-      margin: 0;
-      display: inline-block;
-      width: 25%;
-      text-align: left;
-      .app-ltr-rtov00 {
-        font-size: 14px;
-        padding: 4px 16px 16px 0;
+
+    .app-ltr-19zdw54 {
+      margin-top: 80px;
+    }
+  }
+  .app-ltr-cfnr2u {
+    text-align: left;
+    hr {
+      border-block-color: transparent;
+    }
+    .app-ltr-ywf5jp {
+      flex-direction: revert-rule;
+      gap: revert-rule;
+      align-items: self-start;
+      min-width: 100%;
+      max-width: 100%;
+      // display: block;
+      // text-align: left;
+
+      // Testing feedback:
+      // 18+ badge should match the height of neighbouring certification logos (50px)
+      &::after {
+        content: '18+';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        min-height: 50px;
+        color: rgb(0 0 0);
+        font-size: 16px;
+        background-color: rgb(255 255 255);
+        border-radius: 50%;
+        border: 2px solid #f00;
+        font-weight: bold;
+        padding: 0;
+      }
+      &::before {
+        background-image: url('imgs/footer/anjouan-logo.png');
+        width: 87px;
+        height: 50px;
+        left: 18%;
+        top: 487px;
+      }
+      ul {
+        &::before {
+          background-image: url('imgs/footer/gamecheck-logo.svg');
+          width: 175px;
+          height: 50px;
+          left: 40%;
+          top: 446px;
+        }
+        &::after {
+          background-image: url('imgs/footer/gambleaware-logo.png');
+          width: 209px;
+          height: 50px;
+          left: 70%;
+          top: 458px;
+        }
       }
     }
- }
+    .app-ltr-19zdw54 {
+      margin-top: 80px;
+      display: inline-flex;
+      flex-direction: column;
+      &::before,
+      &::after {
+        content: '';
+        width: 150px;
+        height: 50px;
+        display: block;
+        // margin-bottom: 20px;
+        // position: relative;
+      }
+      &::before {
+        background-image: url(imgs/footer/andriod-img.svg);
+        margin-top: -85px;
+        position: absolute;
+        left: 250px;
+      }
+      &::after {
+        background-image: url(imgs/footer/iOS-img.svg);
+        margin-top: 100px;
+        position: absolute;
+        left: 250px;
+      }
+      // Footer telegram Start
+      .app-ltr-14pr45b {
+        &::before {
+          content: '';
+          display: block;
+          width: 150px;
+          height: 186px;
+          background-image: url(imgs/footer/telegram-qr.svg);
+          background-size: cover;
+        }
+        font-size: 0;
+        color: transparent;
+        background-color: transparent;
+        padding-left: 0;
+        // margin-top: 100px;
+      }
+      // Footer telegram End
+    }
+  }
+  // Footer Language Start
+  // first hr
+  .app-ltr-qsaw8 {
+    display: none;
+  }
+  // Footer Language End
+
+  // Copyright & Social icons
+
+  .app-ltr-176106l {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  // logo
+  .app-ltr-b7ljj5 {
+    display: block;
+    max-height: inherit;
+    min-width: inherit;
+    max-width: 220px;
+    margin: 0 0 30px 0;
+    text-align: left;
+    &::after {
+      content: 'The Next Generation of Player-Owned Gaming!';
+      display: block;
+      color: #fff;
+      text-align: left;
+      font-size: 12px;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -563,6 +668,9 @@
   }
 }
 
+@media (min-width: 993px) and (max-width: 1199px) {
+
+}
 
 // Loading overlay for Wheel
 .loadingOverlay_loading__5vIZu {
