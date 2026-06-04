@@ -294,33 +294,11 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
-
-  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
-    background-image: url(imgs/footer/anjouan-logo.png);
-    width: 87px;
-    height: 50px;
-    left: 18%;
-    top: 180px;
-  }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
-    background-image: url(imgs/footer/gamecheck-logo.svg);
-    width: 175px;
-    height: 50px;
-    left: 40%;
-    top: 100px;
-  }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
-    background-image: url(imgs/footer/gambleaware-logo.png);
-    width: 209px;
-    height: 50px;
-    left: 70%;
-    top: 110px;
-  }
+@media (min-width: 769px) and (max-width: 1199px) {
 
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
-    margin-top: -68px;
+    margin-top: -85px;
     position: absolute;
     left: 250px;
     }
@@ -342,7 +320,7 @@
     }
   }
   // Fix footer layout between 993px and 1198px
-@media (min-width: 993px) and (max-width: 1199px) {
+  @media (min-width: 993px) and (max-width: 1199px) {
     
     //Language bar
     .app-ltr-2ca2ie-control {
