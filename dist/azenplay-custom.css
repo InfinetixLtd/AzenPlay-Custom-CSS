@@ -293,7 +293,7 @@ pre {
     bottom: -70px;
   }
 }
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1199px) {
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
     margin-top: -85px;
@@ -317,7 +317,7 @@ pre {
     padding: 4px 16px 16px 0;
   }
 }
-@media (min-width: 769px) and (max-width: 1200px) and (min-width: 993px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1199px) and (min-width: 993px) and (max-width: 1199px) {
   .app-ltr-2ca2ie-control {
     display: none;
   }
@@ -335,7 +335,7 @@ pre {
     margin-top: 80px;
   }
 }
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1199px) {
   .app-ltr-cfnr2u {
     text-align: left;
   }
