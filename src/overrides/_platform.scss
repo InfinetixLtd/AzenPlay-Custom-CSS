@@ -144,7 +144,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1199px) {
   // footer hr
   hr.app-ltr-xg086w {
     margin-top: 60px;
@@ -294,7 +294,7 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 992px) {
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
         background-image: url(imgs/footer/andriod-img.svg);
         margin-top: -67px;
@@ -339,7 +339,7 @@
     }
   }
   // Fix footer layout between 993px and 1198px
-  @media (min-width: 993px) and (max-width: 1198px) {
+  @media (min-width: 993px) and (max-width: 1199px) {
     
     //Language bar
     .app-ltr-2ca2ie-control {
