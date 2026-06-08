@@ -696,3 +696,16 @@ pre {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
+
+/* Tablet footer fixes: 769px - 992px */
+@media (min-width: 769px) and (max-width: 992px) {
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
+    top: 186px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
+    top: 100px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+    top: 110px;
+  }
+}
