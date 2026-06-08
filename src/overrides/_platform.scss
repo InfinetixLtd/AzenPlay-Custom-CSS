@@ -56,6 +56,8 @@
 // copyright
 .app-ltr-1959n0c {
   font-size: 12px;
+  color: #f1f2f3;
+
 }
 /* Social Icons */
 .app-ltr-1h746bz {
@@ -170,6 +172,7 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
+    margin-top:0%;
 
     .app-ltr-1tvzmkd {
       display: none;
@@ -648,7 +651,91 @@
 
 @media (min-width: 993px) and (max-width: 1199px) {
 
+  // Language bar — hide at this range
+  .app-ltr-2ca2ie-control {
+    display: none;
+  }
+
+  // Footer links — switch to 2-column flex layout
+  .app-ltr-1uzs5zs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .app-ltr-1uzs5zs li {
+    flex: 0 0 calc(50% - 8px);
+    width: auto;
+    display: block;
+    text-align: left;
+  }
+
+  // Cert logos — replace broken top: pixel values with bottom: (relative to container)
+  .app-ltr-cfnr2u .app-ltr-ywf5jp {
+    &::before {
+      top: auto;
+      bottom: -70px;
+      left: 18%;
+    }
+    ul {
+      &::before {
+        top: auto;
+        bottom: -65px;
+        left: 40%;
+      }
+      &::after {
+        top: auto;
+        bottom: -70px;
+        left: 70%;
+      }
+    }
+  }
+
+  // App badges — replace fixed left: 250px with percentage to prevent clipping
+  .app-ltr-cfnr2u .app-ltr-19zdw54 {
+    margin-top: 80px;
+    &::before {
+      left: 55%;
+      margin-top: -85px;
+    }
+    &::after {
+      left: 55%;
+      margin-top: 100px;
+    }
+  }
+
+  // QR code — ensure it renders
+  .app-ltr-14pr45b {
+    &::before {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 186px;
+      background-image: url(imgs/footer/telegram-qr.svg);
+      background-size: cover;
+    }
+    font-size: 0;
+    color: transparent;
+    background-color: transparent;
+    padding-left: 0;
+  }
+
+  // Footer container spacing
+  .app-ltr-16ws2g7 {
+    margin-top: 50px;
+    padding-bottom: 40px;
+  }
+
+  // Copyright + social row
+  .app-ltr-176106l {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
+
+
+
 
 // Loading overlay for Wheel
 .loadingOverlay_loading__5vIZu {
