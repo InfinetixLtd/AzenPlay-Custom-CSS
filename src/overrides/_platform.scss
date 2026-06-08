@@ -172,10 +172,16 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
-    margin-top:0%;
 
     .app-ltr-1tvzmkd {
       display: none;
+    }
+    .app-ltr-76sv76::before, .app-ltr-76sv76::after {
+        //content: "";
+        //width: 150px;
+        //height: 50px;
+        //display: block;
+        margin-bottom: 0px;
     }
     &::before,
     &::after {
@@ -656,57 +662,104 @@
     display: none;
   }
 
-  // Footer links — switch to 2-column flex layout
-  .app-ltr-1uzs5zs {
+  // Footer container — spacing + overflow for cert logos
+  .app-ltr-16ws2g7 {
+    margin-top: 50px;
+    padding-bottom: 80px;       // increased from 40px — makes room for logos below
+  }
+
+  // hr spacer — same as desktop, creates visual gap above copyright
+  hr.app-ltr-xg086w {
+    margin-top: 60px;
+  }
+
+  // Footer links — 2-column flex, left-aligned
+  .app-ltr-cfnr2u .app-ltr-1uzs5zs {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     align-items: flex-start;
     text-align: left;
+    width: 100%;
   }
-  .app-ltr-1uzs5zs li {
+  .app-ltr-cfnr2u .app-ltr-1uzs5zs li {
     flex: 0 0 calc(50% - 8px);
     width: auto;
     display: block;
     text-align: left;
   }
 
-  // Cert logos — replace broken top: pixel values with bottom: (relative to container)
+  // Link text — force left align (desktop block has this, tablet did not)
+  .app-ltr-cfnr2u .app-ltr-rtov00 {
+    text-align: left;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  // Cert logo container — must be visible overflow so ::before/::after show below
+  .app-ltr-cfnr2u .app-ltr-ywf5jp,
+  .app-ltr-cfnr2u .app-ltr-1uzs5zs,
+  .app-ltr-cfnr2u .app-ltr-1uzs5zs ul {
+    overflow: visible;
+    position: relative;
+  }
+
+  // Cert logos — bottom: positioning with explicit background-size
   .app-ltr-cfnr2u .app-ltr-ywf5jp {
     &::before {
       top: auto;
       bottom: -70px;
-      left: 18%;
+      left: 13%;
+      width: 87px;
+      height: 50px;
+      background-image: url('imgs/footer/anjouan-logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     ul {
       &::before {
         top: auto;
         bottom: -65px;
         left: 40%;
+        width: 175px;
+        height: 50px;
+        background-image: url('imgs/footer/gamecheck-logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
       }
       &::after {
         top: auto;
         bottom: -70px;
         left: 70%;
+        width: 209px;
+        height: 30px;
+        background-image: url('imgs/footer/gambleaware-logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
       }
     }
   }
 
-  // App badges — replace fixed left: 250px with percentage to prevent clipping
-  .app-ltr-cfnr2u .app-ltr-19zdw54 {
-    margin-top: 80px;
-    &::before {
-      left: 55%;
-      margin-top: -85px;
-    }
-    &::after {
-      left: 55%;
-      margin-top: 100px;
-    }
+  // 18+ badge
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::after {
+    content: '18+';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    color: rgb(0 0 0);
+    font-size: 16px;
+    background-color: rgb(255 255 255);
+    border-radius: 50%;
+    border: 2px solid #f00;
+    font-weight: bold;
+    padding: 0;
   }
 
-  // QR code — ensure it renders
-  .app-ltr-14pr45b {
+  // QR code
+  .app-ltr-cfnr2u .app-ltr-14pr45b {
     &::before {
       content: '';
       display: block;
@@ -721,10 +774,35 @@
     padding-left: 0;
   }
 
-  // Footer container spacing
-  .app-ltr-16ws2g7 {
-    margin-top: 50px;
-    padding-bottom: 40px;
+  // App badges — percentage left instead of fixed 250px
+  .app-ltr-cfnr2u .app-ltr-19zdw54 {
+    margin-top: 80px;
+    display: inline-flex;
+    flex-direction: column;
+    &::before {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 50px;
+      background-image: url(imgs/footer/andriod-img.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-top: -85px;
+      position: absolute;
+      left: 55%;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 50px;
+      background-image: url(imgs/footer/iOS-img.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-top: 100px;
+      position: absolute;
+      left: 55%;
+    }
   }
 
   // Copyright + social row
@@ -733,6 +811,7 @@
     justify-content: space-between;
   }
 }
+
 
 
 
