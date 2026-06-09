@@ -657,7 +657,157 @@
 
 @media (min-width: 993px) and (max-width: 1199px) {
 
+  // ── Unlock overflow on EVERY footer ancestor ──────────────────────
+  // Platform likely applies overflow: hidden at tablet breakpoints.
+  // Without this, bottom: -70px on ::before/::after is clipped by the
+  // outer container regardless of what we set on the inner element.
+  .app-ltr-16ws2g7 {
+    overflow: visible;
+    margin-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  .app-ltr-cfnr2u {
+    overflow: visible;
+  }
+
+  // ── HR above cert logo zone ───────────────────────────────────────
+  hr.app-ltr-xg086w {
+    margin-top: 60px;
+  }
+
+  // ── Language bar ──────────────────────────────────────────────────
+  .app-ltr-2ca2ie-control {
+    display: none;
+  }
+
+  // ── Footer logo ───────────────────────────────────────────────────
+  .app-ltr-b7ljj5 {
+    display: block;
+    max-width: 220px;
+    margin: 0 0 30px 0;
+    text-align: left;
+    &::after {
+      content: 'The Next Generation of Player-Owned Gaming!';
+      display: block;
+      color: #fff;
+      text-align: left;
+      font-size: 12px;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+  }
+
+  // ── Links — 2-column layout ───────────────────────────────────────
+  .app-ltr-1uzs5zs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: flex-start;
+    li {
+      flex: 0 0 50%;
+      width: 50%;
+      margin: 0;
+      display: block;
+      text-align: left;
+      .app-ltr-rtov00 {
+        font-size: 14px;
+        padding: 4px 16px 4px 0;
+        text-align: left;
+      }
+    }
+  }
+
+  // ── Telegram QR code ──────────────────────────────────────────────
+  .app-ltr-14pr45b {
+    &::before {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 186px;
+      background-image: url(imgs/footer/telegram-qr.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    font-size: 0;
+    color: transparent;
+    background-color: transparent;
+    padding-left: 0;
+  }
+
+  // ── App store badges ──────────────────────────────────────────────
+  .app-ltr-cfnr2u .app-ltr-19zdw54 {
+    margin-top: 80px;
+    overflow: visible;
+    &::before {
+      background-image: url(imgs/footer/andriod-img.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 250px;
+      margin-top: -85px;
+    }
+    &::after {
+      background-image: url(imgs/footer/iOS-img.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 250px;
+      margin-top: 100px;
+    }
+  }
+
+  // ── Cert logos ────────────────────────────────────────────────────
+  // Step 1: Unlock overflow on the cert logo container and its children
+  // Step 2: Reset top: 487px / 446px / 458px from the 769–1199 block
+  // Step 3: Add background-size: contain so images render correctly
+  .app-ltr-cfnr2u .app-ltr-ywf5jp {
+    overflow: visible;
+    &::before {
+      content: '';
+      top: auto;
+      bottom: -70px;
+      left: 18%;
+      background-image: url('imgs/footer/anjouan-logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 87px;
+      height: 50px;
+    }
+    ul {
+      overflow: visible;
+      &::before {
+        content: '';
+        top: auto;
+        bottom: -65px;
+        left: 40%;
+        background-image: url('imgs/footer/gamecheck-logo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 175px;
+        height: 50px;
+      }
+      &::after {
+        content: '';
+        top: auto;
+        bottom: -70px;
+        left: 70%;
+        background-image: url('imgs/footer/gambleaware-logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 209px;
+        height: 50px;
+      }
+    }
+  }
+
+  // ── Copyright bar ─────────────────────────────────────────────────
+  .app-ltr-176106l {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
+
 
 
 
