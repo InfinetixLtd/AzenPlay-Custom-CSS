@@ -193,15 +193,12 @@ pre {
   .app-ltr-76sv76 .app-ltr-1tvzmkd {
     display: none;
   }
-  .app-ltr-76sv76 .app-ltr-76sv76::before, .app-ltr-76sv76 .app-ltr-76sv76::after {
-    margin-bottom: 0px;
-  }
   .app-ltr-76sv76::before, .app-ltr-76sv76::after {
     content: "";
     width: 150px;
     height: 50px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   .app-ltr-76sv76::before {
     background-image: url(imgs/footer/andriod-img.svg);
