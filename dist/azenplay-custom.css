@@ -188,12 +188,12 @@ pre {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0px;
+    gap: 20px;
   }
   .app-ltr-76sv76 .app-ltr-1tvzmkd {
     display: none;
   }
-  .app-ltr-76sv76 .app-ltr-76sv76::before {
+  .app-ltr-76sv76 .app-ltr-76sv76::before, .app-ltr-76sv76 .app-ltr-76sv76::after {
     margin-bottom: 0px;
   }
   .app-ltr-76sv76::before, .app-ltr-76sv76::after {
@@ -600,6 +600,133 @@ pre {
     font-size: 12px;
     margin-top: 5px;
     line-height: 1.5;
+  }
+}
+@media (min-width: 993px) and (max-width: 1199px) {
+  .app-ltr-16ws2g7 {
+    overflow: visible;
+    margin-top: 50px;
+    padding-bottom: 100px;
+  }
+  .app-ltr-cfnr2u {
+    overflow: visible;
+  }
+  hr.app-ltr-xg086w {
+    margin-top: 60px;
+  }
+  .app-ltr-2ca2ie-control {
+    display: none;
+  }
+  .app-ltr-b7ljj5 {
+    display: block;
+    max-width: 220px;
+    margin: 0 0 30px 0;
+    text-align: left;
+  }
+  .app-ltr-b7ljj5::after {
+    content: "The Next Generation of Player-Owned Gaming!";
+    display: block;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+  .app-ltr-1uzs5zs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: flex-start;
+  }
+  .app-ltr-1uzs5zs li {
+    flex: 0 0 50%;
+    width: 50%;
+    margin: 0;
+    display: block;
+    text-align: left;
+  }
+  .app-ltr-1uzs5zs li .app-ltr-rtov00 {
+    font-size: 14px;
+    padding: 4px 16px 4px 0;
+    text-align: left;
+  }
+  .app-ltr-14pr45b::before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 186px;
+    background-image: url(imgs/footer/telegram-qr.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .app-ltr-14pr45b {
+    font-size: 0;
+    color: transparent;
+    background-color: transparent;
+    padding-left: 0;
+  }
+  .app-ltr-cfnr2u .app-ltr-19zdw54 {
+    margin-top: 80px;
+    overflow: visible;
+  }
+  .app-ltr-cfnr2u .app-ltr-19zdw54::before {
+    background-image: url(imgs/footer/andriod-img.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 250px;
+    margin-top: -85px;
+  }
+  .app-ltr-cfnr2u .app-ltr-19zdw54::after {
+    background-image: url(imgs/footer/iOS-img.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 250px;
+    margin-top: 100px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp {
+    overflow: visible;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
+    content: "";
+    top: auto;
+    bottom: -70px;
+    left: 18%;
+    background-image: url("imgs/footer/anjouan-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 87px;
+    height: 50px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul {
+    overflow: visible;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
+    content: "";
+    top: auto;
+    bottom: -65px;
+    left: 40%;
+    background-image: url("imgs/footer/gamecheck-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 175px;
+    height: 50px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+    content: "";
+    top: auto;
+    bottom: -70px;
+    left: 70%;
+    background-image: url("imgs/footer/gambleaware-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 209px;
+    height: 50px;
+  }
+  .app-ltr-176106l {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 .loadingOverlay_loading__5vIZu {
