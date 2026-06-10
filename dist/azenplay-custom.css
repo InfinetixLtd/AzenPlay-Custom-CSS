@@ -865,3 +865,17 @@ pre {
   position: relative;
   right: 25%;
 }
+
+/* 451 Error page */
+.restriction-message {
+  margin-bottom: auto;
+}
+
+.globe-image {
+  width: 130%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  right: 25%;
+}
