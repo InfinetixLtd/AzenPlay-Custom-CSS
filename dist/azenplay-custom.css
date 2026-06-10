@@ -647,57 +647,6 @@ pre {
     padding: 4px 16px 4px 0;
     text-align: left;
   }
-  .app-ltr-ywf5jp {
-    flex-direction: revert-rule;
-    gap: revert-rule;
-    align-items: self-start;
-    min-width: 50%;
-    max-width: 50%;
-    display: block;
-  }
-  .app-ltr-76sv76 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 20px;
-  }
-  .app-ltr-76sv76 .app-ltr-1tvzmkd {
-    display: none;
-  }
-  .app-ltr-76sv76::before, .app-ltr-76sv76::after {
-    content: "";
-    width: 150px;
-    height: 50px;
-    display: block;
-    margin-bottom: 0;
-  }
-  .app-ltr-76sv76::before {
-    background-image: url(imgs/footer/andriod-img.svg);
-  }
-  .app-ltr-76sv76::after {
-    background-image: url(imgs/footer/iOS-img.svg);
-  }
-  .app-ltr-1r910aa {
-    display: block;
-    max-height: inherit;
-    min-width: inherit;
-    margin: 0 0 30px 0;
-    text-align: left;
-  }
-  .app-ltr-1r910aa::after {
-    content: "The Next Generation of Player-Owned Gaming!";
-    display: block;
-    color: #fff;
-    text-align: left;
-    font-size: 12px;
-    margin-top: 5px;
-    line-height: 1.5;
-  }
-  .app-ltr-19zdw54 {
-    min-width: 42vw;
-    max-width: 42vw;
-    min-height: 25vh;
-  }
   .app-ltr-14pr45b::before {
     content: "";
     display: block;
