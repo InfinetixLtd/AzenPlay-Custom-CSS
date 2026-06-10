@@ -80,7 +80,6 @@
         position: absolute;
         left: -2px;
         top: -2px;
-        background-image: url(imgs/footer/filled/social-hover-icons.svg);
       }
       img {
         opacity: 0;
@@ -89,43 +88,43 @@
     }
     &:nth-child(1) {
       &:hover {
-        &::before #linkedin-hr {
-          background-position: 0 -24px;
+        &::before {
+          background-image: url(imgs/footer/filled/tiktok-hr.png);
         }
       }
     }
     &:nth-child(2) {
       &:hover {
         &::before {
-          background-position: 0 -24px;
+          background-image: url(imgs/footer/filled/discord-hr.png);
         }
       }
     }
     &:nth-child(3) {
       &:hover {
         &::before {
-          background-position: 0 -24px;
+          background-image: url(imgs/footer/filled/instagram-hr.png);
         }
       }
     }
     &:nth-child(4) {
       &:hover {
         &::before {
-          background-position: 0 -24px;
+          background-image: url(imgs/footer/filled/linkedin-hr.png);
         }
       }
     }
     &:nth-child(5) {
       &:hover {
         &::before {
-          background-position: 0 -24px;
+          background-image: url(imgs/footer/filled/twitter-hr.png);
         }
       }
     }
     &:nth-child(6) {
       &:hover {
         &::before {
-          background-position: 0 -24px;
+          background-image: url(imgs/footer/filled/youtube-hr.png);
         }
       }
     }
@@ -973,16 +972,3 @@
     position: relative;
     right: 25%;
 }
-
-/* 451 Error page */
-.restriction-message {
-    margin-bottom: auto;
-}
-.globe-image {
-    width: 130%;
-    height: 100%;
-    object-fit: contain;
-    position: relative;
-    right: 25%;
-}
- 
