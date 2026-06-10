@@ -59,13 +59,19 @@
   color: #f1f2f3;
 
 }
+.app-ltr-4cj164:hover {
+  opacity: 1;
+}
 /* Social Icons */
 .app-ltr-1h746bz {
   position: relative;
   a {
     position: relative;
     &:hover {
+      transition-duration: 2s;
+      transition-timing-function: ease-in-out;
       &::before {
+        image-rendering: -webkit-optimize-contrast;
         content: '';
         display: block;
         width: 28px;
@@ -74,6 +80,7 @@
         position: absolute;
         left: -2px;
         top: -2px;
+        background-image: url(imgs/footer/filled/social-hover-icons.svg);
       }
       img {
         opacity: 0;
@@ -82,43 +89,43 @@
     }
     &:nth-child(1) {
       &:hover {
-        &::before {
-          background-image: url(imgs/footer/filled/tiktok-hr.png);
+        &::before #linkedin-hr {
+          background-position: 0 -24px;
         }
       }
     }
     &:nth-child(2) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/filled/discord-hr.png);
+          background-position: 0 -24px;
         }
       }
     }
     &:nth-child(3) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/filled/instagram-hr.png);
+          background-position: 0 -24px;
         }
       }
     }
     &:nth-child(4) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/filled/linkedin-hr.png);
+          background-position: 0 -24px;
         }
       }
     }
     &:nth-child(5) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/filled/twitter-hr.png);
+          background-position: 0 -24px;
         }
       }
     }
     &:nth-child(6) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/filled/youtube-hr.png);
+          background-position: 0 -24px;
         }
       }
     }

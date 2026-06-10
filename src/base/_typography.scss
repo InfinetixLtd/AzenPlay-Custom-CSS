@@ -33,17 +33,17 @@ p {
 }
 
 a {
-  color: var(--ap-color-primary);
+  // color: var(--ap-color-primary);
   transition: color var(--ap-transition-fast);
 
-  &:hover {
-    color: var(--ap-color-secondary);
-  }
+  // &:hover {
+  //   color: var(--ap-color-secondary);
+  // }
 }
 
 small {
   font-size: fs('sm');
-  color: var(--ap-text-muted);
+  // color: var(--ap-text-muted);
 }
 
 code,

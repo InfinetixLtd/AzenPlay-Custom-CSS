@@ -82,16 +82,11 @@ p {
 }
 
 a {
-  color: var(--ap-color-primary);
   transition: color var(--ap-transition-fast);
-}
-a:hover {
-  color: var(--ap-color-secondary);
 }
 
 small {
   font-size: 0.875rem;
-  color: var(--ap-text-muted);
 }
 
 code,
@@ -109,6 +104,10 @@ pre {
   color: #f1f2f3;
 }
 
+.app-ltr-4cj164:hover {
+  opacity: 1;
+}
+
 /* Social Icons */
 .app-ltr-1h746bz {
   position: relative;
@@ -116,7 +115,12 @@ pre {
 .app-ltr-1h746bz a {
   position: relative;
 }
+.app-ltr-1h746bz a:hover {
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
+}
 .app-ltr-1h746bz a:hover::before {
+  image-rendering: -webkit-optimize-contrast;
   content: "";
   display: block;
   width: 28px;
@@ -125,28 +129,29 @@ pre {
   position: absolute;
   left: -2px;
   top: -2px;
+  background-image: url(imgs/footer/filled/social-hover-icons.svg);
 }
 .app-ltr-1h746bz a:hover img {
   opacity: 0;
   visibility: hidden;
 }
-.app-ltr-1h746bz a:nth-child(1):hover::before {
-  background-image: url(imgs/footer/filled/tiktok-hr.png);
+.app-ltr-1h746bz a:nth-child(1):hover::before #linkedin-hr {
+  background-position: 0 -24px;
 }
 .app-ltr-1h746bz a:nth-child(2):hover::before {
-  background-image: url(imgs/footer/filled/discord-hr.png);
+  background-position: 0 -24px;
 }
 .app-ltr-1h746bz a:nth-child(3):hover::before {
-  background-image: url(imgs/footer/filled/instagram-hr.png);
+  background-position: 0 -24px;
 }
 .app-ltr-1h746bz a:nth-child(4):hover::before {
-  background-image: url(imgs/footer/filled/linkedin-hr.png);
+  background-position: 0 -24px;
 }
 .app-ltr-1h746bz a:nth-child(5):hover::before {
-  background-image: url(imgs/footer/filled/twitter-hr.png);
+  background-position: 0 -24px;
 }
 .app-ltr-1h746bz a:nth-child(6):hover::before {
-  background-image: url(imgs/footer/filled/youtube-hr.png);
+  background-position: 0 -24px;
 }
 
 /* footer links */
