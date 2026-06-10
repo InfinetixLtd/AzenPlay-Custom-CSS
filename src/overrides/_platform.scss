@@ -76,7 +76,8 @@
         top: -2px;
       }
       img {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
       }
     }
     &:nth-child(1) {

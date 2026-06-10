@@ -127,7 +127,8 @@ pre {
   top: -2px;
 }
 .app-ltr-1h746bz a:hover img {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 .app-ltr-1h746bz a:nth-child(1):hover::before {
   background-image: url(imgs/footer/filled/tiktok-hr.png);
