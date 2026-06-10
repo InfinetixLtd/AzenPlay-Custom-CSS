@@ -68,51 +68,56 @@
       &::before {
         content: '';
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         background-size: cover;
         position: absolute;
+        left: -2px;
+        top: -2px;
+      }
+      img {
+        display: none;
       }
     }
     &:nth-child(1) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/tiktok-hr.png);
+          background-image: url(imgs/footer/filled/tiktok-hr.png);
         }
       }
     }
     &:nth-child(2) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/discord-hr.png);
+          background-image: url(imgs/footer/filled/discord-hr.png);
         }
       }
     }
     &:nth-child(3) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/instagram-hr.png);
+          background-image: url(imgs/footer/filled/instagram-hr.png);
         }
       }
     }
     &:nth-child(4) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/linkedin-hr.png);
+          background-image: url(imgs/footer/filled/linkedin-hr.png);
         }
       }
     }
     &:nth-child(5) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/twitter-hr.png);
+          background-image: url(imgs/footer/filled/twitter-hr.png);
         }
       }
     }
     &:nth-child(6) {
       &:hover {
         &::before {
-          background-image: url(imgs/footer/youtube-hr.png);
+          background-image: url(imgs/footer/filled/youtube-hr.png);
         }
       }
     }
@@ -710,7 +715,7 @@
       }
     }
   }
-  
+
 // ── Telegram QR code ──────────────────────────────────────────────
   .app-ltr-14pr45b {
     &::before {
@@ -950,7 +955,7 @@
     margin-left: auto;
     max-width: 639px;
 }
- 
+
 .app-ltr-1jamert {
     max-width: 100%;
     display: block;

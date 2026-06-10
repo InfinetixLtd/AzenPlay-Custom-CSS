@@ -119,28 +119,33 @@ pre {
 .app-ltr-1h746bz a:hover::before {
   content: "";
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background-size: cover;
   position: absolute;
+  left: -2px;
+  top: -2px;
+}
+.app-ltr-1h746bz a:hover img {
+  display: none;
 }
 .app-ltr-1h746bz a:nth-child(1):hover::before {
-  background-image: url(imgs/footer/tiktok-hr.png);
+  background-image: url(imgs/footer/filled/tiktok-hr.png);
 }
 .app-ltr-1h746bz a:nth-child(2):hover::before {
-  background-image: url(imgs/footer/discord-hr.png);
+  background-image: url(imgs/footer/filled/discord-hr.png);
 }
 .app-ltr-1h746bz a:nth-child(3):hover::before {
-  background-image: url(imgs/footer/instagram-hr.png);
+  background-image: url(imgs/footer/filled/instagram-hr.png);
 }
 .app-ltr-1h746bz a:nth-child(4):hover::before {
-  background-image: url(imgs/footer/linkedin-hr.png);
+  background-image: url(imgs/footer/filled/linkedin-hr.png);
 }
 .app-ltr-1h746bz a:nth-child(5):hover::before {
-  background-image: url(imgs/footer/twitter-hr.png);
+  background-image: url(imgs/footer/filled/twitter-hr.png);
 }
 .app-ltr-1h746bz a:nth-child(6):hover::before {
-  background-image: url(imgs/footer/youtube-hr.png);
+  background-image: url(imgs/footer/filled/youtube-hr.png);
 }
 
 /* footer links */
