@@ -955,20 +955,40 @@
   color: #f1f2f3;
 }
 
-/* 404 pages */
-.app-ltr-1jz4mn1 {
-    margin-right: auto;
-    margin-bottom: 34px;
-    margin-left: auto;
-    max-width: 639px;
-}
-
-.app-ltr-1jamert {
-    max-width: 100%;
+ 
+/* 404 Error page */
+@media (min-width: 992px) {
+    .app-ltr-1jamert {
+    max-width: 60%;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto -170px auto;
     width: 100%;
     height: auto;
     position: relative;
-    right: 25%;
+    right: 15%;
+    }
 }
+ 
+@media (max-width: 991px) {
+    .app-ltr-1jamert {
+        max-width: 80%;
+        display: block;
+        margin: 0 auto -104px auto;
+        width: 100%;
+        height: auto;
+        position: relative;
+        right: 20%;
+    }
+}
+ 
+/* 451 Error page */
+ 
+.globe-image {
+    width: 180%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    right: 30%;
+    margin: 0 auto -62px auto;
+}
+ 
