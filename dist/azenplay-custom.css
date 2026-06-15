@@ -179,17 +179,6 @@ pre {
 }
 
 @media (min-width: 1200px) {
-  .app-ltr-1uzs5zs li {
-    width: 30%;
-  }
-  .app-ltr-ywf5jp::before,
-  .app-ltr-ywf5jp::after,
-  .app-ltr-1uzs5zs::before,
-  .app-ltr-1uzs5zs::after,
-  .app-ltr-1uzs5zs ul::before,
-  .app-ltr-1uzs5zs ul::after {
-    bottom: -65px;
-  }
   hr.app-ltr-xg086w {
     margin-top: 60px;
   }
@@ -913,5 +902,26 @@ pre {
     position: relative;
     right: 80px;
     margin: 0px auto -50px auto;
+  }
+}
+@media (min-width: 1200px) {
+  .app-ltr-1uzs5zs li {
+    width: 30% !important;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
+    background-image: url(imgs/footer/anjouan-logo.png);
+    bottom: -63px;
+  }
+  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
+    background-image: url(imgs/footer/gambleaware-logo.png);
+    bottom: -65px;
+  }
+  .app-ltr-ywf5jp::before,
+  .app-ltr-ywf5jp::after,
+  .app-ltr-1uzs5zs::before,
+  .app-ltr-1uzs5zs::after,
+  .app-ltr-1uzs5zs ul::before,
+  .app-ltr-1uzs5zs ul::after {
+    bottom: -60px !important;
   }
 }
