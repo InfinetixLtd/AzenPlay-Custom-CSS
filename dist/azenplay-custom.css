@@ -522,7 +522,7 @@ pre {
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54::before {
     background-image: url(imgs/footer/andriod-img.svg);
-    margin-top: -85px;
+    margin-top: -65px;
     position: absolute;
     left: 195px;
   }
@@ -828,13 +828,13 @@ pre {
 /* Tablet footer fixes: 769px - 992px */
 @media (min-width: 769px) and (max-width: 992px) {
   .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
-    top: 186px;
+    top: 220px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
-    top: 100px;
+    top: 135px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
-    top: 110px;
+    top: 145px;
   }
 }
 /* Footer links text color updated */
