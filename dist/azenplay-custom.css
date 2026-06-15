@@ -179,6 +179,17 @@ pre {
 }
 
 @media (min-width: 1200px) {
+  .app-ltr-1uzs5zs li {
+    width: 30%;
+  }
+  .app-ltr-ywf5jp::before,
+  .app-ltr-ywf5jp::after,
+  .app-ltr-1uzs5zs::before,
+  .app-ltr-1uzs5zs::after,
+  .app-ltr-1uzs5zs ul::before,
+  .app-ltr-1uzs5zs ul::after {
+    bottom: -65px;
+  }
   hr.app-ltr-xg086w {
     margin-top: 60px;
   }
