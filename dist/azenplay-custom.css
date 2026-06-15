@@ -922,3 +922,10 @@ pre {
     width: 30%;
   }
 }
+@media (min-width: 993px) and (max-width: 1199px) {
+  .app-ltr-1uzs5zs li {
+    flex: 0 0 33.333% !important;
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+  }
+}
