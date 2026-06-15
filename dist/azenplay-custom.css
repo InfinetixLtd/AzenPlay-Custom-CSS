@@ -208,7 +208,7 @@ pre {
     width: 150px;
     height: 50px;
     display: block;
-    margin-bottom: 0px;
+    margin-bottom: -3px;
   }
   .app-ltr-76sv76::before {
     background-image: url(imgs/footer/andriod-img.svg);
@@ -288,7 +288,7 @@ pre {
     width: 87px;
     height: 50px;
     left: 13%;
-    bottom: -70px;
+    bottom: -63px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::before {
     background-image: url("imgs/footer/gamecheck-logo.svg");
@@ -301,7 +301,7 @@ pre {
     width: 209px;
     height: 30px;
     right: -55px;
-    bottom: -70px;
+    bottom: -65px;
   }
 }
 @media (min-width: 769px) and (max-width: 1199px) {
@@ -908,14 +908,6 @@ pre {
   .app-ltr-1uzs5zs li {
     width: 30% !important;
   }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
-    background-image: url(imgs/footer/anjouan-logo.png);
-    bottom: -63px;
-  }
-  .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
-    background-image: url(imgs/footer/gambleaware-logo.png);
-    bottom: -65px;
-  }
   .app-ltr-ywf5jp::before,
   .app-ltr-ywf5jp::after,
   .app-ltr-1uzs5zs::before,
@@ -923,5 +915,10 @@ pre {
   .app-ltr-1uzs5zs ul::before,
   .app-ltr-1uzs5zs ul::after {
     bottom: -60px !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .app-ltr-1uzs5zs li {
+    width: 30%;
   }
 }
