@@ -889,3 +889,32 @@ pre {
     max-width: 33.333% !important;
   }
 }
+/* 451 Error page */
+@media (max-width: 480px) {
+  .globe-container {
+    width: 450px;
+    height: 270px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+    right: 190px;
+    margin: 0px auto -49px auto;
+  }
+}
+@media (min-width: 481px) {
+  .globe-container {
+    width: 450px;
+    height: 270px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+    right: 80px;
+    margin: 0px auto -50px auto;
+  }
+}
