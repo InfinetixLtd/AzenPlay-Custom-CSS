@@ -45,48 +45,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--ap-font-head);
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 0.75rem;
-  color: var(--ap-text);
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-
-h2 {
-  font-size: 1.875rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.125rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
 a {
   transition: color var(--ap-transition-fast);
-}
-
-small {
-  font-size: 0.875rem;
 }
 
 code,
@@ -854,42 +814,47 @@ pre {
 
 /* 404 Error page */
 @media (min-width: 992px) {
-  .app-ltr-1jamert {
-    max-width: 60%;
-    display: block;
-    margin: 0 auto -170px auto;
-    width: 100%;
-    height: auto;
-    position: relative;
-    right: 15%;
+  /*.app-ltr-1jamert {
+      max-width: 60%;
+      display: block;
+      margin: 0 auto -170px auto;
+      width: 100%;
+      height: auto;
+      position: relative;
+      right: 15%;
+  }*/
+  .app-ltr-achhx8 {
+    margin-bottom: -70px;
   }
 }
 @media (max-width: 991px) {
   .app-ltr-1jamert {
-    max-width: 80%;
     display: block;
-    margin: 0 auto -104px auto;
-    width: 100%;
+    margin: 0 auto 10px auto;
+    min-width: 100%;
     height: auto;
     position: relative;
-    right: 20%;
+    right: 15%;
+  }
+  .app-ltr-achhx8 {
+    margin-bottom: -90px;
   }
 }
 /* 451 Error page */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .globe-container {
     width: 450px;
     height: 270px;
     display: block;
     align-items: center;
     justify-content: center;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     position: relative;
     right: 190px;
     margin: 0px auto -49px auto;
   }
 }
+
 @media (min-width: 481px) {
   .globe-container {
     width: 450px;
@@ -897,13 +862,12 @@ pre {
     display: block;
     align-items: center;
     justify-content: center;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     position: relative;
     right: 80px;
     margin: 0px auto -50px auto;
   }
-}
+}*/
 @media (min-width: 1200px) {
   .app-ltr-1uzs5zs li {
     width: 30% !important;
@@ -933,4 +897,13 @@ pre {
     width: 33.333% !important;
     max-width: 33.333% !important;
   }
+}
+.app-ltr-pfas0r {
+  background-color: rgba(35, 43, 50, 0.4);
+  border-top: 1px solid rgba(88, 92, 95, 0.4);
+}
+
+.app-ltr-4aej81 {
+  box-shadow: rgba(18, 18, 18, 0.5) 0px 5px 16px 0px;
+  border-bottom: 1px solid rgba(88, 92, 95, 0.4);
 }
