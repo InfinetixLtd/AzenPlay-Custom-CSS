@@ -814,15 +814,6 @@ pre {
 
 /* 404 Error page */
 @media (min-width: 992px) {
-  /*.app-ltr-1jamert {
-      max-width: 60%;
-      display: block;
-      margin: 0 auto -170px auto;
-      width: 100%;
-      height: auto;
-      position: relative;
-      right: 15%;
-  }*/
   .app-ltr-achhx8 {
     margin-bottom: -70px;
   }
@@ -840,45 +831,9 @@ pre {
     margin-bottom: -90px;
   }
 }
-/* 451 Error page */
-/* @media (max-width: 480px) {
-  .globe-container {
-    width: 450px;
-    height: 270px;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    object-fit: contain;
-    position: relative;
-    right: 190px;
-    margin: 0px auto -49px auto;
-  }
-}
-
-@media (min-width: 481px) {
-  .globe-container {
-    width: 450px;
-    height: 270px;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    object-fit: contain;
-    position: relative;
-    right: 80px;
-    margin: 0px auto -50px auto;
-  }
-}*/
 @media (min-width: 1200px) {
   .app-ltr-1uzs5zs li {
     width: 30% !important;
-  }
-  .app-ltr-ywf5jp::before,
-  .app-ltr-ywf5jp::after,
-  .app-ltr-1uzs5zs::before,
-  .app-ltr-1uzs5zs::after,
-  .app-ltr-1uzs5zs ul::before,
-  .app-ltr-1uzs5zs ul::after {
-    bottom: -60px !important;
   }
 }
 @media (min-width: 769px) and (max-width: 1199px) {
