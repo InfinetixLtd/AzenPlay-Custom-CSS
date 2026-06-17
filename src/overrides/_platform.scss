@@ -282,6 +282,7 @@
         border-radius: 50%;
         border: 2px solid #f00;
         font-weight: bold;
+        bottom:-58px;
       }
       &::before {
         background-image: url('imgs/footer/anjouan-logo.png');
@@ -296,13 +297,14 @@
           width: 175px;
           height: 50px;
           left: 40%;
+          bottom: -58px;
         }
         &::after {
           background-image: url('imgs/footer/gambleaware-logo.png');
           width: 209px;
           height: 30px;
           right: -55px;
-          bottom: -65px;
+          bottom: -70px;
         }
       }
     }

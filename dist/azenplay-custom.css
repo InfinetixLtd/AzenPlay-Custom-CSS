@@ -242,6 +242,7 @@ pre {
     border-radius: 50%;
     border: 2px solid #f00;
     font-weight: bold;
+    bottom: -58px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp::before {
     background-image: url("imgs/footer/anjouan-logo.png");
@@ -255,13 +256,14 @@ pre {
     width: 175px;
     height: 50px;
     left: 40%;
+    bottom: -58px;
   }
   .app-ltr-cfnr2u .app-ltr-ywf5jp ul::after {
     background-image: url("imgs/footer/gambleaware-logo.png");
     width: 209px;
     height: 30px;
     right: -55px;
-    bottom: -65px;
+    bottom: -70px;
   }
 }
 @media (min-width: 769px) and (max-width: 1199px) {
