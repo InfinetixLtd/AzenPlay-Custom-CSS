@@ -167,7 +167,7 @@
   // footer container
   .app-ltr-16ws2g7 {
     padding-bottom: 40px;
-    margin-top: 30px;
+    // margin-top: 30px;
   }
   // footer left content
   .app-ltr-ywf5jp {
@@ -319,7 +319,7 @@
     }
 
   .app-ltr-16ws2g7 {
-    margin-top: 50px;
+    // margin-top: 50px;
   }
   .app-ltr-1uzs5zs {
     width: 100%;
@@ -601,7 +601,7 @@
     }
   }
   .app-ltr-16ws2g7 {
-    margin-top: 50px;
+    // margin-top: 50px;
   }
 
   // footer RG & license icons
@@ -669,7 +669,7 @@
   // outer container regardless of what we set on the inner element.
   .app-ltr-16ws2g7 {
     overflow: visible;
-    margin-top: 50px;
+    // margin-top: 50px;
     padding-bottom: 100px;
   }
 
@@ -997,3 +997,36 @@ box-shadow: rgba(18, 18, 18, 0.5) 0px 5px 16px 0px;
 border-bottom: 1px solid rgb(88 92 95 / 40%);
 }
 
+// info panel / compliance icons
+
+.app-ltr-5vb4lz {
+  margin-bottom: 0;
+  .app-ltr-1l44gyp {
+    .app-ltr-lbrb2m {
+      .app-ltr-153n7l3 {
+        display: none;
+      }
+      .keen-slider {
+        &.app-ltr-12fhl3l {
+          .keen-slider__slide {
+            &.app-ltr-rw5cza {
+              transform: none !important;
+              max-width: 15% !important;
+              transform: none !important;
+              min-width: 14% !important;
+              .app-ltr-1vhbkfh {
+                aspect-ratio: unset;
+                width: auto;
+                .app-ltr-6jrdpz {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
