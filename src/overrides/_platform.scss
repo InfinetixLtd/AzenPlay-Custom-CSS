@@ -1001,15 +1001,22 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
 
 .app-ltr-5vb4lz {
   margin-bottom: 0;
+  background-color: #232b32;
   .app-ltr-1l44gyp {
     .app-ltr-lbrb2m {
+      padding: 0;
       .app-ltr-153n7l3 {
         display: none;
       }
       .keen-slider {
+        &:not([data-keen-slider-disabled]) {
+          justify-content: center;
+          padding-top: 30px;
+        }
         &.app-ltr-12fhl3l {
           .keen-slider__slide {
             &.app-ltr-rw5cza {
+              justify-content: center;
               transform: none !important;
               max-width: 15% !important;
               transform: none !important;
@@ -1017,8 +1024,9 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
               .app-ltr-1vhbkfh {
                 aspect-ratio: unset;
                 width: auto;
+                padding-left: 32px;
                 .app-ltr-6jrdpz {
-                  width: 100%;
+                  width: 80%;
                   height: auto;
                   object-fit: cover;
                 }
