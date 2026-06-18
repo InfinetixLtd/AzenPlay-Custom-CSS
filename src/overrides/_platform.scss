@@ -144,7 +144,7 @@
 .app-ltr-1uzs5zs,
 .app-ltr-1uzs5zs ul {
   position: relative;
-  display: inline-block;
+  // display: inline-block;
   &::before,
   &::after {
     content: '';
@@ -247,7 +247,7 @@
   .app-ltr-1uzs5zs {
     line-height: 0;
     flex-direction: unset;
-    display: unset;
+    // display: unset;
     float: left;
     li {
       margin: 0;
@@ -265,50 +265,48 @@
 
   // RG icons
 
-  .app-ltr-cfnr2u {
-    .app-ltr-ywf5jp {
-      &::after {
-        content: '18+';
-        display: flex;
-        flex-direction: row;
-        color: rgb(0 0 0);
-        font-size: 16px;
-        background-color: rgb(255 255 255);
-        font-weight: 500;
-        justify-content: center;
-        padding: 0px 3px;
-        align-items: center;
-        min-height: 40px;
-        border-radius: 50%;
-        border: 2px solid #f00;
-        font-weight: bold;
-        bottom:-58px;
-      }
-      &::before {
-        background-image: url('imgs/footer/anjouan-logo.png');
-        width: 87px;
-        height: 50px;
-        left: 13%;
-        bottom: -63px;
-      }
-      ul {
-        &::before {
-          background-image: url('imgs/footer/gamecheck-logo.svg');
-          width: 175px;
-          height: 50px;
-          left: 40%;
-          bottom: -58px;
-        }
-        &::after {
-          background-image: url('imgs/footer/gambleaware-logo.png');
-          width: 209px;
-          height: 30px;
-          right: -55px;
-          bottom: -70px;
-        }
-      }
-    }
-  }
+  // .app-ltr-cfnr2u {
+  //   .app-ltr-ywf5jp {
+  //     &::after {
+  //       content: '18+';
+  //       display: flex;
+  //       flex-direction: row;
+  //       color: rgb(0 0 0);
+  //       font-size: 16px;
+  //       background-color: rgb(255 255 255);
+  //       font-weight: 500;
+  //       justify-content: center;
+  //       padding: 0px 3px;
+  //       align-items: center;
+  //       min-height: 40px;
+  //       border-radius: 50%;
+  //       border: 2px solid #f00;
+  //       font-weight: bold;
+  //     }
+  //     &::before {
+  //       background-image: url('imgs/footer/anjouan-logo.png');
+  //       width: 87px;
+  //       height: 50px;
+  //       left: 13%;
+  //       bottom: -63px;
+  //     }
+  //     ul {
+  //       &::before {
+  //         background-image: url('imgs/footer/gamecheck-logo.svg');
+  //         width: 175px;
+  //         height: 50px;
+  //         left: 40%;
+  //       }
+  //       &::after {
+  //         background-image: url('imgs/footer/gambleaware-logo.png');
+  //         width: 209px;
+  //         height: 30px;
+  //         right: -55px;
+  //         bottom: -65px;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
@@ -375,45 +373,45 @@
 
       // Testing feedback:
       // 18+ badge should match the height of neighbouring certification logos (50px)
-      &::after {
-        content: '18+';
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        min-height: 50px;
-        color: rgb(0 0 0);
-        font-size: 16px;
-        background-color: rgb(255 255 255);
-        border-radius: 50%;
-        border: 2px solid #f00;
-        font-weight: bold;
-        padding: 0;
-      }
-      &::before {
-        background-image: url('imgs/footer/anjouan-logo.png');
-        width: 87px;
-        height: 50px;
-        left: 18%;
-        top: 487px;
-      }
-      ul {
-        &::before {
-          background-image: url('imgs/footer/gamecheck-logo.svg');
-          width: 175px;
-          height: 50px;
-          left: 40%;
-          top: 446px;
-        }
-        &::after {
-          background-image: url('imgs/footer/gambleaware-logo.png');
-          width: 209px;
-          height: 50px;
-          left: 70%;
-          top: 458px;
-        }
-      }
+      // &::after {
+      //   content: '18+';
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   width: 50px;
+      //   height: 50px;
+      //   min-height: 50px;
+      //   color: rgb(0 0 0);
+      //   font-size: 16px;
+      //   background-color: rgb(255 255 255);
+      //   border-radius: 50%;
+      //   border: 2px solid #f00;
+      //   font-weight: bold;
+      //   padding: 0;
+      // }
+      // &::before {
+      //   background-image: url('imgs/footer/anjouan-logo.png');
+      //   width: 87px;
+      //   height: 50px;
+      //   left: 18%;
+      //   top: 487px;
+      // }
+      // ul {
+      //   &::before {
+      //     background-image: url('imgs/footer/gamecheck-logo.svg');
+      //     width: 175px;
+      //     height: 50px;
+      //     left: 40%;
+      //     top: 446px;
+      //   }
+      //   &::after {
+      //     background-image: url('imgs/footer/gambleaware-logo.png');
+      //     width: 209px;
+      //     height: 50px;
+      //     left: 70%;
+      //     top: 458px;
+      //   }
+      // }
     }
     .app-ltr-19zdw54 {
       margin-top: 80px;
@@ -510,57 +508,57 @@
       flex-direction: row;
       justify-content: space-between;
     }
-    .app-ltr-ywf5jp {
-      flex-direction: revert-rule;
-      gap: revert-rule;
-      align-items: self-start;
-      min-width: 100%;
-      max-width: 100%;
-      // display: block;
-      // text-align: left;
-      // Testing feedback:
-// Keep badge consistent with certification logos
+//     .app-ltr-ywf5jp {
+//       flex-direction: revert-rule;
+//       gap: revert-rule;
+//       align-items: self-start;
+//       min-width: 100%;
+//       max-width: 100%;
+//       // display: block;
+//       // text-align: left;
+//       // Testing feedback:
+// // Keep badge consistent with certification logos
 
-      &::before {
-        content: '18+';
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        min-height: 50px;
-        color: rgb(0 0 0);
-        font-size: 16px;
-        background-color: rgb(255 255 255);
-        border-radius: 50%;
-        border: 2px solid #f00;
-        font-weight: bold;
-        padding: 0;
-      }
-      &::after {
-        background-image: url('imgs/footer/anjouan-logo.png');
-        width: 87px;
-        height: 50px;
-        left: 190px;
-      }
-      ul {
-        &::before {
-          background-image: url('imgs/footer/gamecheck-logo.svg');
-          width: 175px;
-          height: 30px;
-          left: 0;
-          bottom: -150px;
-        }
-        &::after {
-          background-image: url('imgs/footer/gambleaware-logo.png');
-          width: 130px;
-          height: 50px;
-          left: 190px;
-          bottom: -165px;
-          background-size: contain;
-        }
-      }
-    }
+//       &::before {
+//         content: '18+';
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         width: 50px;
+//         height: 50px;
+//         min-height: 50px;
+//         color: rgb(0 0 0);
+//         font-size: 16px;
+//         background-color: rgb(255 255 255);
+//         border-radius: 50%;
+//         border: 2px solid #f00;
+//         font-weight: bold;
+//         padding: 0;
+//       }
+//       &::after {
+//         background-image: url('imgs/footer/anjouan-logo.png');
+//         width: 87px;
+//         height: 50px;
+//         left: 190px;
+//       }
+//       ul {
+//         &::before {
+//           background-image: url('imgs/footer/gamecheck-logo.svg');
+//           width: 175px;
+//           height: 30px;
+//           left: 0;
+//           bottom: -150px;
+//         }
+//         &::after {
+//           background-image: url('imgs/footer/gambleaware-logo.png');
+//           width: 130px;
+//           height: 50px;
+//           left: 190px;
+//           bottom: -165px;
+//           background-size: contain;
+//         }
+//       }
+//     }
     .app-ltr-19zdw54 {
       margin-top: 150px;
       display: inline-flex;
@@ -769,45 +767,45 @@
   // Step 1: Unlock overflow on the cert logo container and its children
   // Step 2: Reset top: 487px / 446px / 458px from the 769–1199 block
   // Step 3: Add background-size: contain so images render correctly
-  .app-ltr-cfnr2u .app-ltr-ywf5jp {
-    overflow: visible;
-    &::before {
-      content: '';
-      top: auto;
-      bottom: -70px;
-      left: 18%;
-      background-image: url('imgs/footer/anjouan-logo.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 87px;
-      height: 50px;
-    }
-    ul {
-      overflow: visible;
-      &::before {
-        content: '';
-        top: auto;
-        bottom: -65px;
-        left: 40%;
-        background-image: url('imgs/footer/gamecheck-logo.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 175px;
-        height: 50px;
-      }
-      &::after {
-        content: '';
-        top: auto;
-        bottom: -70px;
-        left: 70%;
-        background-image: url('imgs/footer/gambleaware-logo.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 209px;
-        height: 50px;
-      }
-    }
-  }
+  // .app-ltr-cfnr2u .app-ltr-ywf5jp {
+  //   overflow: visible;
+  //   &::before {
+  //     content: '';
+  //     top: auto;
+  //     bottom: -70px;
+  //     left: 18%;
+  //     background-image: url('imgs/footer/anjouan-logo.png');
+  //     background-size: contain;
+  //     background-repeat: no-repeat;
+  //     width: 87px;
+  //     height: 50px;
+  //   }
+  //   ul {
+  //     overflow: visible;
+  //     &::before {
+  //       content: '';
+  //       top: auto;
+  //       bottom: -65px;
+  //       left: 40%;
+  //       background-image: url('imgs/footer/gamecheck-logo.svg');
+  //       background-size: contain;
+  //       background-repeat: no-repeat;
+  //       width: 175px;
+  //       height: 50px;
+  //     }
+  //     &::after {
+  //       content: '';
+  //       top: auto;
+  //       bottom: -70px;
+  //       left: 70%;
+  //       background-image: url('imgs/footer/gambleaware-logo.png');
+  //       background-size: contain;
+  //       background-repeat: no-repeat;
+  //       width: 209px;
+  //       height: 50px;
+  //     }
+  //   }
+  // }
 
   // ── Copyright bar ─────────────────────────────────────────────────
   .app-ltr-176106l {
