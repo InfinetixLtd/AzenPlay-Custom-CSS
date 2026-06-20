@@ -119,6 +119,11 @@ pre {
 }
 
 @media (min-width: 1200px) {
+  .app-ltr-i58pjb,
+  .app-ltr-1l44gyp {
+    max-width: 100%;
+    padding: 0 64px;
+  }
   hr.app-ltr-xg086w {
     margin-top: 60px;
   }
