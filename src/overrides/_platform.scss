@@ -59,7 +59,7 @@
             &:nth-child(1) {
               .app-ltr-1vhbkfh {
                 .app-ltr-6jrdpz {
-                  width: 50%;
+                  width: 80%;
                 }
               }
             }
@@ -73,7 +73,7 @@
               justify-content: center;
               .app-ltr-6jrdpz {
                 width: 100%;
-                object-fit: none;
+                // object-fit: none;
               }
             }
           }
@@ -82,7 +82,28 @@
     }
   }
 }
-
+// footer licensing & info icons mobile & tablet
+@media (max-width: 968px) {
+  .app-ltr-5vb4lz {
+    .app-ltr-1l44gyp {
+      .app-ltr-mmyaw6 {
+        .keen-slider {
+          &:not([data-keen-slider-disabled]) {
+            .keen-slider__slide {
+              &:nth-child(1) {
+                .app-ltr-1vhbkfh {
+                  .app-ltr-6jrdpz {
+                    width: 40%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 .app-ltr-wz10jn {
   max-width: 80%;
