@@ -164,13 +164,13 @@
   .app-ltr-i58pjb,
   .app-ltr-1l44gyp {
     max-width: 100%;
-    padding: 0 64px;
+    padding: 0 16px;
   }
 
   // footer hr
-  hr.app-ltr-xg086w {
-    margin-top: 60px;
-  }
+  // hr.app-ltr-xg086w {
+  //   margin-top: 60px;
+  // }
   // footer container
   .app-ltr-16ws2g7 {
     padding-bottom: 40px;
@@ -263,12 +263,7 @@
       text-align: left;
     }
   }
-  // QR code and mobile apps
-  .app-ltr-19zdw54 {
-    min-width: 42vw;
-    max-width: 42vw;
-    min-height: 25vh;
-  }
+
 
   // RG icons
 
@@ -361,9 +356,9 @@
     width: auto;
   }
 
-    .app-ltr-19zdw54 {
-      margin-top: 80px;
-    }
+    // .app-ltr-19zdw54 {
+    //   margin-top: 80px;
+    // }
   }
   .app-ltr-cfnr2u {
     text-align: left;
@@ -422,7 +417,7 @@
       // }
     }
     .app-ltr-19zdw54 {
-      margin-top: 80px;
+      // margin-top: 80px;
       display: inline-flex;
       flex-direction: column;
       &::before,
@@ -686,9 +681,9 @@
   }
 
   // ── HR above cert logo zone ───────────────────────────────────────
-  hr.app-ltr-xg086w {
-    margin-top: 60px;
-  }
+  // hr.app-ltr-xg086w {
+  //   margin-top: 60px;
+  // }
 
   // ── Language bar ──────────────────────────────────────────────────
   .app-ltr-2ca2ie-control {
