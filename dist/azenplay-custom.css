@@ -722,6 +722,6 @@ pre {
 .app-ltr-5vb4lz .app-ltr-1l44gyp .keen-slider.app-ltr-12fhl3l .keen-slider__slide.app-ltr-rw5cza .app-ltr-1vhbkfh .app-ltr-6jrdpz {
   width: 80%;
   height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
