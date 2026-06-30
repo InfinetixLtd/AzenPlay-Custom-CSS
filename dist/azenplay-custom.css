@@ -103,7 +103,6 @@ pre {
   transition-timing-function: ease-in-out;
 }
 .app-ltr-1h746bz a:hover img {
-  opacity: 1;
   filter: brightness(0) saturate(100%) invert(53%) sepia(81%) saturate(2443%) hue-rotate(359deg) brightness(102%) contrast(106%);
 }
 .app-ltr-1h746bz a:nth-child(1):hover::before {
