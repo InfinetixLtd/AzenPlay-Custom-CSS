@@ -59,8 +59,8 @@
 .app-ltr-ijdlg9 {
   padding-left: 0px;
   padding-right: 0px;
-  max-width: 30vw;
-  right: 20vw;
+  max-width: 25vw;
+  right: 40vw;
   position: fixed;
   z-index: 9999;
   background: rgba(0, 0, 0, 0);
@@ -76,10 +76,10 @@
     .app-ltr-tu8k26 {
       .app-ltr-del2s7 {
         border: 1px solid #353a3f;
-        border-radius: 50px 15px 15px 50px;
-        padding-left: 6px;
+        border-radius: 15px 50px 50px 15px;
+        padding-left: 0;
+        padding-right: 5px;
         padding-bottom: 2px;
-        padding-left: 4px;
         margin-top: 2px;
         a.app-ltr-e20wax {
           border: 0px;
@@ -97,10 +97,10 @@
           background-color: transparent;
           color: rgb(255, 255, 255);
           min-height: 32px;
-          padding: 7px 0;
+          padding: 4px 0;
           &:hover:not(.app-ltr-e20wax:disabled) {
             background-color: transparent;
-            padding: 7px 0;
+            padding: 4px 0;
           }
           &::after {
             content: '';
@@ -110,7 +110,7 @@
             background: url(imgs/header/normal/Wheel-icon.gif) center center no-repeat;
             background-size: cover;
             // background-color: #ff8001;
-            border-radius: 10px;
+            // border-radius: 10px;
           }
           span {
             // display: none;
