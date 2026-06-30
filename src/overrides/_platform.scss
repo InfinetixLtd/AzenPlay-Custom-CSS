@@ -53,10 +53,11 @@
 .app-ltr-ijdlg9 {
   padding-left: 0px;
   padding-right: 0px;
-  max-width: 65vw;
+  max-width: 50vw;
+  left: 15vw;
   position: absolute;
   z-index: 99999;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   .app-ltr-1wrgyw {
     display: flex;
     flex-direction: row;
@@ -87,13 +88,14 @@
           padding: 4px 16px;
           &:hover:not(.app-ltr-e20wax:disabled) {
             background-color: transparent;
-            &::before {
-              content: '';
-              display: block;
-              width: 60px;
-              height: 60px;
-              background-image: url(imgs/footer/filled/discord-hr.png) center center no-repeat;
-            }
+            padding: 0;
+          }
+          &::before {
+            content: '';
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(imgs/footer/filled/discord-hr.png) center center no-repeat;
           }
           span {
             display: none;
