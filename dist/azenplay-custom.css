@@ -709,8 +709,13 @@ pre {
   padding-left: 32px;
 }
 .app-ltr-5vb4lz .app-ltr-1l44gyp .keen-slider.app-ltr-12fhl3l .keen-slider__slide.app-ltr-rw5cza .app-ltr-1vhbkfh .app-ltr-6jrdpz {
-  width: 80%;
+  width: 100%;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+/* Left align AzenPlay logo in mobile sidebar menu */
+.app-ltr-1ku0cza {
+  justify-content: flex-start;
 }
