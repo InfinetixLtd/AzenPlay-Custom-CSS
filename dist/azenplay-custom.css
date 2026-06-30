@@ -55,6 +55,60 @@ pre {
   font-family: var(--ap-font-mono);
 }
 
+.app-ltr-ijdlg9 {
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 65vw;
+  position: absolute;
+  z-index: 99999;
+  background: transparent;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  color: rgb(23, 31, 38);
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-tu8k26 .app-ltr-del2s7 a.app-ltr-e20wax {
+  border: 0px;
+  text-decoration: none;
+  text-transform: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  min-height: 32px;
+  padding: 4px 16px;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-tu8k26 .app-ltr-del2s7 a.app-ltr-e20wax:hover:not(.app-ltr-e20wax:disabled) {
+  background-color: transparent;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-tu8k26 .app-ltr-del2s7 a.app-ltr-e20wax:hover:not(.app-ltr-e20wax:disabled)::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url(imgs/footer/filled/discord-hr.png) center center no-repeat;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-tu8k26 .app-ltr-del2s7 a.app-ltr-e20wax span {
+  display: none;
+}
+.app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1jriyww:not(.app-ltr-1jriyww:disabled) {
+  cursor: pointer;
+  display: none;
+}
+
 .app-ltr-5vb4lz .app-ltr-1l44gyp .app-ltr-mmyaw6 .keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide:nth-child(1) .app-ltr-1vhbkfh .app-ltr-6jrdpz {
   width: 80%;
 }
