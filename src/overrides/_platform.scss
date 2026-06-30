@@ -85,16 +85,16 @@
           background-color: transparent;
           color: rgb(255, 255, 255);
           min-height: 32px;
-          padding: 4px 16px;
+          padding: 7px 16px;
           &:hover:not(.app-ltr-e20wax:disabled) {
             background-color: transparent;
-            padding: 0;
+            padding: 7px 16px;
           }
           &::before {
             content: '';
             display: block;
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background: url(imgs/header/normal/Wheel-icon.gif) center center no-repeat;
             background-color: #ff8001;
             border-radius: 10px;
