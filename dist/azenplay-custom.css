@@ -130,17 +130,19 @@ pre {
   }
 }
 @media (max-width: 999px) {
+  .app-ltr-1317i17 {
+    transform: unset;
+  }
   .app-ltr-ijdlg9 {
     padding-left: 0px;
     padding-right: 0px;
+    padding-top: var(--site-header-height);
     max-width: 25vw;
     right: 40vw;
     position: fixed;
     z-index: 9999;
     background: rgba(0, 0, 0, 0);
     transform: unset;
-    top: unset;
-    left: unset;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw {
     display: flex;
@@ -150,18 +152,10 @@ pre {
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    padding: 5px 12px;
+    padding: 0;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1usleno {
     display: none;
-  }
-  .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su {
-    border: 1px solid #353a3f;
-    border-radius: 15px 50px 50px 15px;
-    padding-left: 0;
-    padding-right: 5px;
-    padding-bottom: 2px;
-    margin-top: 2px;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su a.app-ltr-80v5v5 {
     border: 0px;
@@ -179,7 +173,8 @@ pre {
     background-color: transparent;
     color: rgb(255, 255, 255);
     min-height: 32px;
-    padding: 4px 0;
+    padding: 0;
+    margin: 0;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su a.app-ltr-80v5v5:hover:not(.app-ltr-e20wax:disabled) {
     background-color: transparent;
@@ -194,6 +189,7 @@ pre {
     background-size: cover;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su a.app-ltr-80v5v5 span {
+    display: none;
     text-transform: uppercase;
     padding: 0 10px;
     font-size: 14px;
