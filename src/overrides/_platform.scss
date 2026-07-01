@@ -186,6 +186,7 @@
             padding: 0;
             margin: 0;
             position: fixed;
+            transform: translateY(27px);
             &:hover:not(.app-ltr-e20wax:disabled) {
               background-color: transparent;
               padding: 4px 0;

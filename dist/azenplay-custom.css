@@ -175,6 +175,7 @@ pre {
     padding: 0;
     margin: 0;
     position: fixed;
+    transform: translateY(27px);
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su a.app-ltr-80v5v5:hover:not(.app-ltr-e20wax:disabled) {
     background-color: transparent;
