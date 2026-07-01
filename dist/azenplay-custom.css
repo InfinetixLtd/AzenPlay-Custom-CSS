@@ -136,7 +136,6 @@ pre {
   .app-ltr-ijdlg9 {
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: var(--site-header-height);
     max-width: 25vw;
     right: 40vw;
     position: fixed;
@@ -175,6 +174,7 @@ pre {
     min-height: 32px;
     padding: 0;
     margin: 0;
+    position: fixed;
   }
   .app-ltr-ijdlg9 .app-ltr-1wrgyw .app-ltr-1ngnkc1 .app-ltr-tz35su a.app-ltr-80v5v5:hover:not(.app-ltr-e20wax:disabled) {
     background-color: transparent;
