@@ -664,6 +664,7 @@ pre {
 }
 .loadingOverlay_loading__5vIZu .loadingOverlay_spinnerRipple__07EzH {
   background-image: url(https://azenplay.com/loader);
+  background-size: cover;
 }
 
 .loadingOverlay_ldio__ZMSdQ,
