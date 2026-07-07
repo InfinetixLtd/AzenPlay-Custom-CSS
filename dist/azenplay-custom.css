@@ -58,6 +58,9 @@ pre {
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
   color: #f1f2f3;
 }
+.app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii p span strong {
+  color: rgb(255, 128, 0);
+}
 
 .app-ltr-1g3kp0t {
   text-transform: uppercase;
