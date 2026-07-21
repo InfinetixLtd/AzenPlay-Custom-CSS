@@ -1315,9 +1315,11 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
     justify-content: flex-start;
 }
 
-
-.app-ltr-1xudvtp
+/* legal pages */
+@media (min-width: 769px) and (max-width: 1199px) 
 {
+  .app-ltr-1xudvtp
+  {
     .app-ltr-31dzii h1 {
     font-size: 20px;
     font-weight: 600;
@@ -1355,5 +1357,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
     .app-ltr-1yuhs8t p {
     display: none;
     }
+
+  }
 
 }
