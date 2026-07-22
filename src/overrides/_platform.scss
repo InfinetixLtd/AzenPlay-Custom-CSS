@@ -1704,3 +1704,295 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
     }
   }
 }
+
+
+/*promotion page tablet */
+@media (min-width: 769px) and (max-width: 1199px)
+{
+  .app-ltr-1m8t88z {
+  
+      /* COUNTDOWN CARD */
+      .app-ltr-1qf0b8z {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 16px 24px;
+        background-color: rgb(35, 43, 50);
+        width: 611px;
+        height: 190px;
+        border-radius: 16px;
+      }
+  
+      /* "Starts In:" / "Ends in:" label */
+      .app-ltr-1k7t2d7 {
+        font-weight: 500;
+        color: #FF8000;
+        font-size: 24px;
+        line-height: 32px;
+      }
+  
+      /* "01:30 | 11.05.2026" */
+      .app-ltr-r8tubi {
+        font-weight: 500;
+        color: #FFFFFF;
+        font-size: 40px;
+        line-height: 48px;
+      }
+  
+      /* Countdown row */
+      .app-ltr-12fhm1a {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex-direction: row;
+        margin-top: 16px;
+        border-radius: 8px;
+        height: 92px;
+        background-color: transparent;
+      }
+  
+      /* Individual countdown tile */
+      .app-ltr-qf8n23 {
+        text-align: center;
+        color: #FFFFFF;
+        background-color: #171F26;
+        margin: 10px;
+        padding: 18px;
+        border-radius: 8px;
+      }
+  
+      /* Image wrapper — fixed: was missing semicolon after flex */
+      .app-ltr-lxl6xm {
+        flex: 1 1 0%;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        padding-top: 1%;
+      }
+  
+      /* Image element — fixed: was missing semicolon after flex */
+      .app-ltr-v4gekj {
+        flex: 1 1 0%;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        object-fit: cover;
+        width: 83%;
+        height: 100%;
+        display: block;
+        border-radius: 8px;
+      }
+  
+      /* Rich text wrapper */
+      .app-ltr-1m8t88z {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 32px 16px;
+        overflow-wrap: break-word;
+      }
+  
+      /* Rich text container */
+      .app-ltr-31dzii {
+        max-width: 880px !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+      }
+  
+      /* h1 — orange heading */
+      .app-ltr-31dzii h1 {
+        color: #FF8000 !important;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 36px;
+        margin-top: 40px;
+      }
+  
+      /* h2 — orange heading */
+      .app-ltr-31dzii h2 {
+        color: #FF8000 !important;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-top: 40px;
+      }
+  
+      /* h3 — orange heading */
+      .app-ltr-31dzii h3 {
+        color: #FF8000 !important;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+        margin-top: 40px;
+      }
+  
+      /* h4 — orange heading */
+      .app-ltr-31dzii h4 {
+        color: #FF8000 !important;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+        margin-top: 40px;
+      }
+  
+      /* h5 — #FFB573 specifically */
+      .app-ltr-31dzii h5 {
+        color: #FFB573 !important;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+  
+      /* h6 — body color */
+      .app-ltr-31dzii h6 {
+        color: #F1F2F3 !important;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+      }
+  
+      /* Paragraphs */
+      .app-ltr-31dzii p {
+        color: #F1F2F3;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 8px;
+      }
+  
+      /* Body text — do NOT change strong/b color */
+      .app-ltr-31dzii strong,
+      .app-ltr-31dzii b {
+        font-weight: 700;
+      }
+  
+      /* TABLE — Cashback Values: bordered box */
+      .app-ltr-31dzii table {
+        width: 100% !important;
+        border-collapse: collapse;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        table-layout: fixed;
+        border: 1px solid rgba(255, 128, 0, 0.4);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+  
+      /* Table header row */
+      .app-ltr-31dzii tr th {
+        background-color: transparent;
+        padding: 8px 12px;
+        color: #FF8000;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 22px;
+        text-align: left;
+        vertical-align: middle;
+        border-bottom: 1px solid rgba(255, 128, 0, 0.3);
+        width: auto;
+        align-content: baseline;
+      }
+  
+      /* Table data rows */
+      .app-ltr-31dzii tr td {
+        background-color: transparent;
+        padding: 8px 12px;
+        color: #F1F2F3;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        width: auto;
+        align-content: baseline;
+      }
+  
+      /* No border on last row */
+      .app-ltr-31dzii tr:last-child td {
+        border-bottom: none;
+      }
+  
+      /* Cashback table: col 1 wider, col 2 narrower */
+      .app-ltr-31dzii tr th:first-child,
+      .app-ltr-31dzii tr td:first-child {
+        width: 60%;
+      }
+  
+      .app-ltr-31dzii tr th:last-child,
+      .app-ltr-31dzii tr td:last-child {
+        width: 40%;
+      }
+  
+      /* LISTS */
+      .app-ltr-31dzii ul {
+        padding-left: 24px !important;
+        margin-left: 0;
+        margin-top: 4px;
+        margin-bottom: 10px;
+      }
+  
+      .app-ltr-31dzii ol {
+        padding-left: 24px !important;
+        margin-left: 0;
+        margin-top: 4px;
+        margin-bottom: 10px;
+      }
+  
+      .app-ltr-31dzii ul>li {
+        list-style-type: disc !important;
+        list-style-position: outside;
+        padding: 4px 0;
+        color: #F1F2F3;
+        font-size: 14px;
+        line-height: 22px;
+      }
+  
+      .app-ltr-31dzii ol>li {
+        list-style-type: decimal !important;
+        list-style-position: outside;
+        padding: 4px 0;
+        color: #F1F2F3;
+        font-size: 14px;
+        line-height: 22px;
+      }
+  
+      /* Lists inside table cells */
+      .app-ltr-31dzii table tr td ul,
+      .app-ltr-31dzii table tr th ul,
+      .app-ltr-31dzii table tr td ol,
+      .app-ltr-31dzii table tr th ol {
+        padding-left: 24px !important;
+        margin: 0;
+      }
+  
+      .app-ltr-31dzii table tr td ul li,
+      .app-ltr-31dzii table tr th ul li,
+      .app-ltr-31dzii table tr td ol li,
+      .app-ltr-31dzii table tr th ol li {
+        text-indent: 0;
+        padding: 3px 0;
+      }
+  
+      .app-ltr-ynaot7 {
+        width: 83%;
+        padding: 16px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(18, 24, 30, 0.8);
+        backdrop-filter: blur(4px);
+      }
+  
+      .app-ltr-1yuhs8t p {
+        display: none;
+      }
+  
+      .app-ltr-1bz3aqd {
+        margin-top: 1%;
+      }
+  }
+}
