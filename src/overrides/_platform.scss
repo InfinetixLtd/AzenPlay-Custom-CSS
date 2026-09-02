@@ -259,15 +259,19 @@
   .app-ltr-1l44gyp {
     .app-ltr-mmyaw6 {
       .keen-slider {
+        justify-content: unset;
         &:not([data-keen-slider-disabled]) {
           .keen-slider__slide {
-            &:nth-child(1) {
+            flex: unset;
+            // &:nth-child(1) {
               .app-ltr-1vhbkfh {
                 .app-ltr-6jrdpz {
-                  width: 80%;
+                  width: unset;
+                  height: unset;
+                  object-fit: none;
                 }
               }
-            }
+            // }
             transform: none !important;
             max-width: 100% !important;
             min-height: auto;
@@ -276,10 +280,10 @@
               aspect-ratio: auto;
               width: 100%;
               justify-content: center;
-              .app-ltr-6jrdpz {
-                width: 100%;
-                // object-fit: none;
-              }
+              // .app-ltr-6jrdpz {
+              //   width: 100%;
+              //   object-fit: none;
+              // }
             }
           }
         }
@@ -1316,7 +1320,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
 }
 
 /* legal pages */
-@media (min-width: 769px) and (max-width: 1199px) 
+@media (min-width: 769px) and (max-width: 1199px)
 {
   .app-ltr-1xudvtp
   {
@@ -1352,7 +1356,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
     .app-ltr-31dzii ul,
     .app-ltr-31dzii ol{
     margin-bottom:24px;
-     }   
+     }
 
     .app-ltr-1yuhs8t p {
     display: none;
@@ -1370,7 +1374,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
 
 }
 
-@media (max-width: 768px) 
+@media (max-width: 768px)
 {
    .app-ltr-1xudvtp
    {
@@ -1415,12 +1419,12 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
     color: #FFB573;
     margin-bottom: 0% !important;
      }
-  
+
   }
 }
 
 /*Promotional pages*/
-@media (min-width: 769px) and (max-width: 1199px) 
+@media (min-width: 769px) and (max-width: 1199px)
 {
   .app-ltr-1m8t88z
   {
@@ -1436,7 +1440,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       height: 190px;
       border-radius: 16px;
     }
-  
+
     /* "Starts In:" / "Ends in:" label */
     .app-ltr-1k7t2d7 {
       font-weight: 500;
@@ -1444,7 +1448,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-size: 24px;
       line-height: 32px;
     }
-  
+
     /* "01:30 | 11.05.2026" */
     .app-ltr-r8tubi {
       font-weight: 500;
@@ -1452,7 +1456,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-size: 40px;
       line-height: 48px;
     }
-  
+
     /* Countdown row */
     .app-ltr-12fhm1a {
       display: flex;
@@ -1464,7 +1468,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       height: 92px;
       background-color: transparent;
     }
-  
+
     /* Individual countdown tile */
     .app-ltr-qf8n23 {
       text-align: center;
@@ -1474,7 +1478,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       padding: 18px;
       border-radius: 8px;
     }
-  
+
     /* Image wrapper — fixed: was missing semicolon after flex */
     .app-ltr-lxl6xm {
       flex: 1 1 0%;
@@ -1484,7 +1488,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       overflow: hidden;
       padding-top: 1%;
     }
-  
+
     /* Image element — fixed: was missing semicolon after flex */
     .app-ltr-v4gekj {
       flex: 1 1 0%;
@@ -1497,7 +1501,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       display: block;
       border-radius: 8px;
     }
-  
+
     /* Rich text wrapper */
     .app-ltr-1m8t88z {
       width: 100%;
@@ -1507,14 +1511,14 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       padding: 32px 16px;
       overflow-wrap: break-word;
     }
-  
+
     /* Rich text container */
     .app-ltr-31dzii {
       max-width: 880px !important;
       margin-left: 0 !important;
       margin-right: auto !important;
     }
-  
+
     /* h1 — orange heading */
     .app-ltr-31dzii h1 {
       color: #FF8000 !important;
@@ -1523,7 +1527,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       line-height: 36px;
       margin-top: 40px;
     }
-  
+
     /* h2 — orange heading */
     .app-ltr-31dzii h2 {
       color: #FF8000 !important;
@@ -1532,7 +1536,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       line-height: 32px;
       margin-top: 40px;
     }
-  
+
     /* h3 — orange heading */
     .app-ltr-31dzii h3 {
       color: #FF8000 !important;
@@ -1541,7 +1545,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       line-height: 28px;
       margin-top: 40px;
     }
-  
+
     /* h4 — orange heading */
     .app-ltr-31dzii h4 {
       color: #FF8000 !important;
@@ -1550,7 +1554,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       line-height: 26px;
       margin-top: 40px;
     }
-  
+
     /* h5 — #FFB573 specifically */
     .app-ltr-31dzii h5 {
       color: #FFB573 !important;
@@ -1558,7 +1562,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-weight: 700;
       line-height: 24px;
     }
-  
+
     /* h6 — body color */
     .app-ltr-31dzii h6 {
       color: #F1F2F3 !important;
@@ -1566,7 +1570,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-weight: 500;
       line-height: 24px;
     }
-  
+
     /* Paragraphs */
     .app-ltr-31dzii p {
       color: #F1F2F3;
@@ -1575,13 +1579,13 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       line-height: 22px;
       margin-bottom: 8px;
     }
-  
+
     /* Body text — do NOT change strong/b color */
     .app-ltr-31dzii strong,
     .app-ltr-31dzii b {
       font-weight: 700;
     }
-  
+
     /* TABLE — Cashback Values: bordered box */
     .app-ltr-31dzii table {
       width: 100% !important;
@@ -1593,7 +1597,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       border-radius: 8px;
       overflow: hidden;
     }
-  
+
     /* Table header row */
     .app-ltr-31dzii tr th {
       background-color: transparent;
@@ -1608,7 +1612,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       width: auto;
       align-content: baseline;
     }
-  
+
     /* Table data rows */
     .app-ltr-31dzii tr td {
       background-color: transparent;
@@ -1623,23 +1627,23 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       width: auto;
       align-content: baseline;
     }
-  
+
     /* No border on last row */
     .app-ltr-31dzii tr:last-child td {
       border-bottom: none;
     }
-  
+
     /* Cashback table: col 1 wider, col 2 narrower */
     .app-ltr-31dzii tr th:first-child,
     .app-ltr-31dzii tr td:first-child {
       width: 60%;
     }
-  
+
     .app-ltr-31dzii tr th:last-child,
     .app-ltr-31dzii tr td:last-child {
       width: 40%;
     }
-  
+
     /* LISTS */
     .app-ltr-31dzii ul {
       padding-left: 24px !important;
@@ -1647,14 +1651,14 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       margin-top: 4px;
       margin-bottom: 10px;
     }
-  
+
     .app-ltr-31dzii ol {
       padding-left: 24px !important;
       margin-left: 0;
       margin-top: 4px;
       margin-bottom: 10px;
     }
-  
+
     .app-ltr-31dzii ul>li {
       list-style-type: disc !important;
       list-style-position: outside;
@@ -1663,7 +1667,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-size: 14px;
       line-height: 22px;
     }
-  
+
     .app-ltr-31dzii ol>li {
       list-style-type: decimal !important;
       list-style-position: outside;
@@ -1672,7 +1676,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       font-size: 14px;
       line-height: 22px;
     }
-  
+
     /* Lists inside table cells */
     .app-ltr-31dzii table tr td ul,
     .app-ltr-31dzii table tr th ul,
@@ -1681,7 +1685,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       padding-left: 24px !important;
       margin: 0;
     }
-  
+
     .app-ltr-31dzii table tr td ul li,
     .app-ltr-31dzii table tr th ul li,
     .app-ltr-31dzii table tr td ol li,
@@ -1689,7 +1693,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       text-indent: 0;
       padding: 3px 0;
     }
-  
+
     .app-ltr-ynaot7 {
       width: 83%;
       padding: 16px;
@@ -1699,7 +1703,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
       background-color: rgba(18, 24, 30, 0.8);
       backdrop-filter: blur(4px);
     }
-  
+
     .app-ltr-1yuhs8t p {
       display: none;
     }
@@ -1711,7 +1715,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
 @media (min-width: 769px) and (max-width: 1199px)
 {
   .app-ltr-1m8t88z {
-  
+
       /* COUNTDOWN CARD */
       .app-ltr-1qf0b8z {
         display: flex;
@@ -1724,7 +1728,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         height: 190px;
         border-radius: 16px;
       }
-  
+
       /* "Starts In:" / "Ends in:" label */
       .app-ltr-1k7t2d7 {
         font-weight: 500;
@@ -1732,7 +1736,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-size: 24px;
         line-height: 32px;
       }
-  
+
       /* "01:30 | 11.05.2026" */
       .app-ltr-r8tubi {
         font-weight: 500;
@@ -1740,7 +1744,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-size: 40px;
         line-height: 48px;
       }
-  
+
       /* Countdown row */
       .app-ltr-12fhm1a {
         display: flex;
@@ -1752,7 +1756,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         height: 92px;
         background-color: transparent;
       }
-  
+
       /* Individual countdown tile */
       .app-ltr-qf8n23 {
         text-align: center;
@@ -1762,7 +1766,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         padding: 18px;
         border-radius: 8px;
       }
-  
+
       /* Image wrapper — fixed: was missing semicolon after flex */
       .app-ltr-lxl6xm {
         flex: 1 1 0%;
@@ -1772,7 +1776,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         overflow: hidden;
         padding-top: 1%;
       }
-  
+
       /* Image element — fixed: was missing semicolon after flex */
       .app-ltr-v4gekj {
         flex: 1 1 0%;
@@ -1785,7 +1789,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         display: block;
         border-radius: 8px;
       }
-  
+
       /* Rich text wrapper */
       .app-ltr-1m8t88z {
         width: 100%;
@@ -1795,14 +1799,14 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         padding: 32px 16px;
         overflow-wrap: break-word;
       }
-  
+
       /* Rich text container */
       .app-ltr-31dzii {
         max-width: 880px !important;
         margin-left: 0 !important;
         margin-right: auto !important;
       }
-  
+
       /* h1 — orange heading */
       .app-ltr-31dzii h1 {
         color: #FF8000 !important;
@@ -1811,7 +1815,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         line-height: 36px;
         margin-top: 40px;
       }
-  
+
       /* h2 — orange heading */
       .app-ltr-31dzii h2 {
         color: #FF8000 !important;
@@ -1820,7 +1824,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         line-height: 32px;
         margin-top: 40px;
       }
-  
+
       /* h3 — orange heading */
       .app-ltr-31dzii h3 {
         color: #FF8000 !important;
@@ -1829,7 +1833,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         line-height: 28px;
         margin-top: 40px;
       }
-  
+
       /* h4 — orange heading */
       .app-ltr-31dzii h4 {
         color: #FF8000 !important;
@@ -1838,7 +1842,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         line-height: 26px;
         margin-top: 40px;
       }
-  
+
       /* h5 — #FFB573 specifically */
       .app-ltr-31dzii h5 {
         color: #FFB573 !important;
@@ -1846,7 +1850,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-weight: 700;
         line-height: 24px;
       }
-  
+
       /* h6 — body color */
       .app-ltr-31dzii h6 {
         color: #F1F2F3 !important;
@@ -1854,7 +1858,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-weight: 500;
         line-height: 24px;
       }
-  
+
       /* Paragraphs */
       .app-ltr-31dzii p {
         color: #F1F2F3;
@@ -1863,13 +1867,13 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         line-height: 22px;
         margin-bottom: 8px;
       }
-  
+
       /* Body text — do NOT change strong/b color */
       .app-ltr-31dzii strong,
       .app-ltr-31dzii b {
         font-weight: 700;
       }
-  
+
       /* TABLE — Cashback Values: bordered box */
       .app-ltr-31dzii table {
         width: 100% !important;
@@ -1881,7 +1885,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         border-radius: 8px;
         overflow: hidden;
       }
-  
+
       /* Table header row */
       .app-ltr-31dzii tr th {
         background-color: transparent;
@@ -1896,7 +1900,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         width: auto;
         align-content: baseline;
       }
-  
+
       /* Table data rows */
       .app-ltr-31dzii tr td {
         background-color: transparent;
@@ -1911,23 +1915,23 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         width: auto;
         align-content: baseline;
       }
-  
+
       /* No border on last row */
       .app-ltr-31dzii tr:last-child td {
         border-bottom: none;
       }
-  
+
       /* Cashback table: col 1 wider, col 2 narrower */
       .app-ltr-31dzii tr th:first-child,
       .app-ltr-31dzii tr td:first-child {
         width: 60%;
       }
-  
+
       .app-ltr-31dzii tr th:last-child,
       .app-ltr-31dzii tr td:last-child {
         width: 40%;
       }
-  
+
       /* LISTS */
       .app-ltr-31dzii ul {
         padding-left: 24px !important;
@@ -1935,14 +1939,14 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         margin-top: 4px;
         margin-bottom: 10px;
       }
-  
+
       .app-ltr-31dzii ol {
         padding-left: 24px !important;
         margin-left: 0;
         margin-top: 4px;
         margin-bottom: 10px;
       }
-  
+
       .app-ltr-31dzii ul>li {
         list-style-type: disc !important;
         list-style-position: outside;
@@ -1951,7 +1955,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-size: 14px;
         line-height: 22px;
       }
-  
+
       .app-ltr-31dzii ol>li {
         list-style-type: decimal !important;
         list-style-position: outside;
@@ -1960,7 +1964,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         font-size: 14px;
         line-height: 22px;
       }
-  
+
       /* Lists inside table cells */
       .app-ltr-31dzii table tr td ul,
       .app-ltr-31dzii table tr th ul,
@@ -1969,7 +1973,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         padding-left: 24px !important;
         margin: 0;
       }
-  
+
       .app-ltr-31dzii table tr td ul li,
       .app-ltr-31dzii table tr th ul li,
       .app-ltr-31dzii table tr td ol li,
@@ -1977,7 +1981,7 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         text-indent: 0;
         padding: 3px 0;
       }
-  
+
       .app-ltr-ynaot7 {
         width: 83%;
         padding: 16px;
@@ -1987,11 +1991,11 @@ border-bottom: 1px solid rgb(88 92 95 / 40%);
         background-color: rgba(18, 24, 30, 0.8);
         backdrop-filter: blur(4px);
       }
-  
+
       .app-ltr-1yuhs8t p {
         display: none;
       }
-  
+
       .app-ltr-1bz3aqd {
         margin-top: 1%;
       }
