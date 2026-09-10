@@ -261,10 +261,10 @@
       padding: 0;
       .keen-slider {
         justify-content: unset;
-        &:not([data-keen-slider-disabled]) {
+        // &:not([data-keen-slider-disabled]) {
           .keen-slider__slide {
             flex: unset;
-            &.app-ltr-rw5cza {
+            .app-ltr-rw5cza {
               // &:nth-child(1) {
                 .app-ltr-1vhbkfh {
                   aspect-ratio: 2 / 1;
@@ -290,7 +290,7 @@
               // }
             }
           }
-        }
+        // }
       }
     }
   }
