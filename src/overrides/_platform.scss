@@ -284,10 +284,11 @@
               aspect-ratio: auto;
               width: 100%;
               justify-content: center;
-              // .app-ltr-6jrdpz {
-              //   width: 100%;
-              //   object-fit: none;
-              // }
+              .app-ltr-6jrdpz {
+                width: unset;
+                height: unset;
+                object-fit: scale-down;
+              }
             }
           }
         // }
