@@ -93,33 +93,52 @@
     }
   };
 
-  // Resolve a CSS length token against a container dimension. Returns null
-  // for 'auto'/empty so callers can detect missing edges.
-  const lengthFrom = (token, container) => {
+  const fontPx = (el) =>
+    parseFloat(window.getComputedStyle(el).fontSize) || 16;
+
+  // Resolve a CSS length token against a container dimension. Returns null for
+  // 'auto'/empty/unresolvable so callers can detect missing edges. Relative
+  // units are converted properly — a bare parseFloat would read '2em' as 2px.
+  const lengthFrom = (token, container, el) => {
     if (!token || token === 'auto' || token === 'none') return null;
-    if (token.endsWith('px')) return parseFloat(token);
-    if (token.endsWith('%')) return (container * parseFloat(token)) / 100;
     const n = parseFloat(token);
-    return Number.isFinite(n) ? n : null;
+    if (!Number.isFinite(n)) return null; // calc(), keywords, ...
+    if (token.endsWith('px')) return n;
+    if (token.endsWith('%')) return (container * n) / 100;
+    if (token.endsWith('rem')) return n * fontPx(document.documentElement);
+    if (token.endsWith('em')) return n * (el ? fontPx(el) : 16);
+    if (token.endsWith('vw')) return (window.innerWidth * n) / 100;
+    if (token.endsWith('vh')) return (window.innerHeight * n) / 100;
+    return n === 0 ? 0 : null; // unknown unit — don't guess
   };
 
   // Approximate the visual rect of a pseudo-element using its computed
   // style + the host's bounding rect. Assumes position:absolute (typical for
-  // decorative pseudo-elements). Falls back to the host rect if the pseudo
-  // has no `content` or is display:none.
+  // decorative pseudo-elements). Returns null — meaning "don't intercept" —
+  // when the pseudo isn't rendered or its box can't be measured.
   const pseudoRect = (host, pseudo) => {
     const cs = window.getComputedStyle(host, pseudo);
     if (!cs || cs.content === 'none' || cs.display === 'none') return null;
     const hr = host.getBoundingClientRect();
 
-    const w = lengthFrom(cs.width, hr.width) ?? hr.width;
-    const minH = lengthFrom(cs.minHeight, hr.height) ?? 0;
-    const h = Math.max(lengthFrom(cs.height, hr.height) ?? 0, minH) || hr.height;
+    const w = lengthFrom(cs.width, hr.width, host);
+    const minH = lengthFrom(cs.minHeight, hr.height, host) ?? 0;
+    const h = Math.max(lengthFrom(cs.height, hr.height, host) ?? 0, minH);
 
-    const left = lengthFrom(cs.left, hr.width);
-    const top = lengthFrom(cs.top, hr.height);
-    const right = lengthFrom(cs.right, hr.width);
-    const bottom = lengthFrom(cs.bottom, hr.height);
+    // A pseudo-element with `content` but no measurable size (e.g. a purely
+    // decorative `content: ''` with no width/height) must NOT fall back to the
+    // host's own rect — that would turn the whole host into a click-swallowing
+    // overlay and hijack its native link. Bail out and let the host handle it.
+    if (!(w > 0) || !(h > 0)) {
+      log('pseudo rect unmeasurable — not intercepting',
+        { host, pseudo, width: cs.width, height: cs.height, minHeight: cs.minHeight });
+      return null;
+    }
+
+    const left = lengthFrom(cs.left, hr.width, host);
+    const top = lengthFrom(cs.top, hr.height, host);
+    const right = lengthFrom(cs.right, hr.width, host);
+    const bottom = lengthFrom(cs.bottom, hr.height, host);
 
     const x = left !== null ? hr.left + left
             : right !== null ? hr.right - right - w
