@@ -6,6 +6,8 @@
 //       click navigates ONLY when the click coordinates fall inside the
 //       pseudo's mocked rect, otherwise propagation reaches the host's own
 //       handler (a stand-in for the parent's native link).
+//       A pseudo with content but no measurable size must NOT intercept at
+//       all — it would otherwise swallow clicks meant for the host's link.
 //
 // jsdom doesn't lay out elements, so getBoundingClientRect / getComputedStyle
 // are stubbed per fixture to return controlled geometry.
@@ -26,6 +28,11 @@ const html = `<!DOCTYPE html><html><body>
        inside its ::after rect to override the href, but clicks elsewhere
        to fall through to the native link. -->
   <a href="https://platform-default/" class="pseudo-host" id="pseudo-host">host</a>
+
+  <!-- Host whose ::after has content but NO measurable size (the real-world
+       shape of a purely decorative pseudo-element). The script must NOT treat
+       this as a full-host click target. -->
+  <a href="https://platform-default/" id="bare-host">bare host</a>
 </body></html>`;
 
 // Suppress jsdom navigation-not-implemented errors.
@@ -45,6 +52,7 @@ const { document } = window;
 window.AZENPLAY_LINKS = [
   { selector: '.whole-target', url: 'https://example.com/whole', target: '_blank' },
   { selector: '#pseudo-host::after', url: 'https://example.com/pseudo', target: '_blank' },
+  { selector: '#bare-host::after', url: 'https://example.com/bare', target: '_blank' },
 ];
 
 // Mock geometry on the pseudo host:
@@ -56,8 +64,23 @@ host.getBoundingClientRect = () => ({
   left: 0, top: 0, right: 200, bottom: 100, width: 200, height: 100,
   x: 0, y: 0, toJSON() { return this; },
 });
+// Bare host: ::after has content but no resolvable width/height — only the
+// min-height that the stylesheet sets on decorative footer pseudo-elements.
+const bare = document.querySelector('#bare-host');
+bare.getBoundingClientRect = () => ({
+  left: 0, top: 0, right: 300, bottom: 120, width: 300, height: 120,
+  x: 0, y: 0, toJSON() { return this; },
+});
+
 const origGetComputedStyle = window.getComputedStyle.bind(window);
 window.getComputedStyle = (el, pseudo) => {
+  if (el === bare && (pseudo === '::after' || pseudo === '::before')) {
+    return {
+      content: '""', display: 'block', position: 'absolute',
+      width: 'auto', height: 'auto', minHeight: '50px',
+      left: 'auto', top: 'auto', right: 'auto', bottom: 'auto',
+    };
+  }
   if (el === host && (pseudo === '::after' || pseudo === '::before')) {
     return {
       content: '""', display: 'block', position: 'absolute',
@@ -79,6 +102,10 @@ host.addEventListener('click', () => { hostHandlerFired = true; });
 // Prevent the actual <a> default so jsdom doesn't try to navigate when the
 // pseudo handler does NOT intercept.
 host.addEventListener('click', (e) => e.preventDefault());
+
+let bareHandlerFired = false;
+bare.addEventListener('click', () => { bareHandlerFired = true; });
+bare.addEventListener('click', (e) => e.preventDefault());
 
 window.eval(script);
 
@@ -128,6 +155,19 @@ const outside = new window.MouseEvent('click', {
 host.dispatchEvent(outside);
 ok(opened === null, 'outside-pseudo click did NOT trigger pseudo URL');
 ok(hostHandlerFired === true, 'outside-pseudo click propagated to host (its own link would fire)');
+
+// ----------------------------------------------------------------------------
+console.log('\n[Unmeasurable pseudo must not hijack the host]');
+opened = null; bareHandlerFired = false;
+// (150, 20) is inside the phantom band the old fallback produced
+// (host rect width x min-height = 300x50 anchored at the host's top-left),
+// so this is exactly where a sizeless pseudo used to steal the click.
+const onBare = new window.MouseEvent('click', {
+  bubbles: true, cancelable: true, clientX: 150, clientY: 20,
+});
+bare.dispatchEvent(onBare);
+ok(opened === null, 'sizeless pseudo did NOT swallow the click');
+ok(bareHandlerFired === true, "sizeless pseudo let the host's own link fire");
 
 // ----------------------------------------------------------------------------
 console.log('\n[MutationObserver re-bind for dynamic elements]');

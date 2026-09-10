@@ -39,6 +39,29 @@ Pin a release for stability and bust the cache on update by tagging, e.g.
 https://raw.githubusercontent.com/InfinetixLtd/AzenPlay-Custom-CSS/main/dist/azenplay-custom.min.css
 ```
 
+> **The URL must start with `https://`.** azenplay.com is served over HTTPS, and
+> browsers treat stylesheets and scripts as *blockable* mixed content: an
+> `http://` URL is blocked outright, and the browser will **not** follow
+> jsDelivr's http→https redirect. The console shows:
+>
+> ```
+> Mixed Content: The page at 'https://azenplay.com/...' was loaded over HTTPS,
+> but requested an insecure stylesheet 'http://cdn.jsdelivr.net/...'.
+> This request has been blocked; the content must be served over HTTPS.
+> ```
+>
+> The file is fine when this happens — only the scheme in the back-office field
+> is wrong. Fix the `http://` → `https://` and the override loads. The same
+> applies to the companion `azenplay-custom.min.js` embed.
+
+### Troubleshooting
+
+| Symptom | Cause |
+| --- | --- |
+| `Mixed Content … has been blocked` | Embed URL uses `http://`. Change it to `https://`. |
+| Overrides load but nothing changes | Platform CSS is more specific — see *Mapping to the platform's real selectors*. |
+| Stale CSS after a push | jsDelivr caches `@main` aggressively. Pin the commit SHA or a tag instead. |
+
 ## Project structure (SCSS 7-1, modern `@use`/`@forward`)
 
 ```
