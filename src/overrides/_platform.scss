@@ -53,17 +53,16 @@
 [data-mj="widget-fixed-image-banner"] {
   position: relative;
   min-height: 100px;
+  // 18+ badge (60×60 PNG), left of the news icon and vertically centred on its 100px crop
   &::before {
     content: '';
-    display: block;
+    position: absolute;
+    top: 20px; // (100 - 60) / 2
+    right: 50%;
     width: 60px;
     height: 60px;
-    background-image: url(imgs/footer/18+.png);
-    background-position: center center;
-    background-size: cover;
-    position: absolute;
-    right: 50%;
-    top: 20px;
+    background: url(imgs/footer/18+.png) center / contain no-repeat;
+    pointer-events: none;
   }
   .app-ltr-1l44gyp {
     .app-ltr-1q1t0h4 {
@@ -71,19 +70,13 @@
       position: absolute;
       left: 50%;
       z-index: 9;
-      &::after {
-        mask-image: url(imgs/footer/18+.png);
-        content: '';
+      // CMS image is 360×248 with the icon (81×80) at x144 y90 — crop a centred 100×100 window
+      .app-ltr-7wh13m {
         display: block;
         width: 100px;
-        height: 103px;
-      }
-      .app-ltr-7wh13m {
-        display: none;
-        // transform: translateX(-50%);
-        // object-fit: fill;
-        // height: 225px;
-        // width: 464px;
+        height: 100px;
+        object-fit: none;
+        object-position: -134px -80px;
       }
     }
   }
