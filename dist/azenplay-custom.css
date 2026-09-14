@@ -56,25 +56,22 @@ pre {
   font-family: var(--ap-font-mono);
 }
 
-/*section.app-ltr-zitybv {
-  .app-ltr-1l44gyp {
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    display: block;
-    right: 30px;
-    bottom: 30px;
-    z-index: 9;
-    .app-ltr-ohciqg {
-      aspect-ratio: auto;
-      img.collection-img.app-ltr-6l5vuo {
-        object-fit: fill;
-        height: 100px;
-        width: 100px;
-      }
-    }
-  }
-}*/
+section.app-ltr-5vb4lz .app-ltr-1l44gyp {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  display: block;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
+section.app-ltr-5vb4lz .app-ltr-1l44gyp img.collection-img.app-ltr-6l5vuo {
+  -o-object-fit: fill;
+     object-fit: fill;
+  height: 100px;
+  width: 100px;
+}
+
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
   color: #f1f2f3;
 }
