@@ -49,8 +49,11 @@
     // Footer regulatory logos — only the ::after image area is clickable;
     // the parent's existing hyperlink still works for non-logo clicks.
     { selector: '.app-ltr-1uzs5zs::after',     url: 'https://betrari.win/en/',                target: '_blank' },
-    { selector: '.app-ltr-1uzs5zs ul::after',  url: 'https://dmbobet.com/en/',                target: '_blank' },
-    { selector: '.app-ltr-1uzs5zs li::after',  url: 'https://dmbobet.com/en/g-casino/casino', target: '_blank' },
+    { selector: '.app-ltr-1uzs5zs ul::after',  url: 'https://azenplay.com/en/',            target: '_blank' },
+    { selector: '.app-ltr-1uzs5zs li::after',  url: 'https://azenplay.com/en/home/casino', target: '_blank' },
+
+    // News icon banner — open AzenPlay News in a new tab.
+    { selector: '[data-mj="widget-fixed-image-banner"] a', url: 'https://azenplay.news', target: '_blank' },
 
     // Whole-element examples — uncomment to use:
     // { selector: '.some-button', url: 'https://...' },
