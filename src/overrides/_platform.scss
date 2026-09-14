@@ -50,35 +50,78 @@
 // }
 
 // AzenPlay News Icon
+// Two equal, evenly spaced tiles: the 18+ badge (::before) and the CMS news icon.
+// Each tile is --ap-tile-crop + 2 × --ap-tile-pad square.
 [data-mj="widget-fixed-image-banner"] {
-  position: relative;
-  min-height: 100px;
-  // 18+ badge (60×60 PNG), left of the news icon and vertically centred on its 100px crop
+  --ap-tile-crop: 88px;
+  --ap-tile-pad: 8px;
+  --ap-tile-gap: 16px;
+  --ap-badge: 72px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ap-tile-gap);
+  min-height: 0;
+  padding-block: 16px;
+
+  // 18+ badge — drawn in CSS so it stays vector-sharp at every size
   &::before {
-    content: '';
-    position: absolute;
-    top: 20px; // (100 - 60) / 2
-    right: 50%;
-    width: 60px;
-    height: 60px;
-    background: url(imgs/footer/18+.png) center / contain no-repeat;
+    content: '18+';
+    display: grid;
+    place-items: center;
+    width: var(--ap-badge);
+    height: var(--ap-badge);
+    margin: calc((var(--ap-tile-crop) - var(--ap-badge)) / 2 + var(--ap-tile-pad));
+    border: calc(var(--ap-badge) * 0.1) solid #e41f2d;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    font: 400 calc(var(--ap-badge) * 0.36) / 1 Arial, Helvetica, sans-serif;
     pointer-events: none;
   }
-  .app-ltr-1l44gyp {
-    .app-ltr-1q1t0h4 {
-      width: 100px;
-      position: absolute;
-      left: 50%;
-      z-index: 9;
-      // CMS image is 360×248 with the icon (81×80) at x144 y90 — crop a centred 100×100 window
-      .app-ltr-7wh13m {
-        display: block;
-        width: 100px;
-        height: 100px;
-        object-fit: none;
-        object-position: -134px -80px;
+
+  [data-mj="widget-fixed-image-banner-container"] {
+    display: contents;
+
+    a {
+      display: block;
+      position: static;
+      padding: var(--ap-tile-pad);
+    }
+
+    // CMS image is 360×248 with an 81×80 icon centred at (184, 130). Shown at
+    // 1 image px per CSS px (never scaled) so it lands on whole device pixels.
+    img {
+      display: block;
+      width: var(--ap-tile-crop);
+      height: var(--ap-tile-crop);
+      object-fit: none;
+      object-position: calc(var(--ap-tile-crop) / 2 - 184px) calc(var(--ap-tile-crop) / 2 - 130px);
+
+      // Sharpen: on whole-number pixel-ratio screens each image px maps to an
+      // exact 2×2 / 3×3 device block, so nearest-neighbour is crisper than smoothing.
+      // Fractional ratios (1.25, 1.5, browser zoom) keep the default smoothing.
+      @media (-webkit-device-pixel-ratio: 2), (-webkit-device-pixel-ratio: 3), (resolution: 2dppx), (resolution: 3dppx) {
+        image-rendering: pixelated;
       }
     }
+  }
+
+  // Tablet
+  @include up('md') {
+    --ap-tile-crop: 100px;
+    --ap-tile-pad: 12px;
+    --ap-tile-gap: 24px;
+    --ap-badge: 80px;
+    padding-block: 24px;
+  }
+
+  // Desktop
+  @include up('xl') {
+    --ap-tile-pad: 16px;
+    --ap-tile-gap: 40px;
+    padding-block: 32px;
   }
 }
 

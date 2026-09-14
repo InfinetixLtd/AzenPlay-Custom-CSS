@@ -57,33 +57,68 @@ pre {
 }
 
 [data-mj=widget-fixed-image-banner] {
-  position: relative;
-  min-height: 100px;
+  --ap-tile-crop: 88px;
+  --ap-tile-pad: 8px;
+  --ap-tile-gap: 16px;
+  --ap-badge: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ap-tile-gap);
+  min-height: 0;
+  padding-block: 16px;
 }
 [data-mj=widget-fixed-image-banner]::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  right: 50%;
-  width: 60px;
-  height: 60px;
-  background: url(imgs/footer/18+.png) center/contain no-repeat;
+  content: "18+";
+  display: grid;
+  place-items: center;
+  width: var(--ap-badge);
+  height: var(--ap-badge);
+  margin: calc((var(--ap-tile-crop) - var(--ap-badge)) / 2 + var(--ap-tile-pad));
+  border: calc(var(--ap-badge) * 0.1) solid #e41f2d;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font: 400 calc(var(--ap-badge) * 0.36)/1 Arial, Helvetica, sans-serif;
   pointer-events: none;
 }
-[data-mj=widget-fixed-image-banner] .app-ltr-1l44gyp .app-ltr-1q1t0h4 {
-  width: 100px;
-  position: absolute;
-  left: 50%;
-  z-index: 9;
+[data-mj=widget-fixed-image-banner] [data-mj=widget-fixed-image-banner-container] {
+  display: contents;
 }
-[data-mj=widget-fixed-image-banner] .app-ltr-1l44gyp .app-ltr-1q1t0h4 .app-ltr-7wh13m {
+[data-mj=widget-fixed-image-banner] [data-mj=widget-fixed-image-banner-container] a {
   display: block;
-  width: 100px;
-  height: 100px;
+  position: static;
+  padding: var(--ap-tile-pad);
+}
+[data-mj=widget-fixed-image-banner] [data-mj=widget-fixed-image-banner-container] img {
+  display: block;
+  width: var(--ap-tile-crop);
+  height: var(--ap-tile-crop);
   -o-object-fit: none;
      object-fit: none;
-  -o-object-position: -134px -80px;
-     object-position: -134px -80px;
+  -o-object-position: calc(var(--ap-tile-crop) / 2 - 184px) calc(var(--ap-tile-crop) / 2 - 130px);
+     object-position: calc(var(--ap-tile-crop) / 2 - 184px) calc(var(--ap-tile-crop) / 2 - 130px);
+}
+@media (-webkit-device-pixel-ratio: 2), (-webkit-device-pixel-ratio: 3), (resolution: 2dppx), (resolution: 3dppx) {
+  [data-mj=widget-fixed-image-banner] [data-mj=widget-fixed-image-banner-container] img {
+    image-rendering: pixelated;
+  }
+}
+@media (min-width: 768px) {
+  [data-mj=widget-fixed-image-banner] {
+    --ap-tile-crop: 100px;
+    --ap-tile-pad: 12px;
+    --ap-tile-gap: 24px;
+    --ap-badge: 80px;
+    padding-block: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  [data-mj=widget-fixed-image-banner] {
+    --ap-tile-pad: 16px;
+    --ap-tile-gap: 40px;
+    padding-block: 32px;
+  }
 }
 
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
