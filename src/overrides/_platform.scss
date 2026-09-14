@@ -121,7 +121,7 @@
   @include up('xl') {
     --ap-tile-pad: 16px;
     --ap-tile-gap: 40px;
-    padding-block: 32px;
+    padding-block: 0;
   }
 }
 
