@@ -52,18 +52,25 @@
 // AzenPlay News Icon
 // Two equal, evenly spaced tiles: the 18+ badge (::before) and the CMS news icon.
 // Each tile is --ap-tile-crop + 2 × --ap-tile-pad square.
+//
+// The CMS icon is a 256×256 ANIMATED AVIF whose artwork (213×170) sits centred
+// inside built-in transparent padding. The frame is fitted with `contain`, so the
+// whole icon always shows — centred, aspect preserved, never chopped — and the
+// rules survive a re-upload at any other canvas size. Do NOT go back to a fixed
+// `object-position` crop window: it is pinned to one asset's pixel grid and
+// silently slices the artwork the moment the CMS image is replaced.
 [data-mj="widget-fixed-image-banner"] {
-  --ap-tile-crop: 88px;
-  --ap-tile-pad: 8px;
-  --ap-tile-gap: 16px;
-  --ap-badge: 72px;
+  --ap-tile-crop: 64px;
+  --ap-tile-pad: 5px;
+  --ap-tile-gap: 10px;
+  --ap-badge: 43px;
 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--ap-tile-gap);
   min-height: 0;
-  padding-block: 16px;
+  padding-block: 10px;
 
   // 18+ badge — drawn in CSS so it stays vector-sharp at every size
   &::before {
@@ -90,37 +97,34 @@
       padding: var(--ap-tile-pad);
     }
 
-    // CMS image is 360×248 with an 81×80 icon centred at (184, 130). Shown at
-    // 1 image px per CSS px (never scaled) so it lands on whole device pixels.
     img {
       display: block;
       width: var(--ap-tile-crop);
       height: var(--ap-tile-crop);
-      object-fit: none;
-      object-position: calc(var(--ap-tile-crop) / 2 - 184px) calc(var(--ap-tile-crop) / 2 - 130px);
+      object-fit: contain;
+      object-position: center;
 
-      // Sharpen: on whole-number pixel-ratio screens each image px maps to an
-      // exact 2×2 / 3×3 device block, so nearest-neighbour is crisper than smoothing.
-      // Fractional ratios (1.25, 1.5, browser zoom) keep the default smoothing.
-      @media (-webkit-device-pixel-ratio: 2), (-webkit-device-pixel-ratio: 3), (resolution: 2dppx), (resolution: 3dppx) {
-        image-rendering: pixelated;
-      }
+      // The artwork is downscaled into the tile (213px wide source -> ~60 CSS px),
+      // so keep the browser's smooth filtering. `image-rendering: pixelated`
+      // belonged to the old 1:1 pixel-mapped crop; at this ratio it would alias
+      // the artwork badly. Retina screens still get 2–3× the source detail.
+      image-rendering: auto;
     }
   }
 
   // Tablet
   @include up('md') {
-    --ap-tile-crop: 100px;
-    --ap-tile-pad: 12px;
-    --ap-tile-gap: 24px;
-    --ap-badge: 80px;
-    padding-block: 24px;
+    --ap-tile-crop: 72px;
+    --ap-tile-pad: 7px;
+    --ap-tile-gap: 14px;
+    --ap-badge: 48px;
+    padding-block: 14px;
   }
 
   // Desktop
   @include up('xl') {
-    --ap-tile-pad: 16px;
-    --ap-tile-gap: 40px;
+    --ap-tile-pad: 10px;
+    --ap-tile-gap: 24px;
     padding-block: 0;
   }
 }
