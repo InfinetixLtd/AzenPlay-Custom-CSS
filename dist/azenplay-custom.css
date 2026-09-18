@@ -117,6 +117,19 @@ pre {
   }
 }
 
+[data-mj=lobby-widgets-container] > [data-mj=widget-fixed-image-banner] {
+  margin-inline: -16px;
+}
+@media (max-width: 768px) {
+  [data-mj=lobby-widgets-container] > [data-mj=widget-fixed-image-banner] {
+    margin-inline: -8px;
+  }
+}
+
+[data-mj=game-catalog-module]:has([data-mj=widget-fixed-image-banner]) {
+  margin-bottom: 0;
+}
+
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
   color: #f1f2f3;
 }

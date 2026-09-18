@@ -129,6 +129,22 @@
   }
 }
 
+// On game-catalog pages (Casino, Live Casino, …) the banner lives inside the
+// catalog's padded container (16px, 8px ≤768px) and the module adds a 32px
+// bottom margin. Break out of both so it spans edge-to-edge and meets the
+// footer, matching the home page where it is a direct child of <main>.
+[data-mj="lobby-widgets-container"] > [data-mj="widget-fixed-image-banner"] {
+  margin-inline: -16px;
+
+  @media (max-width: 768px) {
+    margin-inline: -8px;
+  }
+}
+
+[data-mj="game-catalog-module"]:has([data-mj="widget-fixed-image-banner"]) {
+  margin-bottom: 0;
+}
+
 // Promotion / static content
 
 .app-ltr-foxy03 {
