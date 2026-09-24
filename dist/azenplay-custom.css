@@ -132,7 +132,7 @@ pre {
 
 @media (min-width: 1200px) {
   .wheelWrapper_content__ZLP-C {
-    background-position: center;
+    background-position: center !important;
   }
 }
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
