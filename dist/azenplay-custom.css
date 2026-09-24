@@ -130,6 +130,11 @@ pre {
   margin-bottom: 0;
 }
 
+@media (min-width: 1200px) {
+  .wheelWrapper_content__ZLP-C {
+    background-position: center;
+  }
+}
 .app-ltr-foxy03 .app-ltr-1m8t88z .app-ltr-31dzii {
   color: #f1f2f3;
 }

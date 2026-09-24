@@ -145,6 +145,12 @@
   margin-bottom: 0;
 }
 
+// Wheel bg
+@media (min-width: 1200px) {
+  .wheelWrapper_content__ZLP-C {
+    background-position: center;
+  }
+}
 // Promotion / static content
 
 .app-ltr-foxy03 {
