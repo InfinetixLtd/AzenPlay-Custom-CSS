@@ -188,6 +188,32 @@ whole.click();
 ok(opened?.url === 'https://example.com/whole', 'whole click still fires exactly once after rebind cycle');
 
 // ----------------------------------------------------------------------------
+console.log('\n[Telegram Mini App — _blank uses Telegram.WebApp.openLink]');
+let tgOpened = null;
+window.Telegram = { WebApp: { platform: 'android', openLink: (url) => { tgOpened = url; } } };
+opened = null;
+whole.click();
+ok(tgOpened === 'https://example.com/whole', 'Telegram: openLink called with URL');
+ok(opened === null, 'Telegram: window.open NOT used');
+window.Telegram = { WebApp: { platform: 'unknown', openLink: (url) => { tgOpened = url; } } };
+tgOpened = null; opened = null;
+whole.click();
+ok(tgOpened === null && opened?.url === 'https://example.com/whole', 'Telegram SDK outside a client falls back to window.open');
+delete window.Telegram;
+
+// ----------------------------------------------------------------------------
+console.log('\n[Android WebView — _blank must not rely on window.open]');
+const realUA = window.navigator.userAgent;
+Object.defineProperty(window.navigator, 'userAgent', {
+  configurable: true,
+  get: () => 'Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0 Mobile Safari/537.36 Telegram-Android/11.2.0',
+});
+opened = null;
+whole.click();
+ok(opened === null, 'Android WebView: window.open NOT used (same-view navigation instead)');
+Object.defineProperty(window.navigator, 'userAgent', { configurable: true, get: () => realUA });
+
+// ----------------------------------------------------------------------------
 console.log('\n[Invalid-selector resilience]');
 ok(true, 'main.js loaded and ran without throwing on the configured LINKS');
 

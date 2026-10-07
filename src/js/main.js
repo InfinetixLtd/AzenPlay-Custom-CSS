@@ -88,9 +88,36 @@
     };
   };
 
+  // Telegram Mini App context (telegram-web-app.js loaded and running inside
+  // a Telegram client). platform is 'unknown' when the SDK runs outside one.
+  const telegramApp = () => {
+    const tg = globalThis.Telegram?.WebApp;
+    return tg && typeof tg.openLink === 'function' && tg.platform && tg.platform !== 'unknown'
+      ? tg : null;
+  };
+
+  // Android System WebView (Telegram/Facebook/Instagram in-app browsers etc.)
+  // marks its UA with "; wv)". These WebViews usually don't support multiple
+  // windows, so window.open() silently does nothing — and with 'noopener' it
+  // returns null either way, so the failure can't be detected. iOS in-app
+  // browsers (WKWebView) handle window.open fine, hence "works on iOS only".
+  const isAndroidWebView = () => {
+    const ua = navigator.userAgent || '';
+    return /Android/i.test(ua) && (/; wv\)/.test(ua) || /Telegram/i.test(ua));
+  };
+
   const navigate = (url, target) => {
     if (target === '_blank') {
-      window.open(url, '_blank', 'noopener,noreferrer');
+      const tg = telegramApp();
+      if (tg) {
+        log('navigate via Telegram.WebApp.openLink', url);
+        tg.openLink(url);
+      } else if (isAndroidWebView()) {
+        log('navigate in same view (Android WebView can\'t open new windows)', url);
+        window.location.href = url;
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
     } else {
       window.location.href = url;
     }
