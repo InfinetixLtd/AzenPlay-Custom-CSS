@@ -423,9 +423,9 @@ pre {
     content: "";
     display: block;
     width: 150px;
-    height: 186px;
+    height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
-    background-size: cover;
+    background-size: contain;
   }
   .app-ltr-14pr45b {
     font-size: 0;
@@ -534,9 +534,9 @@ pre {
     content: "";
     display: block;
     width: 150px;
-    height: 186px;
+    height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
-    background-size: cover;
+    background-size: contain;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 .app-ltr-14pr45b {
     font-size: 0;
@@ -612,9 +612,9 @@ pre {
     content: "";
     display: block;
     width: 150px;
-    height: 186px;
+    height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
-    background-size: cover;
+    background-size: contain;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 .app-ltr-14pr45b {
     font-size: 0;
@@ -720,9 +720,9 @@ pre {
     content: "";
     display: block;
     width: 150px;
-    height: 186px;
+    height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
   }
   .app-ltr-14pr45b {
