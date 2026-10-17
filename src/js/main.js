@@ -52,10 +52,6 @@
     { selector: '.app-ltr-1uzs5zs ul::after',  url: 'https://azenplay.com/en/',            target: '_blank' },
     { selector: '.app-ltr-1uzs5zs li::after',  url: 'https://azenplay.com/en/home/casino', target: '_blank' },
 
-    // Wheel icon drawn as the promotion (gift) button's ::before — open the
-    // wheel instead of the gift button's own /promotions link.
-    { selector: '[data-mj="header-special-button"]::before', url: 'https://azenplay.com/en/home/wheel', target: '_blank' },
-
     // News icon banner — open AzenPlay News in a new tab.
     { selector: '[data-mj="widget-fixed-image-banner"] a', url: 'https://azenplay.news', target: '_blank' },
 
@@ -261,15 +257,63 @@
     };
   };
 
+  // ------------------------------------------------------------------
+  // Wheel icon next to the promotion (gift) button
+  // ------------------------------------------------------------------
+  // A real <a> inserted just before the gift link, inside the gift's own
+  // wrapper, so it has its own href and hover (a ::before on the gift would
+  // share both). Styled and positioned by .ap-wheel-link in the CSS; the
+  // announcement-bar wheel is hidden only while this element exists.
+  //
+  // Clicks are routed through the header's own "Fortune Wheel" menu link when
+  // it is rendered, so React Router navigates in-app; otherwise the plain href
+  // does a normal page load (the route also works on a direct load).
+  const WHEEL_CLASS = 'ap-wheel-link';
+  const navWheelLink = () =>
+    document.querySelector('a[data-mj="header-nav-item"][href$="/wheel"], [data-mj="header-nav-item"] a[href$="/wheel"]');
+  const wheelHref = () => {
+    const nav = navWheelLink();
+    if (nav) return nav.getAttribute('href');
+    const lang = (document.documentElement.lang || 'en').toLowerCase();
+    return `/${lang}/wheel`;
+  };
+
+  const ensureWheel = () => {
+    for (const gift of document.querySelectorAll('[data-mj="header-special-button"]')) {
+      const host = gift.parentElement;
+      if (!host) continue;
+      let a = host.querySelector(`:scope > .${WHEEL_CLASS}`);
+      if (!a) {
+        a = document.createElement('a');
+        a.className = WHEEL_CLASS;
+        a.setAttribute('aria-label', 'Fortune Wheel');
+        a.addEventListener('click', (e) => {
+          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          const nav = navWheelLink();
+          if (!nav) return; // plain href navigation
+          e.preventDefault();
+          log('wheel -> in-app nav via menu link', nav.getAttribute('href'));
+          nav.click();
+        });
+        host.insertBefore(a, gift);
+        log('wheel link inserted', host);
+      }
+      const href = wheelHref();
+      if (a.getAttribute('href') !== href) a.setAttribute('href', href);
+    }
+  };
+
   const ready = (fn) => {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   };
 
+  const scan = () => { bindAll(); ensureWheel(); };
+
   ready(() => {
-    bindAll();
+    scan();
     if ('MutationObserver' in window && document.body) {
-      const obs = new MutationObserver(debounce(bindAll, 100));
+      const obs = new MutationObserver(debounce(scan, 100));
       obs.observe(document.body, { childList: true, subtree: true });
     }
   });

@@ -57,7 +57,7 @@ pre {
 }
 
 [data-mj=widget-fixed-image-banner] {
-  --ap-chip: 64px;
+  --ap-chip: 54px;
   --ap-chip-gap: 40px;
   --ap-caption-gap: 8px;
   display: grid;
@@ -150,13 +150,13 @@ pre {
 }
 @media (min-width: 768px) {
   [data-mj=widget-fixed-image-banner] {
-    --ap-chip: 76px;
+    --ap-chip: 64px;
     --ap-chip-gap: 56px;
   }
 }
 @media (min-width: 1200px) {
   [data-mj=widget-fixed-image-banner] {
-    --ap-chip: 84px;
+    --ap-chip: 70px;
     --ap-chip-gap: 72px;
     padding-block: 22px;
   }
@@ -194,39 +194,41 @@ pre {
   font-size: 14px;
 }
 
-[data-mj=header-special-button] {
+[data-mj=header-right] > :has(> [data-mj=header-special-button]) {
+  order: -1;
+  position: relative;
+}
+
+.ap-wheel-link {
   --ap-wheel: 40px;
   --ap-wheel-gap: 10px;
-  position: relative;
-  overflow: visible;
-}
-[data-mj=header-special-button]::before {
-  content: "";
   position: absolute;
-  top: calc(50% - var(--ap-wheel) / 2);
+  top: 50%;
   right: calc(100% + var(--ap-wheel-gap));
   width: var(--ap-wheel);
   height: var(--ap-wheel);
+  margin-top: calc(var(--ap-wheel) / -2);
+  border-radius: 50%;
   background: url(imgs/header/normal/Wheel-icon.gif) center/contain no-repeat;
   filter: drop-shadow(0 2px 6px rgba(255, 128, 0, 0.35));
-  cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, filter 0.2s;
 }
-[data-mj=header-special-button]:hover::before {
-  transform: scale(1.08);
+.ap-wheel-link:hover, .ap-wheel-link:focus-visible {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 10px rgba(255, 128, 0, 0.6));
+}
+.ap-wheel-link:focus-visible {
+  outline: 2px solid #ff8000;
+  outline-offset: 2px;
 }
 @media (max-width: 999px) {
-  [data-mj=header-special-button] {
+  .ap-wheel-link {
     --ap-wheel: 34px;
     --ap-wheel-gap: 8px;
   }
 }
 
-[data-mj=header-right] > :has(> [data-mj=header-special-button]) {
-  order: -1;
-}
-
-[data-mj=header]:has([data-mj=header-special-button]) > :has(> [data-mj=announcement]) {
+[data-mj=header]:has(.ap-wheel-link) > :has(> [data-mj=announcement]) {
   display: none;
 }
 

@@ -68,7 +68,7 @@
 // Captions read from custom properties so other locales can override them:
 //   :root:lang(de) { --ap-label-18: 'Verantwortungsvoll spielen'; }
 [data-mj="widget-fixed-image-banner"] {
-  --ap-chip: 64px;
+  --ap-chip: 54px;
   --ap-chip-gap: 40px;
   --ap-caption-gap: 8px;
 
@@ -177,13 +177,13 @@
 
   // Tablet
   @include up('md') {
-    --ap-chip: 76px;
+    --ap-chip: 64px;
     --ap-chip-gap: 56px;
   }
 
   // Desktop
   @include up('xl') {
-    --ap-chip: 84px;
+    --ap-chip: 70px;
     --ap-chip-gap: 72px;
     padding-block: 22px;
   }
@@ -252,11 +252,11 @@
 }
 
 // Wheel icon — attached to the orange promotion (gift) button
-// The wheel is drawn as the gift button's own ::before, so it stays glued to
-// the button's left edge on every page, breakpoint and login state, and moves
-// with the header when it hides on scroll. Its click goes to the wheel page via
-// src/js/main.js (pseudo-element binding); without that JS, a click falls
-// through to the gift button's own link.
+// src/js/main.js inserts <a class="ap-wheel-link" href="/en/wheel"> as a
+// sibling just before the gift link, inside the gift's wrapper. It is a
+// separate link with its own hover, positioned off the wrapper's left edge, so
+// it stays glued to the button on every page, breakpoint and login state and
+// moves with the header when it hides on scroll.
 //
 // Why not move the announcement-bar wheel next to the button with CSS anchor
 // positioning? It works on desktop, but on mobile the gift lives inside
@@ -264,30 +264,38 @@
 // announcement bar in the DOM, so the anchor is rejected (CSS Anchor
 // Positioning §"acceptable anchor element").
 //
-// Keep `top` in px/% with no margin/transform offsets: main.js hit-tests the
-// pseudo from its computed left/top/width/height only.
-[data-mj="header-special-button"] {
+// Mobile header-right is [balance, wallet, gift, profile], so the slot left of
+// the gift is taken. Move the gift to the front, matching the desktop order
+// [gift, balance, …] and leaving free space for the wheel.
+[data-mj="header-right"] > :has(> [data-mj="header-special-button"]) {
+  order: -1;
+  position: relative;
+}
+
+.ap-wheel-link {
   --ap-wheel: 40px;
   --ap-wheel-gap: 10px;
 
-  position: relative;
-  overflow: visible;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + var(--ap-wheel-gap));
+  width: var(--ap-wheel);
+  height: var(--ap-wheel);
+  margin-top: calc(var(--ap-wheel) / -2);
+  border-radius: 50%;
+  background: url(imgs/header/normal/Wheel-icon.gif) center / contain no-repeat;
+  filter: drop-shadow(0 2px 6px rgba(255, 128, 0, 0.35));
+  transition: transform 0.2s, filter 0.2s;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(50% - var(--ap-wheel) / 2);
-    right: calc(100% + var(--ap-wheel-gap));
-    width: var(--ap-wheel);
-    height: var(--ap-wheel);
-    background: url(imgs/header/normal/Wheel-icon.gif) center / contain no-repeat;
-    filter: drop-shadow(0 2px 6px rgba(255, 128, 0, 0.35));
-    cursor: pointer;
-    transition: transform 0.2s;
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 10px rgba(255, 128, 0, 0.6));
   }
 
-  &:hover::before {
-    transform: scale(1.08);
+  &:focus-visible {
+    outline: 2px solid #ff8000;
+    outline-offset: 2px;
   }
 
   @media (max-width: 999px) {
@@ -296,16 +304,9 @@
   }
 }
 
-// Mobile header-right is [balance, wallet, gift, profile], so the slot left of
-// the gift is taken. Move the gift to the front, matching the desktop order
-// [gift, balance, …] and leaving free space for the wheel.
-[data-mj="header-right"] > :has(> [data-mj="header-special-button"]) {
-  order: -1;
-}
-
-// Hide the announcement-bar wheel whenever the gift-button wheel is rendered.
-// If the platform ever drops the gift button, the old wheel below comes back.
-[data-mj="header"]:has([data-mj="header-special-button"]) > :has(> [data-mj="announcement"]) {
+// Hide the announcement-bar wheel only once the JS wheel exists, so the old
+// wheel still shows if the JS fails to load or the gift button is missing.
+[data-mj="header"]:has(.ap-wheel-link) > :has(> [data-mj="announcement"]) {
   display: none;
 }
 

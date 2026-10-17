@@ -33,6 +33,11 @@ const html = `<!DOCTYPE html><html><body>
        shape of a purely decorative pseudo-element). The script must NOT treat
        this as a full-host click target. -->
   <a href="https://platform-default/" id="bare-host">bare host</a>
+
+  <!-- Header fixture for the wheel link: the gift button in its wrapper and
+       the header's "Fortune Wheel" menu item. -->
+  <div data-mj="header-right"><div id="gift-wrap"><a data-mj="header-special-button" href="/en/promotions">gift</a></div></div>
+  <a data-mj="header-nav-item" id="nav-wheel" href="/en/wheel">Fortune Wheel</a>
 </body></html>`;
 
 // Suppress jsdom navigation-not-implemented errors.
@@ -212,6 +217,38 @@ opened = null;
 whole.click();
 ok(opened === null, 'Android WebView: window.open NOT used (same-view navigation instead)');
 Object.defineProperty(window.navigator, 'userAgent', { configurable: true, get: () => realUA });
+
+// ----------------------------------------------------------------------------
+console.log('\n[Wheel link next to the gift button]');
+const giftWrap = document.querySelector('#gift-wrap');
+const gift = giftWrap.querySelector('[data-mj="header-special-button"]');
+const wheels = () => giftWrap.querySelectorAll(':scope > .ap-wheel-link');
+ok(wheels().length === 1, 'wheel: exactly one link inserted in the gift wrapper');
+const wheel = wheels()[0];
+ok(wheel.nextElementSibling === gift, 'wheel: sits immediately before the gift link');
+ok(wheel.getAttribute('href') === '/en/wheel', 'wheel: href taken from the menu item');
+ok(gift.getAttribute('href') === '/en/promotions', 'wheel: gift keeps its own link');
+
+let navClicked = false;
+const navWheel = document.querySelector('#nav-wheel');
+navWheel.addEventListener('click', (e) => { navClicked = true; e.preventDefault(); });
+const wheelClick = new window.MouseEvent('click', { bubbles: true, cancelable: true, button: 0 });
+wheel.dispatchEvent(wheelClick);
+ok(navClicked && wheelClick.defaultPrevented, 'wheel: click routes through the menu link (in-app nav)');
+
+document.body.appendChild(document.createElement('span'));
+await wait(180);
+ok(wheels().length === 1, 'wheel: not duplicated after a re-scan');
+
+navWheel.remove();
+document.documentElement.lang = 'de';
+document.body.appendChild(document.createElement('span'));
+await wait(180);
+ok(wheel.getAttribute('href') === '/de/wheel', 'wheel: falls back to /<lang>/wheel without the menu item');
+const plainClick = new window.MouseEvent('click', { bubbles: true, cancelable: true, button: 0 });
+plainClick.preventDefault = () => {}; // keep jsdom from navigating; we only check the handler left it alone
+wheel.dispatchEvent(plainClick);
+ok(!plainClick.defaultPrevented, 'wheel: without the menu item the plain href is followed');
 
 // ----------------------------------------------------------------------------
 console.log('\n[Invalid-selector resilience]');
