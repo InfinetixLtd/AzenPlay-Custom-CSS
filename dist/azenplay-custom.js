@@ -52,6 +52,10 @@
     { selector: '.app-ltr-1uzs5zs ul::after',  url: 'https://azenplay.com/en/',            target: '_blank' },
     { selector: '.app-ltr-1uzs5zs li::after',  url: 'https://azenplay.com/en/home/casino', target: '_blank' },
 
+    // Wheel icon drawn as the promotion (gift) button's ::before — open the
+    // wheel instead of the gift button's own /promotions link.
+    { selector: '[data-mj="header-special-button"]::before', url: 'https://azenplay.com/en/home/wheel', target: '_blank' },
+
     // News icon banner — open AzenPlay News in a new tab.
     { selector: '[data-mj="widget-fixed-image-banner"] a', url: 'https://azenplay.news', target: '_blank' },
 

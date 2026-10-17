@@ -49,42 +49,73 @@
 //   background: var(--ap-surface) !important;
 // }
 
-// AzenPlay News Icon
-// Two equal, evenly spaced tiles: the 18+ badge (::before) and the CMS news icon.
-// Each tile is --ap-tile-crop + 2 × --ap-tile-pad square.
+// AzenPlay News Icon + 18+ badge
+// Two equal, prominent, labelled icons on every breakpoint: the 18+ badge
+// (::before) and the CMS news icon (the widget's <a>), each a circular chip
+// with a caption underneath.
 //
-// The CMS icon is a 256×256 ANIMATED AVIF whose artwork (213×170) sits centred
-// inside built-in transparent padding. The frame is fitted with `contain`, so the
-// whole icon always shows — centred, aspect preserved, never chopped — and the
-// rules survive a re-upload at any other canvas size. Do NOT go back to a fixed
-// `object-position` crop window: it is pinned to one asset's pixel grid and
-// silently slices the artwork the moment the CMS image is replaced.
+// Layout is a 2-column grid: column 1 is ::before (chip) over ::after
+// (caption); column 2 is the <a>, which spans both rows and lays out its own
+// <img> chip over its own ::after caption on the same row sizes, so the two
+// chips and the two captions always line up.
+//
+// The CMS icon is a 256×256 ANIMATED AVIF whose artwork sits centred inside
+// built-in transparent padding. It is fitted with `contain` inside the chip, so
+// the whole icon always shows and the rules survive a re-upload at any canvas
+// size. Do NOT go back to a fixed `object-position` crop window: it is pinned
+// to one asset's pixel grid and slices the artwork when the image is replaced.
+//
+// Captions read from custom properties so other locales can override them:
+//   :root:lang(de) { --ap-label-18: 'Verantwortungsvoll spielen'; }
 [data-mj="widget-fixed-image-banner"] {
-  --ap-tile-crop: 64px;
-  --ap-tile-pad: 5px;
-  --ap-tile-gap: 10px;
-  --ap-badge: 43px;
+  --ap-chip: 64px;
+  --ap-chip-gap: 40px;
+  --ap-caption-gap: 8px;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-template-rows: var(--ap-chip) auto;
   justify-content: center;
   align-items: center;
-  gap: var(--ap-tile-gap);
+  column-gap: var(--ap-chip-gap);
+  row-gap: var(--ap-caption-gap);
   min-height: 0;
-  padding-block: 10px;
+  padding-block: 18px;
 
   // 18+ badge — drawn in CSS so it stays vector-sharp at every size
   &::before {
     content: '18+';
+    grid-area: 1 / 1;
+    justify-self: center;
     display: grid;
     place-items: center;
-    width: var(--ap-badge);
-    height: var(--ap-badge);
-    margin: calc((var(--ap-tile-crop) - var(--ap-badge)) / 2 + var(--ap-tile-pad));
-    border: calc(var(--ap-badge) * 0.1) solid #e41f2d;
+    box-sizing: border-box;
+    width: var(--ap-chip);
+    height: var(--ap-chip);
+    border: calc(var(--ap-chip) * 0.085) solid #e41f2d;
     border-radius: 50%;
     background: #fff;
-    color: #000;
-    font: 400 calc(var(--ap-badge) * 0.36) / 1 Arial, Helvetica, sans-serif;
+    color: #111;
+    font: 700 calc(var(--ap-chip) * 0.3) / 1 Arial, Helvetica, sans-serif;
+    letter-spacing: -0.02em;
+    box-shadow: 0 0 0 4px rgba(228, 31, 45, 0.18), 0 6px 18px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+  }
+
+  // 18+ caption
+  &::after {
+    content: var(--ap-label-18, 'Play Responsibly');
+    grid-area: 2 / 1;
+    justify-self: center;
+  }
+
+  &::after,
+  a::after {
+    font: 600 12px / 1.2 $font-family-base;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #c9ccd6;
+    white-space: nowrap;
     pointer-events: none;
   }
 
@@ -92,40 +123,69 @@
     display: contents;
 
     a {
-      display: block;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      display: grid;
+      grid-template-rows: var(--ap-chip) auto;
+      row-gap: var(--ap-caption-gap);
+      justify-items: center;
+      align-items: center;
       position: static;
-      padding: var(--ap-tile-pad);
+      padding: 0;
+      border-radius: 12px;
+      text-decoration: none;
+      outline-offset: 6px;
+
+      // News caption
+      &::after {
+        content: var(--ap-label-news, 'AzenPlay News');
+        transition: color 0.2s;
+      }
+
+      &:hover,
+      &:focus-visible {
+        img {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 0 0 6px rgba(255, 128, 0, 0.28), 0 10px 24px rgba(255, 128, 0, 0.25);
+        }
+
+        &::after {
+          color: #ff8000;
+        }
+      }
     }
 
     img {
       display: block;
-      width: var(--ap-tile-crop);
-      height: var(--ap-tile-crop);
+      box-sizing: border-box;
+      width: var(--ap-chip);
+      height: var(--ap-chip);
+      padding: calc(var(--ap-chip) * 0.12);
+      border: calc(var(--ap-chip) * 0.045) solid #ff8000;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, #2b3346, #151a24 70%);
       object-fit: contain;
       object-position: center;
+      box-shadow: 0 0 0 4px rgba(255, 128, 0, 0.16), 0 6px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
 
-      // The artwork is downscaled into the tile (213px wide source -> ~60 CSS px),
-      // so keep the browser's smooth filtering. `image-rendering: pixelated`
-      // belonged to the old 1:1 pixel-mapped crop; at this ratio it would alias
-      // the artwork badly. Retina screens still get 2–3× the source detail.
+      // The artwork is downscaled into the chip, so keep the browser's smooth
+      // filtering — `pixelated` would alias it badly.
       image-rendering: auto;
     }
   }
 
   // Tablet
   @include up('md') {
-    --ap-tile-crop: 72px;
-    --ap-tile-pad: 7px;
-    --ap-tile-gap: 14px;
-    --ap-badge: 48px;
-    padding-block: 14px;
+    --ap-chip: 76px;
+    --ap-chip-gap: 56px;
   }
 
   // Desktop
   @include up('xl') {
-    --ap-tile-pad: 10px;
-    --ap-tile-gap: 24px;
-    padding-block: 0;
+    --ap-chip: 84px;
+    --ap-chip-gap: 72px;
+    padding-block: 22px;
   }
 }
 
@@ -191,7 +251,65 @@
   font-size: 14px;
 }
 
-// Anouncement Bar & Wheel Icon button
+// Wheel icon — attached to the orange promotion (gift) button
+// The wheel is drawn as the gift button's own ::before, so it stays glued to
+// the button's left edge on every page, breakpoint and login state, and moves
+// with the header when it hides on scroll. Its click goes to the wheel page via
+// src/js/main.js (pseudo-element binding); without that JS, a click falls
+// through to the gift button's own link.
+//
+// Why not move the announcement-bar wheel next to the button with CSS anchor
+// positioning? It works on desktop, but on mobile the gift lives inside
+// [data-mj=custom-header] (fixed, scroll-hide transform), which comes AFTER the
+// announcement bar in the DOM, so the anchor is rejected (CSS Anchor
+// Positioning §"acceptable anchor element").
+//
+// Keep `top` in px/% with no margin/transform offsets: main.js hit-tests the
+// pseudo from its computed left/top/width/height only.
+[data-mj="header-special-button"] {
+  --ap-wheel: 40px;
+  --ap-wheel-gap: 10px;
+
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - var(--ap-wheel) / 2);
+    right: calc(100% + var(--ap-wheel-gap));
+    width: var(--ap-wheel);
+    height: var(--ap-wheel);
+    background: url(imgs/header/normal/Wheel-icon.gif) center / contain no-repeat;
+    filter: drop-shadow(0 2px 6px rgba(255, 128, 0, 0.35));
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  &:hover::before {
+    transform: scale(1.08);
+  }
+
+  @media (max-width: 999px) {
+    --ap-wheel: 34px;
+    --ap-wheel-gap: 8px;
+  }
+}
+
+// Mobile header-right is [balance, wallet, gift, profile], so the slot left of
+// the gift is taken. Move the gift to the front, matching the desktop order
+// [gift, balance, …] and leaving free space for the wheel.
+[data-mj="header-right"] > :has(> [data-mj="header-special-button"]) {
+  order: -1;
+}
+
+// Hide the announcement-bar wheel whenever the gift-button wheel is rendered.
+// If the platform ever drops the gift button, the old wheel below comes back.
+[data-mj="header"]:has([data-mj="header-special-button"]) > :has(> [data-mj="announcement"]) {
+  display: none;
+}
+
+// Anouncement Bar & Wheel Icon button (fallback — only shown without the gift button)
 @media (min-width: 1000px) {
   .app-ltr-ijdlg9 {
     padding-left: 0px;
