@@ -509,6 +509,7 @@ pre {
     height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
     background-size: contain;
+    background-repeat: no-repeat;
   }
   .app-ltr-14pr45b {
     font-size: 0;
@@ -620,6 +621,8 @@ pre {
     height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 .app-ltr-14pr45b {
     font-size: 0;
@@ -698,6 +701,8 @@ pre {
     height: 166px;
     background-image: url(imgs/footer/telegram-qr.svg);
     background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .app-ltr-cfnr2u .app-ltr-19zdw54 .app-ltr-14pr45b {
     font-size: 0;
@@ -807,6 +812,7 @@ pre {
     background-image: url(imgs/footer/telegram-qr.svg);
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
   }
   .app-ltr-14pr45b {
     font-size: 0;
