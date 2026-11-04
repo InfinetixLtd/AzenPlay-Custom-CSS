@@ -543,6 +543,35 @@
   max-width: 80%;
 }
 
+// footer payment method icons (keen slider, slide = .app-ltr-1qnrz61)
+// Platform default: height 82px + padding 24px left the logos only ~34px tall.
+// Logos now fill up to 64px tall on desktop. On narrower slides (phones) the
+// logo scales down with the slide width and the slide height follows, while
+// the vertical margins and side gutter stay the same at every width.
+// Capping the slider width narrows each keen slide (keen re-measures the
+// container), which tightens the gap between logos on wide screens.
+[data-mj="widget-payments"] .keen-slider {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+[data-mj="widget-payments"] .keen-slider__slide {
+  width: 100% !important;
+  height: auto;
+  padding: 0 8px;
+  margin: 56px 0 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 64px;
+    object-fit: contain;
+  }
+}
+
 // copyright
 .app-ltr-1959n0c {
   font-size: 12px;
