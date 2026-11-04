@@ -553,12 +553,19 @@
 // slot (--ap-pay-half) and clip-path the same amount back, so the visible
 // window stays put while the logos sit fully inside it.
 //
-// Slider width is capped per breakpoint so each slot is at most
-// $pay-slot wide: logos stay at most $pay-logo-h tall with a ~28px gap,
-// and on narrower screens the logos shrink with the slot, keeping the gap.
+// Desktop (>=992px): slider width is capped so each slot is at most
+// $pay-slot wide: logos stay at most $pay-logo-h tall with a ~28px gap.
+//
+// Phones and tablets (<992px): the platform's slider shows only 2 (or 4)
+// logos at a time, and its perView lives in platform JS. Instead, the slider
+// is laid out as a static grid: keen's inline min/max-width and transforms
+// are overridden, so every logo is visible at once with no scrolling —
+// 3 per row on phones, all in one row on tablets.
 $pay-slot: 160px;
 $pay-spacing: 16px; // keen's own spacing; must match the platform config
 $pay-logo-h: 52px;
+$pay-logo-h-mobile: 40px;
+$pay-grid-gap: 8px;
 
 @mixin pay-slider($n) {
   max-width: $pay-slot * $n + $pay-spacing * ($n - 1);
@@ -569,17 +576,6 @@ $pay-logo-h: 52px;
   // Vertical spacing lives on the wrapper, not the slides, so the slider's
   // hover area (which pauses autoplay) is only the logo row.
   padding: 56px 0 24px;
-
-  .keen-slider {
-    @include pay-slider(2);
-    margin: 0 auto;
-    overflow: visible;
-    transform: translateX(var(--ap-pay-half));
-    clip-path: inset(0 var(--ap-pay-half) 0 calc(-1 * var(--ap-pay-half)));
-
-    @media (min-width: 768px) { @include pay-slider(4); }
-    @media (min-width: 992px) { @include pay-slider(6); }
-  }
 
   .keen-slider__slide {
     width: 100% !important;
@@ -596,6 +592,45 @@ $pay-logo-h: 52px;
       height: auto;
       max-height: $pay-logo-h;
       object-fit: contain;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .keen-slider {
+      @include pay-slider(6);
+      margin: 0 auto;
+      overflow: visible;
+      transform: translateX(var(--ap-pay-half));
+      clip-path: inset(0 var(--ap-pay-half) 0 calc(-1 * var(--ap-pay-half)));
+    }
+  }
+
+  @media (max-width: 991px) {
+    .keen-slider {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $pay-grid-gap;
+      max-width: 3 * $pay-slot + 2 * $pay-grid-gap;
+      margin: 0 auto;
+      padding: 0 16px;
+      overflow: visible;
+    }
+
+    .keen-slider__slide {
+      // Neutralise keen's inline sizing and positioning.
+      min-width: 0 !important;
+      max-width: none !important;
+      transform: none !important;
+      padding: 0;
+
+      img { max-height: $pay-logo-h-mobile; }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .keen-slider {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      max-width: 6 * $pay-slot + 5 * $pay-grid-gap;
     }
   }
 }
