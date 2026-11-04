@@ -32,7 +32,9 @@
 // page content, below the header (1150) and its menus. Pop-ups render
 // outside #root, after it, so they're above the snow too.
 //
-// Turn off after the season: set $snow-enabled to false and rebuild.
+// Only dist/azenplay-custom-christmas(.min).css includes this file (via
+// src/main-christmas.scss); the regular build has no snow. Switch the CMS
+// link between the two files to turn the snow on or off.
 // =============================================================================
 
 @use 'sass:math';

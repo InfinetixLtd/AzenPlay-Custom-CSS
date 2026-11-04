@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "sass src/main.scss dist/azenplay-custom.css --style=expanded --no-source-map",
-    "compile:min": "sass src/main.scss dist/azenplay-custom.min.css --style=compressed --no-source-map",
-    "postcss": "postcss dist/azenplay-custom.css dist/azenplay-custom.min.css --replace",
+    "compile": "sass src/main.scss:dist/azenplay-custom.css src/main-christmas.scss:dist/azenplay-custom-christmas.css --style=expanded --no-source-map",
+    "compile:min": "sass src/main.scss:dist/azenplay-custom.min.css src/main-christmas.scss:dist/azenplay-custom-christmas.min.css --style=compressed --no-source-map",
+    "postcss": "postcss dist/azenplay-custom.css dist/azenplay-custom.min.css dist/azenplay-custom-christmas.css dist/azenplay-custom-christmas.min.css --replace",
     "copy:assets": "node scripts/copy-assets.mjs",
     "compile:js": "node -e \"require('fs').copyFileSync('src/js/main.js','dist/azenplay-custom.js')\"",
     "compile:js:min": "terser src/js/main.js -o dist/azenplay-custom.min.js --compress --mangle",
     "test:js": "node scripts/test-js.mjs",
     "build": "npm run clean && npm run compile && npm run compile:min && npm run postcss && npm run compile:js && npm run compile:js:min && npm run copy:assets",
-    "watch": "sass --watch src/main.scss:dist/azenplay-custom.css --style=expanded --no-source-map",
+    "watch": "sass --watch src/main.scss:dist/azenplay-custom.css src/main-christmas.scss:dist/azenplay-custom-christmas.css --style=expanded --no-source-map",
     "dev": "npm run watch"
   },
   "browserslist": [

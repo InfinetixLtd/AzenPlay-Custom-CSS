@@ -19,6 +19,8 @@ Output:
 | --- | --- |
 | `dist/azenplay-custom.css` | Readable build (debugging) |
 | `dist/azenplay-custom.min.css` | Minified build (production embed) |
+| `dist/azenplay-custom-christmas.css` | Readable build + CSS-only snowfall |
+| `dist/azenplay-custom-christmas.min.css` | Minified build + snowfall (seasonal embed) |
 
 > `dist/` is committed on purpose — GitHub raw / jsDelivr serve the file straight
 > from the repo. Run `npm run build` and commit the result before embedding.
@@ -33,6 +35,11 @@ https://cdn.jsdelivr.net/gh/InfinetixLtd/AzenPlay-Custom-CSS@main/dist/azenplay-
 ```
 Pin a release for stability and bust the cache on update by tagging, e.g.
 `@v1.0.0` instead of `@main`.
+
+**Christmas edition:** swap the file name for `azenplay-custom-christmas.min.css`
+to get the same theme plus falling snow (source: `src/main-christmas.scss` and
+`src/overrides/_christmas.scss`). Switch back to `azenplay-custom.min.css` to
+turn the snow off.
 
 **GitHub raw (uncached, fine for testing):**
 ```

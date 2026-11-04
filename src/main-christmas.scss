@@ -1,0 +1,10 @@
+// =============================================================================
+// AZENPLAY · CUSTOM OVERRIDE STYLESHEET — CHRISTMAS EDITION
+// -----------------------------------------------------------------------------
+// Entry point. Compiles to dist/azenplay-custom-christmas.css (+ .min.css).
+// Exactly the regular stylesheet (main.scss) plus the CSS-only snowfall.
+// Switch the CMS link between the two files to turn the snow on and off.
+// =============================================================================
+
+@use 'main';
+@use 'overrides/christmas';
