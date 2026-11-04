@@ -53,9 +53,21 @@ $snow-z: 999;
   @return math.div($n, 1px);
 }
 
+// Share of flakes that are "bright": full opacity plus a soft glow halo.
+$snow-bright-share: 0.3;
+// Halo radius as a multiple of the flake radius, and its peak opacity.
+$snow-halo-size: 2.6;
+$snow-halo-alpha: 0.22;
+
+@function snow-round($n, $places) {
+  $f: math.pow(10, $places);
+  @return math.div(math.round($n * $f), $f);
+}
+
 // One tile ($w × $h) of $cols × $rows flakes, one per cell at a random spot.
 // Radius $r-min..$r-max, opacity $a-min..$a-max. $soft is where the solid
-// core ends (0..1 of the radius): lower = more out-of-focus.
+// core ends (0..1 of the radius): lower = more out-of-focus. A random
+// $snow-bright-share of flakes are lifted to full brightness with a halo.
 @function snow-tile($w, $h, $cols, $rows, $r-min, $r-max, $a-min, $a-max, $soft, $salt) {
   $layers: ();
   $cw: math.div(snow-strip($w), $cols);
@@ -66,21 +78,35 @@ $snow-z: 999;
       $i: $i + 1;
       $r: $r-min + ($r-max - $r-min) * snow-rand($i, $salt);
       $a: $a-min + ($a-max - $a-min) * snow-rand($i, $salt + 1);
-      $rp: snow-strip($r);
-      $x: $col * $cw + $rp + ($cw - 2 * $rp) * snow-rand($i, $salt + 2);
-      $y: $row * $ch + $rp + ($ch - 2 * $rp) * snow-rand($i, $salt + 3);
-      $r: math.div(math.round($r * 10), 10);
-      $a: math.div(math.round($a * 100), 100);
+      $bright: snow-rand($i, $salt + 4) < $snow-bright-share;
+      @if $bright { $a: 1; }
+      // Inset by the halo so no flake or glow is cut at the tile seam.
+      $pad: snow-strip($r) * $snow-halo-size;
+      $x: math.round($col * $cw + $pad + ($cw - 2 * $pad) * snow-rand($i, $salt + 2)) * 1px;
+      $y: math.round($row * $ch + $pad + ($ch - 2 * $pad) * snow-rand($i, $salt + 3)) * 1px;
+      $r: snow-round($r, 1);
+      $a: snow-round($a, 2);
       $layers: list.append(
         $layers,
         radial-gradient(
-          circle at math.round($x) * 1px math.round($y) * 1px,
+          circle at $x $y,
           rgba(255, 255, 255, $a) 0,
-          rgba(255, 255, 255, math.div(math.round($a * 60), 100)) math.div(math.round($r * $soft * 100), 100),
+          rgba(255, 255, 255, snow-round($a * 0.6, 2)) snow-round($r * $soft, 2),
           rgba(255, 255, 255, 0) $r
         ),
         comma
       );
+      @if $bright {
+        $layers: list.append(
+          $layers,
+          radial-gradient(
+            circle at $x $y,
+            rgba(255, 255, 255, $snow-halo-alpha) 0,
+            rgba(255, 255, 255, 0) snow-round($r * $snow-halo-size, 1)
+          ),
+          comma
+        );
+      }
     }
   }
   @return $layers;
@@ -88,12 +114,13 @@ $snow-z: 999;
 
 // Per layer:
 //   sel, tile w, tile h, cols, rows, r-min, r-max, a-min, a-max, soft, salt,
-//   fall (one tile), sway (px), sway period, scroll factor (1 = page speed)
+//   fall (one tile), sway (px), sway period, scroll factor (1 = page speed),
+//   twinkle period
 $snow-layers: (
-  'far':   ('#root::before', 557px, 613px, 8, 8, 1.4px, 2.4px, 0.45, 0.75, 0.55, 1,  48s, 10px, 8s,    0.45),
-  'mid':   ('[data-mj="root-layout"]::before', 683px, 709px, 6, 6, 2.3px, 3.6px, 0.6,  0.9,  0.5,  7,  38s, 18px, 10.5s, 0.7),
-  'near':  ('[data-mj="root-layout"]::after', 811px, 757px, 5, 4, 3.4px, 5px,   0.7,  0.95, 0.4,  13, 30s, 26px, 12.5s, 0.9),
-  'front': ('#root::after', 947px, 983px, 4, 3, 5px,   7px,   0.6,  0.85, 0.3,  19, 30s, 34px, 15s,   1.1),
+  'far':   ('#root::before', 557px, 613px, 5, 5, 1.4px, 2.4px, 0.3,  0.75, 0.55, 1,  48s, 10px, 8s,    0.45, 6.1s),
+  'mid':   ('[data-mj="root-layout"]::before', 683px, 709px, 4, 4, 2.3px, 3.6px, 0.4,  0.85, 0.5,  7,  38s, 18px, 10.5s, 0.7,  7.3s),
+  'near':  ('[data-mj="root-layout"]::after', 811px, 757px, 3, 3, 3.4px, 5px,   0.45, 0.9,  0.4,  13, 30s, 26px, 12.5s, 0.9,  8.9s),
+  'front': ('#root::after', 947px, 983px, 2, 2, 5px,   7px,   0.45, 0.85, 0.3,  19, 30s, 34px, 15s,   1.1,  10.7s),
 );
 
 // The sway is a rotation about a point this far above the layer; a small
@@ -111,6 +138,7 @@ $snow-scroll-range: 100000px;
     $sway:   list.nth($cfg, 13);
     $period: list.nth($cfg, 14);
     $factor: list.nth($cfg, 15);
+    $glint:  list.nth($cfg, 16);
     $angle:  math.div(math.round(math.div(math.div($sway, $snow-sway-origin) * 180, math.$pi) * 10000), 10000) * 1deg;
     $idx:    list.index(map.keys($snow-layers), $name);
 
@@ -135,12 +163,13 @@ $snow-scroll-range: 100000px;
       background-size: $w $h;
       background-repeat: repeat;
       transform-origin: 50% (-$snow-sway-origin);
-      will-change: transform, rotate, translate;
+      will-change: transform, rotate, translate, opacity;
       animation:
         ap-snow-fall-#{$name} list.nth($cfg, 12) linear infinite,
-        ap-snow-sway-#{$name} $period ease-in-out infinite alternate;
+        ap-snow-sway-#{$name} $period ease-in-out infinite alternate,
+        ap-snow-glint $glint ease-in-out infinite alternate;
       // Start each layer at a different point so they're out of phase.
-      animation-delay: -$idx * 3.7s, -$idx * 2.3s;
+      animation-delay: -$idx * 3.7s, -$idx * 2.3s, -$idx * 1.9s;
     }
 
     @keyframes ap-snow-fall-#{$name} {
@@ -158,12 +187,13 @@ $snow-scroll-range: 100000px;
         animation:
           ap-snow-fall-#{$name} list.nth($cfg, 12) linear infinite,
           ap-snow-sway-#{$name} $period ease-in-out infinite alternate,
+          ap-snow-glint $glint ease-in-out infinite alternate,
           ap-snow-scroll-#{$name} linear both;
-        animation-delay: -$idx * 3.7s, -$idx * 2.3s, 0s;
-        animation-timeline: auto, auto, scroll(root block);
-        animation-range: normal, normal, 0px $snow-scroll-range;
+        animation-delay: -$idx * 3.7s, -$idx * 2.3s, -$idx * 1.9s, 0s;
+        animation-timeline: auto, auto, auto, scroll(root block);
+        animation-range: normal, normal, normal, 0px $snow-scroll-range;
         // One iteration = scrolling far enough to move this layer one tile.
-        animation-iteration-count: infinite, infinite,
+        animation-iteration-count: infinite, infinite, infinite,
           math.div(math.round(math.div(snow-strip($snow-scroll-range) * $factor, snow-strip($h)) * 1000), 1000);
       }
 
@@ -172,6 +202,17 @@ $snow-scroll-range: 100000px;
         to   { translate: 0 (-$h); }
       }
     }
+  }
+
+  // Twinkle: each layer brightens and fades on an uneven curve. Periods
+  // differ per layer (6.1–10.7s) and run alternate, so the layers drift in
+  // and out of step and the glints never repeat in an obvious rhythm.
+  @keyframes ap-snow-glint {
+    0%   { opacity: 1; }
+    27%  { opacity: 0.62; }
+    46%  { opacity: 0.9; }
+    71%  { opacity: 0.7; }
+    100% { opacity: 1; }
   }
 
   // Respect the OS "reduce motion" setting, and keep snow off printouts.
