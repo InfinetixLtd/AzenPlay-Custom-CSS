@@ -1,26 +1,46 @@
 // =============================================================================
 // OVERRIDES · CHRISTMAS SNOWFALL (CSS only)
 // -----------------------------------------------------------------------------
-// Three full-screen snow layers drawn on pseudo-elements, so no markup or JS
-// is needed:
-//   body::before  far   — tiny, faint, slowest
-//   body::after   mid
-//   html::after   near  — largest, softest, slightly faster
+// Four full-screen snow layers drawn on pseudo-elements, so no markup or JS
+// is needed (far → front):
+//   #root::before · [data-mj=root-layout]::before ·
+//   [data-mj=root-layout]::after · #root::after
 //
-// Each layer is a tile of soft white dots (radial-gradients) repeated over a
-// box one tile taller than the viewport. The box slides down by exactly one
-// tile height, and because the pattern repeats every tile, the loop has no
-// visible jump. Only `transform` / `translate` animate, so it runs on the
-// compositor and stays cheap on phones. A separate slow sideways sway on each
-// layer (out of phase) makes the drift look like wind rather than a conveyor.
+// Why these hosts: the whole app lives in #root, which is position:relative
+// with z-index:1 — a stacking context. Anything on html/body would sit above
+// the entire app, header included. Drawing inside #root puts the snow in the
+// same stacking context as the header, so z-index can tuck it underneath.
+//
+// How each layer moves (three independent motions on three properties, all
+// compositor-friendly):
+//   transform — the fall: a tile of flakes repeated over a box that slides
+//               down exactly one tile height and loops, so there's no jump.
+//   rotate    — the sway: a tiny rotation about a point far above the screen,
+//               which reads as a slow sideways drift (wind).
+//   translate — the scroll: linked to the page scroll (scroll-driven
+//               animation), so flakes move up as you scroll down. Nearer
+//               layers move more than far ones (parallax). Browsers without
+//               scroll-driven animations just keep the snow fixed.
+//
+// Randomness: each layer uses a different odd-sized, non-square tile and a
+// jittered grid (one flake per cell at a random spot), so the repeat isn't
+// obvious and there are no clumps or empty bands. Layers fall at different
+// speeds and sway out of phase, so they never move in lockstep.
+//
+// Clicks: the layers have pointer-events: none, so every click and hover
+// goes straight through. They sit at z-index 999 inside #root: above the
+// page content, below the header (1150) and its menus. Pop-ups render
+// outside #root, after it, so they're above the snow too.
 //
 // Turn off after the season: set $snow-enabled to false and rebuild.
 // =============================================================================
 
 @use 'sass:math';
 @use 'sass:list';
+@use 'sass:map';
 
 $snow-enabled: true;
+$snow-z: 999;
 
 // Deterministic pseudo-random 0..1 — same output every build, so rebuilding
 // doesn't reshuffle the flakes or churn the dist diff.
@@ -29,80 +49,128 @@ $snow-enabled: true;
   @return $x - math.floor($x);
 }
 
-// One tile of $count flakes, radius $r-min..$r-max, opacity $a-min..$a-max.
-// $soft is where the solid core ends (0..1 of the radius); lower = blurrier.
-@function snow-tile($tile, $count, $r-min, $r-max, $a-min, $a-max, $soft, $salt) {
+@function snow-strip($n) {
+  @return math.div($n, 1px);
+}
+
+// One tile ($w × $h) of $cols × $rows flakes, one per cell at a random spot.
+// Radius $r-min..$r-max, opacity $a-min..$a-max. $soft is where the solid
+// core ends (0..1 of the radius): lower = more out-of-focus.
+@function snow-tile($w, $h, $cols, $rows, $r-min, $r-max, $a-min, $a-max, $soft, $salt) {
   $layers: ();
-  @for $i from 1 through $count {
-    $r: $r-min + ($r-max - $r-min) * snow-rand($i, $salt);
-    $a: $a-min + ($a-max - $a-min) * snow-rand($i, $salt + 1);
-    // Keep each flake fully inside the tile so it isn't cut at the seam.
-    $x: $r + (math.div($tile, 1px) - 2 * math.div($r, 1px)) * snow-rand($i, $salt + 2) * 1px;
-    $y: $r + (math.div($tile, 1px) - 2 * math.div($r, 1px)) * snow-rand($i, $salt + 3) * 1px;
-    $a: math.div(math.round($a * 100), 100);
-    $r: math.div(math.round($r * 10), 10);
-    $layers: list.append(
-      $layers,
-      radial-gradient(
-        circle at math.round($x) math.round($y),
-        rgba(255, 255, 255, $a) 0,
-        rgba(255, 255, 255, $a * 0.6) $r * $soft,
-        rgba(255, 255, 255, 0) $r
-      ),
-      comma
-    );
+  $cw: math.div(snow-strip($w), $cols);
+  $ch: math.div(snow-strip($h), $rows);
+  $i: 0;
+  @for $row from 0 to $rows {
+    @for $col from 0 to $cols {
+      $i: $i + 1;
+      $r: $r-min + ($r-max - $r-min) * snow-rand($i, $salt);
+      $a: $a-min + ($a-max - $a-min) * snow-rand($i, $salt + 1);
+      $rp: snow-strip($r);
+      $x: $col * $cw + $rp + ($cw - 2 * $rp) * snow-rand($i, $salt + 2);
+      $y: $row * $ch + $rp + ($ch - 2 * $rp) * snow-rand($i, $salt + 3);
+      $r: math.div(math.round($r * 10), 10);
+      $a: math.div(math.round($a * 100), 100);
+      $layers: list.append(
+        $layers,
+        radial-gradient(
+          circle at math.round($x) * 1px math.round($y) * 1px,
+          rgba(255, 255, 255, $a) 0,
+          rgba(255, 255, 255, math.div(math.round($a * 60), 100)) math.div(math.round($r * $soft * 100), 100),
+          rgba(255, 255, 255, 0) $r
+        ),
+        comma
+      );
+    }
   }
   @return $layers;
 }
 
-//           selector       tile   count  r-min  r-max  a-min a-max soft  salt fall sway  sway-dur
+// Per layer:
+//   sel, tile w, tile h, cols, rows, r-min, r-max, a-min, a-max, soft, salt,
+//   fall (one tile), sway (px), sway period, scroll factor (1 = page speed)
 $snow-layers: (
-  'far':  ('body::before',  600px, 55,    1.5px, 2.5px, 0.45, 0.75, 0.55, 1,   75s, 12px, 9s),
-  'mid':  ('body::after',   750px, 32,    2.5px, 4px,   0.6,  0.9,  0.5,  7,   60s, 20px, 11s),
-  'near': ('html::after',   900px, 14,    4.5px, 6.5px, 0.7,  0.95, 0.35, 13,  48s, 30px, 13s),
+  'far':   ('#root::before', 557px, 613px, 8, 8, 1.4px, 2.4px, 0.45, 0.75, 0.55, 1,  48s, 10px, 8s,    0.45),
+  'mid':   ('[data-mj="root-layout"]::before', 683px, 709px, 6, 6, 2.3px, 3.6px, 0.6,  0.9,  0.5,  7,  38s, 18px, 10.5s, 0.7),
+  'near':  ('[data-mj="root-layout"]::after', 811px, 757px, 5, 4, 3.4px, 5px,   0.7,  0.95, 0.4,  13, 30s, 26px, 12.5s, 0.9),
+  'front': ('#root::after', 947px, 983px, 4, 3, 5px,   7px,   0.6,  0.85, 0.3,  19, 30s, 34px, 15s,   1.1),
 );
+
+// The sway is a rotation about a point this far above the layer; a small
+// angle gives an almost purely horizontal drift of ±sway px.
+$snow-sway-origin: 20000px;
+// Scroll range the scroll-linked offset is defined over (longer than any
+// page). Its keyframes repeat every (tile h / factor) px of scrolling.
+$snow-scroll-range: 100000px;
 
 @if $snow-enabled {
   @each $name, $cfg in $snow-layers {
-    $sel:      list.nth($cfg, 1);
-    $tile:     list.nth($cfg, 2);
-    $sway:     list.nth($cfg, 11);
+    $sel:    list.nth($cfg, 1);
+    $w:      list.nth($cfg, 2);
+    $h:      list.nth($cfg, 3);
+    $sway:   list.nth($cfg, 13);
+    $period: list.nth($cfg, 14);
+    $factor: list.nth($cfg, 15);
+    $angle:  math.div(math.round(math.div(math.div($sway, $snow-sway-origin) * 180, math.$pi) * 10000), 10000) * 1deg;
+    $idx:    list.index(map.keys($snow-layers), $name);
 
     #{$sel} {
       content: '';
       position: fixed;
-      // One tile of headroom above the viewport for the loop, and sway room
-      // on both sides so the edges never show a gap.
-      top: -$tile;
-      bottom: 0;
-      left: -$sway;
-      right: -$sway;
-      z-index: 9999;
+      // A tile of headroom above (fall) and below (scroll offset), and sway
+      // room on both sides, so the viewport is always fully covered.
+      top: -$h;
+      bottom: -$h;
+      left: -$sway * 2;
+      right: -$sway * 2;
+      z-index: $snow-z;
       pointer-events: none;
       background-image: snow-tile(
-        $tile,
-        list.nth($cfg, 3),
+        $w, $h,
         list.nth($cfg, 4), list.nth($cfg, 5),
         list.nth($cfg, 6), list.nth($cfg, 7),
-        list.nth($cfg, 8),
-        list.nth($cfg, 9)
+        list.nth($cfg, 8), list.nth($cfg, 9),
+        list.nth($cfg, 10), list.nth($cfg, 11)
       );
-      background-size: $tile $tile;
+      background-size: $w $h;
       background-repeat: repeat;
-      will-change: transform;
+      transform-origin: 50% (-$snow-sway-origin);
+      will-change: transform, rotate, translate;
       animation:
-        ap-snow-fall-#{$name} list.nth($cfg, 10) linear infinite,
-        ap-snow-sway-#{$name} list.nth($cfg, 12) ease-in-out infinite alternate;
+        ap-snow-fall-#{$name} list.nth($cfg, 12) linear infinite,
+        ap-snow-sway-#{$name} $period ease-in-out infinite alternate;
+      // Start each layer at a different point so they're out of phase.
+      animation-delay: -$idx * 3.7s, -$idx * 2.3s;
     }
 
     @keyframes ap-snow-fall-#{$name} {
       from { transform: translate3d(0, 0, 0); }
-      to   { transform: translate3d(0, $tile, 0); }
+      to   { transform: translate3d(0, $h, 0); }
     }
 
     @keyframes ap-snow-sway-#{$name} {
-      from { translate: -$sway 0; }
-      to   { translate: $sway 0; }
+      from { rotate: -$angle; }
+      to   { rotate: $angle; }
+    }
+
+    @supports (animation-timeline: scroll()) {
+      #{$sel} {
+        animation:
+          ap-snow-fall-#{$name} list.nth($cfg, 12) linear infinite,
+          ap-snow-sway-#{$name} $period ease-in-out infinite alternate,
+          ap-snow-scroll-#{$name} linear both;
+        animation-delay: -$idx * 3.7s, -$idx * 2.3s, 0s;
+        animation-timeline: auto, auto, scroll(root block);
+        animation-range: normal, normal, 0px $snow-scroll-range;
+        // One iteration = scrolling far enough to move this layer one tile.
+        animation-iteration-count: infinite, infinite,
+          math.div(math.round(math.div(snow-strip($snow-scroll-range) * $factor, snow-strip($h)) * 1000), 1000);
+      }
+
+      @keyframes ap-snow-scroll-#{$name} {
+        from { translate: 0 0; }
+        to   { translate: 0 (-$h); }
+      }
     }
   }
 
