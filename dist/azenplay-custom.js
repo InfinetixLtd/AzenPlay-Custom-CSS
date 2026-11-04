@@ -303,6 +303,25 @@
     }
   };
 
+  // ------------------------------------------------------------------
+  // Footer payments slider — resume autoplay after a touch
+  // ------------------------------------------------------------------
+  // The platform's keen-slider autoplay pauses on `mouseover` and resumes on
+  // `mouseout`. On touch devices a tap fires the emulated mouseover but no
+  // mouseout until the user taps elsewhere, so the slider stays frozen. After
+  // a touch ends inside the slider, send the missing mouseout. Delegated on
+  // document so it survives React re-rendering the slider.
+  const PAYMENTS_SLIDER = '[data-mj="widget-payments-slider"]';
+  document.addEventListener('touchend', (e) => {
+    const slider = e.target instanceof Element && e.target.closest(PAYMENTS_SLIDER);
+    if (!slider) return;
+    // The emulated mouseover follows touchend, so wait for it before undoing it.
+    setTimeout(() => {
+      slider.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
+      log('payments slider: resumed autoplay after touch');
+    }, 400);
+  }, { passive: true });
+
   const ready = (fn) => {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);

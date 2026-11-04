@@ -21,6 +21,7 @@
 // =============================================================================
 
 @use '../abstracts' as *;
+@use 'sass:math';
 
 // ----------------------------------------------------------------------------
 // EXAMPLES — delete or replace these with the platform's real selectors.
@@ -544,31 +545,58 @@
 }
 
 // footer payment method icons (keen slider, slide = .app-ltr-1qnrz61)
-// Platform default: height 82px + padding 24px left the logos only ~34px tall.
-// Logos now fill up to 64px tall on desktop. On narrower slides (phones) the
-// logo scales down with the slide width and the slide height follows, while
-// the vertical margins and side gutter stay the same at every width.
-// Capping the slider width narrows each keen slide (keen re-measures the
-// container), which tightens the gap between logos on wide screens.
-[data-mj="widget-payments"] .keen-slider {
-  max-width: 1360px;
-  margin: 0 auto;
-}
-[data-mj="widget-payments"] .keen-slider__slide {
-  width: 100% !important;
-  height: auto;
-  padding: 0 8px;
-  margin: 56px 0 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+//
+// Platform keen config: perView 2 (<768px), 4 (768–991px), 6 (>=992px),
+// spacing 16px, origin "center". With an even perView, "center" parks the
+// track half a slot to the left, so the first logo is half clipped and the
+// right edge shows an empty half slot. Fix: shift the slider right by half a
+// slot (--ap-pay-half) and clip-path the same amount back, so the visible
+// window stays put while the logos sit fully inside it.
+//
+// Slider width is capped per breakpoint so each slot is at most
+// $pay-slot wide: logos stay at most $pay-logo-h tall with a ~28px gap,
+// and on narrower screens the logos shrink with the slot, keeping the gap.
+$pay-slot: 160px;
+$pay-spacing: 16px; // keen's own spacing; must match the platform config
+$pay-logo-h: 52px;
 
-  img {
-    width: 100%;
+@mixin pay-slider($n) {
+  max-width: $pay-slot * $n + $pay-spacing * ($n - 1);
+  --ap-pay-half: calc(100% / #{2 * $n} + #{math.div($pay-spacing, 2 * $n)});
+}
+
+[data-mj="widget-payments"] {
+  // Vertical spacing lives on the wrapper, not the slides, so the slider's
+  // hover area (which pauses autoplay) is only the logo row.
+  padding: 56px 0 24px;
+
+  .keen-slider {
+    @include pay-slider(2);
+    margin: 0 auto;
+    overflow: visible;
+    transform: translateX(var(--ap-pay-half));
+    clip-path: inset(0 var(--ap-pay-half) 0 calc(-1 * var(--ap-pay-half)));
+
+    @media (min-width: 768px) { @include pay-slider(4); }
+    @media (min-width: 992px) { @include pay-slider(6); }
+  }
+
+  .keen-slider__slide {
+    width: 100% !important;
     height: auto;
-    max-height: 64px;
-    object-fit: contain;
+    padding: 0 4px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: $pay-logo-h;
+      object-fit: contain;
+    }
   }
 }
 
