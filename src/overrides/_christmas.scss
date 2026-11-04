@@ -54,7 +54,7 @@ $snow-z: 999;
 }
 
 // Share of flakes that are "bright": full opacity plus a soft glow halo.
-$snow-bright-share: 0.3;
+$snow-bright-share: 0.2;
 // Halo radius as a multiple of the flake radius, and its peak opacity.
 $snow-halo-size: 2.6;
 $snow-halo-alpha: 0.22;
@@ -117,10 +117,10 @@ $snow-halo-alpha: 0.22;
 //   fall (one tile), sway (px), sway period, scroll factor (1 = page speed),
 //   twinkle period
 $snow-layers: (
-  'far':   ('#root::before', 557px, 613px, 5, 5, 1.4px, 2.4px, 0.3,  0.75, 0.55, 1,  48s, 10px, 8s,    0.45, 6.1s),
-  'mid':   ('[data-mj="root-layout"]::before', 683px, 709px, 4, 4, 2.3px, 3.6px, 0.4,  0.85, 0.5,  7,  38s, 18px, 10.5s, 0.7,  7.3s),
-  'near':  ('[data-mj="root-layout"]::after', 811px, 757px, 3, 3, 3.4px, 5px,   0.45, 0.9,  0.4,  13, 30s, 26px, 12.5s, 0.9,  8.9s),
-  'front': ('#root::after', 947px, 983px, 2, 2, 5px,   7px,   0.45, 0.85, 0.3,  19, 30s, 34px, 15s,   1.1,  10.7s),
+  'far':   ('#root::before', 557px, 613px, 4, 4, 1.4px, 2.4px, 0.3,  0.75, 0.55, 1,  48s, 10px, 8s,    0.45, 6.1s),
+  'mid':   ('[data-mj="root-layout"]::before', 683px, 709px, 3, 3, 2.3px, 3.6px, 0.4,  0.85, 0.5,  7,  38s, 18px, 10.5s, 0.7,  7.3s),
+  'near':  ('[data-mj="root-layout"]::after', 811px, 757px, 2, 2, 3.4px, 5px,   0.45, 0.9,  0.4,  13, 30s, 26px, 12.5s, 0.9,  8.9s),
+  'front': ('#root::after', 947px, 983px, 2, 1, 5px,   7px,   0.45, 0.85, 0.3,  19, 30s, 34px, 15s,   1.1,  10.7s),
 );
 
 // The sway is a rotation about a point this far above the layer; a small
@@ -209,9 +209,9 @@ $snow-scroll-range: 100000px;
   // and out of step and the glints never repeat in an obvious rhythm.
   @keyframes ap-snow-glint {
     0%   { opacity: 1; }
-    27%  { opacity: 0.62; }
+    27%  { opacity: 0.75; }
     46%  { opacity: 0.9; }
-    71%  { opacity: 0.7; }
+    71%  { opacity: 0.8; }
     100% { opacity: 1; }
   }
 
