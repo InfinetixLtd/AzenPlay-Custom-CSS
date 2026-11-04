@@ -1,0 +1,115 @@
+// =============================================================================
+// OVERRIDES · CHRISTMAS SNOWFALL (CSS only)
+// -----------------------------------------------------------------------------
+// Three full-screen snow layers drawn on pseudo-elements, so no markup or JS
+// is needed:
+//   body::before  far   — tiny, faint, slowest
+//   body::after   mid
+//   html::after   near  — largest, softest, slightly faster
+//
+// Each layer is a tile of soft white dots (radial-gradients) repeated over a
+// box one tile taller than the viewport. The box slides down by exactly one
+// tile height, and because the pattern repeats every tile, the loop has no
+// visible jump. Only `transform` / `translate` animate, so it runs on the
+// compositor and stays cheap on phones. A separate slow sideways sway on each
+// layer (out of phase) makes the drift look like wind rather than a conveyor.
+//
+// Turn off after the season: set $snow-enabled to false and rebuild.
+// =============================================================================
+
+@use 'sass:math';
+@use 'sass:list';
+
+$snow-enabled: true;
+
+// Deterministic pseudo-random 0..1 — same output every build, so rebuilding
+// doesn't reshuffle the flakes or churn the dist diff.
+@function snow-rand($i, $salt) {
+  $x: math.sin($i * 12.9898 + $salt * 78.233) * 43758.5453;
+  @return $x - math.floor($x);
+}
+
+// One tile of $count flakes, radius $r-min..$r-max, opacity $a-min..$a-max.
+// $soft is where the solid core ends (0..1 of the radius); lower = blurrier.
+@function snow-tile($tile, $count, $r-min, $r-max, $a-min, $a-max, $soft, $salt) {
+  $layers: ();
+  @for $i from 1 through $count {
+    $r: $r-min + ($r-max - $r-min) * snow-rand($i, $salt);
+    $a: $a-min + ($a-max - $a-min) * snow-rand($i, $salt + 1);
+    // Keep each flake fully inside the tile so it isn't cut at the seam.
+    $x: $r + (math.div($tile, 1px) - 2 * math.div($r, 1px)) * snow-rand($i, $salt + 2) * 1px;
+    $y: $r + (math.div($tile, 1px) - 2 * math.div($r, 1px)) * snow-rand($i, $salt + 3) * 1px;
+    $a: math.div(math.round($a * 100), 100);
+    $r: math.div(math.round($r * 10), 10);
+    $layers: list.append(
+      $layers,
+      radial-gradient(
+        circle at math.round($x) math.round($y),
+        rgba(255, 255, 255, $a) 0,
+        rgba(255, 255, 255, $a * 0.6) $r * $soft,
+        rgba(255, 255, 255, 0) $r
+      ),
+      comma
+    );
+  }
+  @return $layers;
+}
+
+//           selector       tile   count  r-min  r-max  a-min a-max soft  salt fall sway  sway-dur
+$snow-layers: (
+  'far':  ('body::before',  600px, 55,    1.5px, 2.5px, 0.45, 0.75, 0.55, 1,   75s, 12px, 9s),
+  'mid':  ('body::after',   750px, 32,    2.5px, 4px,   0.6,  0.9,  0.5,  7,   60s, 20px, 11s),
+  'near': ('html::after',   900px, 14,    4.5px, 6.5px, 0.7,  0.95, 0.35, 13,  48s, 30px, 13s),
+);
+
+@if $snow-enabled {
+  @each $name, $cfg in $snow-layers {
+    $sel:      list.nth($cfg, 1);
+    $tile:     list.nth($cfg, 2);
+    $sway:     list.nth($cfg, 11);
+
+    #{$sel} {
+      content: '';
+      position: fixed;
+      // One tile of headroom above the viewport for the loop, and sway room
+      // on both sides so the edges never show a gap.
+      top: -$tile;
+      bottom: 0;
+      left: -$sway;
+      right: -$sway;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: snow-tile(
+        $tile,
+        list.nth($cfg, 3),
+        list.nth($cfg, 4), list.nth($cfg, 5),
+        list.nth($cfg, 6), list.nth($cfg, 7),
+        list.nth($cfg, 8),
+        list.nth($cfg, 9)
+      );
+      background-size: $tile $tile;
+      background-repeat: repeat;
+      will-change: transform;
+      animation:
+        ap-snow-fall-#{$name} list.nth($cfg, 10) linear infinite,
+        ap-snow-sway-#{$name} list.nth($cfg, 12) ease-in-out infinite alternate;
+    }
+
+    @keyframes ap-snow-fall-#{$name} {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(0, $tile, 0); }
+    }
+
+    @keyframes ap-snow-sway-#{$name} {
+      from { translate: -$sway 0; }
+      to   { translate: $sway 0; }
+    }
+  }
+
+  // Respect the OS "reduce motion" setting, and keep snow off printouts.
+  @media (prefers-reduced-motion: reduce), print {
+    @each $name, $cfg in $snow-layers {
+      #{list.nth($cfg, 1)} { display: none; }
+    }
+  }
+}
